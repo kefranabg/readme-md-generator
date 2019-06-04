@@ -3,6 +3,5 @@
 > Generate README file
 
 ## 👤 Author
-**Franck Abgrall**
-- Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall) 
-- Github 👉[@kefranabg](https://twitter.com/kefranabg) 
+
+- Github 👉[@ttest](https://twitter.com/ttest)
