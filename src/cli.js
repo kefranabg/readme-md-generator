@@ -1,36 +1,27 @@
 const ejs = require('ejs')
 const inquirer = require('inquirer')
-const getProjectName = require('project-name')
 
-const get = require('lodash/get')
-const { getPackageJson } = require('./utils')
-const getTemplate = require('./get-template')
-const createReadme = require('./create-readme')
+const { getTemplate, createReadme } = require('./utils')
+const {
+  getProjectNameQuestion,
+  getProjectDescriptionQuestion
+} = require('./questions')
 
-const getContext = async () => {
-  const packageJson = await getPackageJson()
-
+/**
+ * Ask user questions and return context to generate a README
+ */
+const askQuestions = async () => {
   const questions = [
-    {
-      type: 'input',
-      message: 'Enter your project name',
-      name: 'projectName',
-      default: getProjectName() || undefined
-    },
-    {
-      type: 'input',
-      message: 'Enter your project description',
-      name: 'projectDescription',
-      default: get(packageJson, 'description', undefined)
-    }
+    getProjectNameQuestion(),
+    await getProjectDescriptionQuestion()
   ]
 
   return inquirer.prompt(questions)
 }
 
-module.exports = async function generateReadme(args) {
+module.exports = async args => {
   const template = await getTemplate(args.template)
-  const context = await getContext()
+  const context = await askQuestions()
   const readmeContent = ejs.render(template, context)
 
   await createReadme(readmeContent)
