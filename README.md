@@ -4,4 +4,7 @@
 
 ## 👤 Author
 
-- Github 👉[@ttest](https://twitter.com/ttest)
+**Franck Abgrall**
+
+- Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
+- Github 👉[@kefranabg](https://twitter.com/kefranabg)
