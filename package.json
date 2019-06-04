@@ -1,0 +1,39 @@
+{
+  "name": "readme-cli",
+  "version": "1.0.0",
+  "description": "Generate README file",
+  "main": "src/index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "inquirer": "^6.3.1",
+    "load-json-file": "^6.0.0",
+    "lodash": "^4.17.11",
+    "prettier": "^1.17.1",
+    "project-name": "^1.0.0",
+    "yargs": "^13.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "lint": "eslint src/**/*",
+    "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
+    "test:unit": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kefranabg/readme-cli.git"
+  },
+  "keywords": [
+    "readme",
+    "cli",
+    "generator"
+  ],
+  "author": "Franck Abgrall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kefranabg/readme-cli/issues"
+  },
+  "homepage": "https://github.com/kefranabg/readme-cli#readme"
+}
