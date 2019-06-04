@@ -5,5 +5,5 @@
 ## 👤 Author
 <% if (authorName) { %>**<%= authorName %>**<% } %>
 <% if (authorTwitterUsername) { %>- Twitter 👉[@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>) <% } %>
-<% if (authorGithubUsername) { %>- Github 👉[@<%= authorGithubUsername %>](https://twitter.com/<%= authorGithubUsername %>) <% } %>
+<% if (authorGithubUsername) { %>- Github 👉[@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>) <% } %>
 <% } %>
