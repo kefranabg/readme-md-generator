@@ -1,4 +1,4 @@
-<h1 align="center">readme-cli</h1>
+<h1 align="center">Welcome to readme-cli 👋</h1>
 
 > Generates beautiful README files
 
