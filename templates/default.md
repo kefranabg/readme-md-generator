@@ -19,7 +19,7 @@
 
 ## 🙏 Show your support
 
-⭐️this repository
+⭐️ this repository
 
 ***
 <%- include('footer.md'); -%>
