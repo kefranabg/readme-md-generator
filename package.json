@@ -1,7 +1,7 @@
 {
   "name": "readme-cli",
   "version": "1.0.0",
-  "description": "Generate README file",
+  "description": "Generates beautiful README files",
   "main": "src/index.js",
   "dependencies": {
     "ejs": "^2.6.1",

@@ -1,6 +1,6 @@
 <h1 align="center">readme-cli</h1>
 
-> Generate README file
+> Generates beautiful README files
 
 ## 👤 Author
 
@@ -10,4 +10,4 @@
 * Github 👉[@kefranabg](https://github.com/kefranabg)
 
 ***
-_This file was generated with ❤️ by [readme-cli](https://github.com/kefranabg/readme-cli)_
+_This README was generated with ❤️ by [readme-cli](https://github.com/kefranabg/readme-cli)_
