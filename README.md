@@ -4,6 +4,8 @@
 
 ## 👤 Author
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)
+
 **Franck Abgrall**
 
 - Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
