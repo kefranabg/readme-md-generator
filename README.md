@@ -6,5 +6,8 @@
 
 **Franck Abgrall**
 
-- Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github 👉[@kefranabg](https://github.com/kefranabg)
+* Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
+* Github 👉[@kefranabg](https://github.com/kefranabg)
+
+***
+_This file was generated with ❤️ by [readme-cli](https://github.com/kefranabg/readme-cli)_

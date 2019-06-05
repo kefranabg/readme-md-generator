@@ -1,4 +1,5 @@
 const ejs = require('ejs')
+const path = require('path')
 const inquirer = require('inquirer')
 
 const { getTemplate, createReadme } = require('./utils')
@@ -26,9 +27,17 @@ const askQuestions = async () => {
 }
 
 module.exports = async args => {
-  const template = await getTemplate(args.template)
+  const templatePath = path.resolve(
+    __dirname,
+    `../templates/${args.template}.md`
+  )
+  const template = await getTemplate(templatePath)
   const context = await askQuestions()
-  const readmeContent = ejs.render(template, context)
+
+  const readmeContent = ejs.render(template, {
+    filename: templatePath,
+    ...context
+  })
 
   await createReadme(readmeContent)
 }

@@ -12,12 +12,11 @@ const createReadme = async readmeContent =>
   await writeFile('README.md', readmeContent)
 
 /**
- * Get template content from the given templateName
+ * Get template content from the given templatePath
  *
- * @param {string} templateName
+ * @param {string} templatePath
  */
-const getTemplate = async templateName =>
-  await readFile(`./templates/${templateName}.md`, 'utf8')
+const getTemplate = async templatePath => await readFile(templatePath, 'utf8')
 
 /**
  * Get package.json content

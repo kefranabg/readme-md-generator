@@ -16,3 +16,6 @@
 * Github 👉[@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
 <% } -%>
+
+***
+<%- include('footer.md'); -%>
