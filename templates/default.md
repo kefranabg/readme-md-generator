@@ -17,5 +17,9 @@
 <% } -%>
 <% } -%>
 
+## 🙏 Show your support
+
+⭐️this repository
+
 ***
 <%- include('footer.md'); -%>
