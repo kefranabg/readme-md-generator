@@ -1,4 +1,4 @@
-<h1 align="center">[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)</h1>
+[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)
 
 <h1 align="center">Welcome to readme-cli 👋</h1>
 
