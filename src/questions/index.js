@@ -1,13 +1,13 @@
-const getProjectName = require('./project-name')
-const getProjectDescription = require('./project-description')
-const getAuhtorName = require('./author-name')
-const getAuhtorGithub = require('./author-github')
-const getAuhtorTwitter = require('./author-twitter')
+const askProjectName = require('./project-name')
+const askProjectDescription = require('./project-description')
+const askAuhtorName = require('./author-name')
+const askAuhtorGithub = require('./author-github')
+const askAuhtorTwitter = require('./author-twitter')
 
 module.exports = {
-  getProjectName,
-  getProjectDescription,
-  getAuhtorName,
-  getAuhtorGithub,
-  getAuhtorTwitter
+  askProjectName,
+  askProjectDescription,
+  askAuhtorName,
+  askAuhtorGithub,
+  askAuhtorTwitter
 }

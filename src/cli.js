@@ -4,11 +4,11 @@ const inquirer = require('inquirer')
 
 const { getTemplate, createReadme } = require('./utils')
 const {
-  getProjectName,
-  getProjectDescription,
-  getAuhtorName,
-  getAuhtorGithub,
-  getAuhtorTwitter
+  askProjectName,
+  askProjectDescription,
+  askAuhtorName,
+  askAuhtorGithub,
+  askAuhtorTwitter
 } = require('./questions')
 
 /**
@@ -16,11 +16,11 @@ const {
  */
 const askQuestions = async () => {
   const questions = [
-    getProjectName(),
-    await getProjectDescription(),
-    await getAuhtorName(),
-    getAuhtorGithub(),
-    getAuhtorTwitter()
+    askProjectName(),
+    await askProjectDescription(),
+    await askAuhtorName(),
+    askAuhtorGithub(),
+    askAuhtorTwitter()
   ]
 
   return inquirer.prompt(questions)
