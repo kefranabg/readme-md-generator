@@ -13,7 +13,7 @@
 
 ## 🙏 Show your support
 
-⭐️ this repository
+Please ⭐️ this repository if you like it.
 
 ## 📜 License
 
