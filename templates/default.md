@@ -4,28 +4,28 @@
 > <%= projectDescription %>
 <% } -%>
 
-## 📦 Install
+## Install
 
 ```sh
 npm i
 ```
 
-## 🚀 Usage
+## Usage
 
 ```sh
 npm run start
 ```
 
-## ✅ Run tests
+## Run tests
 
 ```sh
 npm run test
 ```
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
-## 👤 Author
+## Author
 <% if (authorName) { %>
-**<%= authorName %>**
+👤 **<%= authorName %>**
 <% } %>
 <% if (authorTwitterUsername) { -%>
 * Twitter 👉[@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
@@ -35,17 +35,17 @@ npm run test
 <% } -%>
 <% } -%>
 
-## 🙏 Show your support
+## Show your support
 
 Please ⭐️ this repository if you like it.
 <% if (licenseUrl) { -%>
 
-## 📜 License
+##  License
 
 <% if (authorName && authorGithubUsername) { -%>
 Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).
-<% } -%>
-This project is under [license](<%= licenseUrl %>).
+<% } %>
+📜 This project is under [license](<%= licenseUrl %>).
 <% } -%>
 
 ***

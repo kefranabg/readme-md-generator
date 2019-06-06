@@ -4,21 +4,44 @@
 
 > Generates beautiful README files
 
-## 👤 Author
+## Install
 
-**Franck Abgrall**
+With npm :
+
+```sh
+npm i -g readme-cli
+```
+
+With yarn :
+
+```sh
+yarn global add readme-cli
+```
+
+## Usage
+
+Just run the following command and answer questions :
+
+```sh
+readme-cli
+```
+
+## Author
+
+👤 **Franck Abgrall**
 
 - Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
 - Github 👉[@kefranabg](https://github.com/kefranabg)
 
-## 🙏 Show your support
+## Show your support
 
 Please ⭐️ this repository if you like it.
 
-## 📜 License
+## License
 
 Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
-This project is under [license](https://github.com/kefranabg/readme-cli/blob/master/LICENSE).
+
+📜 This project is under [license](https://github.com/kefranabg/readme-cli/blob/master/LICENSE).
 
 ---
 
