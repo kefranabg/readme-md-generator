@@ -3,11 +3,13 @@ const askProjectDescription = require('./project-description')
 const askAuhtorName = require('./author-name')
 const askAuhtorGithub = require('./author-github')
 const askAuhtorTwitter = require('./author-twitter')
+const askLicenseUrl = require('./license-url')
 
 module.exports = {
   askProjectName,
   askProjectDescription,
   askAuhtorName,
   askAuhtorGithub,
-  askAuhtorTwitter
+  askAuhtorTwitter,
+  askLicenseUrl
 }

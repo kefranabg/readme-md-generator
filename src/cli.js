@@ -1,6 +1,7 @@
 const ejs = require('ejs')
 const path = require('path')
 const inquirer = require('inquirer')
+const getYear = require('date-fns/get_year')
 
 const { getTemplate, createReadme } = require('./utils')
 const {
@@ -8,7 +9,8 @@ const {
   askProjectDescription,
   askAuhtorName,
   askAuhtorGithub,
-  askAuhtorTwitter
+  askAuhtorTwitter,
+  askLicenseUrl
 } = require('./questions')
 
 /**
@@ -20,7 +22,8 @@ const askQuestions = async () => {
     await askProjectDescription(),
     await askAuhtorName(),
     askAuhtorGithub(),
-    askAuhtorTwitter()
+    askAuhtorTwitter(),
+    askLicenseUrl()
   ]
 
   return inquirer.prompt(questions)
@@ -33,9 +36,11 @@ module.exports = async args => {
   )
   const template = await getTemplate(templatePath)
   const context = await askQuestions()
+  const currentYear = getYear(new Date())
 
   const readmeContent = ejs.render(template, {
     filename: templatePath,
+    currentYear,
     ...context
   })
 

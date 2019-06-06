@@ -1,4 +1,4 @@
-[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)
+<h1 align="center">[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)</h1>
 
 <h1 align="center">Welcome to readme-cli 👋</h1>
 
@@ -14,6 +14,11 @@
 ## 🙏 Show your support
 
 ⭐️ this repository
+
+## 📜 License
+
+Copyright © 2019 [Franck Abgrall](kefranabg).
+This project is under [license](https://github.com/kefranabg/readme-cli/blob/master/LICENSE).
 
 ---
 
