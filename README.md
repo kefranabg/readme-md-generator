@@ -30,8 +30,8 @@ readme-cli
 
 👤 **Franck Abgrall**
 
-- Twitter 👉[@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github 👉[@kefranabg](https://github.com/kefranabg)
+- Twitter 👉 [@FranckAbgrall](https://twitter.com/FranckAbgrall)
+- Github 👉 [@kefranabg](https://github.com/kefranabg)
 
 ## Show your support
 
