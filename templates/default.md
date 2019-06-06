@@ -3,6 +3,24 @@
 
 > <%= projectDescription %>
 <% } -%>
+
+## 📦 Install
+
+```sh
+npm i
+```
+
+## 🚀 Usage
+
+```sh
+npm run start
+```
+
+## ✅ Run tests
+
+```sh
+npm run test
+```
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
 ## 👤 Author
@@ -25,7 +43,7 @@ Please ⭐️ this repository if you like it.
 ## 📜 License
 
 <% if (authorName && authorGithubUsername) { -%>
-Copyright © <%= currentYear %> [<%= authorName %>](<%= authorGithubUsername %>).
+Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).
 <% } -%>
 This project is under [license](<%= licenseUrl %>).
 <% } -%>

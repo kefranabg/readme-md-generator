@@ -17,7 +17,7 @@ Please ⭐️ this repository if you like it.
 
 ## 📜 License
 
-Copyright © 2019 [Franck Abgrall](kefranabg).
+Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
 This project is under [license](https://github.com/kefranabg/readme-cli/blob/master/LICENSE).
 
 ---
