@@ -8,6 +8,12 @@
 
 > <%= projectDescription %>
 <% } -%>
+<% if (projectPrerequisites) { -%>
+
+## Prerequisites
+
+- <%= projectPrerequisites.join("\n- "); %>
+<% } -%>
 
 ## Install
 

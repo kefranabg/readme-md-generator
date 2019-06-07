@@ -6,6 +6,7 @@ const askAuthorTwitter = require('./author-twitter')
 const askLicenseUrl = require('./license-url')
 const askContributing = require('./contributing')
 const askProjectVersion = require('./project-version')
+const askProjectPrerequisites = require('./project-prerequisites')
 
 module.exports = {
   askProjectName,
@@ -15,5 +16,6 @@ module.exports = {
   askAuthorTwitter,
   askLicenseUrl,
   askContributing,
-  askProjectVersion
+  askProjectVersion,
+  askProjectPrerequisites
 }

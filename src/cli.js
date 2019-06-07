@@ -1,6 +1,7 @@
 const ejs = require('ejs')
 const path = require('path')
 const inquirer = require('inquirer')
+const { negate, isNil } = require('lodash')
 const getYear = require('date-fns/get_year')
 const { getProjectInfos } = require('./utils')
 
@@ -13,7 +14,8 @@ const {
   askAuthorTwitter,
   askLicenseUrl,
   askContributing,
-  askProjectVersion
+  askProjectVersion,
+  askProjectPrerequisites
 } = require('./questions')
 
 /**
@@ -29,9 +31,10 @@ const askQuestions = async () => {
     askAuhtorName(projectInfos),
     askAuthorGithub(projectInfos),
     askAuthorTwitter(),
+    askProjectPrerequisites(projectInfos),
     askLicenseUrl(projectInfos),
     askContributing(projectInfos)
-  ]
+  ].filter(negate(isNil)) // Remove undefined items from array
 
   return inquirer.prompt(questions)
 }

@@ -118,15 +118,15 @@ const getProjectInfos = async () => {
   const packageJson = await getPackageJson()
   const name = getProjectName() || undefined
   const description = get(packageJson, 'description', undefined)
+  const engines = get(packageJson, 'engines', undefined)
   const author = get(packageJson, 'author', undefined)
   const version = get(packageJson, 'version', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
-  let githubUsername = undefined
-
-  if (!isNil(repositoryUrl) && isGithubRepository(repositoryUrl)) {
-    githubUsername = await getGithubUsernameFromRepositoryUrl(repositoryUrl)
-  }
+  const githubUsername =
+    !isNil(repositoryUrl) && isGithubRepository(repositoryUrl)
+      ? await getGithubUsernameFromRepositoryUrl(repositoryUrl)
+      : undefined
 
   return {
     name,
@@ -135,7 +135,8 @@ const getProjectInfos = async () => {
     author,
     repositoryUrl,
     contributingUrl,
-    githubUsername
+    githubUsername,
+    engines
   }
 }
 
