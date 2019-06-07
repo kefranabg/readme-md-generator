@@ -1,8 +1,6 @@
-const { getReposIssuesUrl } = require('../utils')
-
-module.exports = async packageJson => ({
+module.exports = packageJson => ({
   type: 'input',
   message: 'Enter the url of your issues (use empty value to skip)',
   name: 'contributingUrl',
-  default: await getReposIssuesUrl(packageJson)
+  default: packageJson.contributingUrl
 })

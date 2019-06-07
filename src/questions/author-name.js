@@ -1,8 +1,6 @@
-const get = require('lodash/get')
-
-module.exports = packageJson => ({
+module.exports = projectInfos => ({
   type: 'input',
   message: 'Enter your name',
   name: 'authorName',
-  default: get(packageJson, 'author', undefined)
+  default: projectInfos.author
 })

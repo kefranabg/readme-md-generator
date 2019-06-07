@@ -5,6 +5,7 @@ const loadJsonFile = require('load-json-file')
 const get = require('lodash/get')
 const isNil = require('lodash/isNil')
 const exec = util.promisify(require('child_process').exec)
+const getProjectName = require('project-name')
 
 /**
  * Clean repository url by removing '.git' and 'git+'
@@ -12,7 +13,10 @@ const exec = util.promisify(require('child_process').exec)
  * @param {string} cleanReposUrl
  */
 const cleanReposUrl = reposUrl => {
-  return reposUrl.replace('git+', '').replace('.git', '')
+  return reposUrl
+    .replace('\n', '')
+    .replace('git+', '')
+    .replace('.git', '')
 }
 
 /**
@@ -93,12 +97,25 @@ const getReposIssuesUrl = async packageJson => {
   return reposIssuesUrl
 }
 
+const getProjectInfos = async () => {
+  const packageJson = await getPackageJson()
+  const name = getProjectName() || undefined
+  const description = get(packageJson, 'description', undefined)
+  const author = get(packageJson, 'author', undefined)
+  const repositoryUrl = await getReposUrl(packageJson)
+  const contributingUrl = await getReposIssuesUrl(packageJson)
+
+  return {
+    name,
+    description,
+    author,
+    repositoryUrl,
+    contributingUrl
+  }
+}
+
 module.exports = {
-  getPackageJson,
   getTemplate,
   createReadme,
-  getReposUrlFromPackageJson,
-  getReposUrlFromGit,
-  getReposUrl,
-  getReposIssuesUrl
+  getProjectInfos
 }

@@ -2,7 +2,7 @@ const ejs = require('ejs')
 const path = require('path')
 const inquirer = require('inquirer')
 const getYear = require('date-fns/get_year')
-const { getPackageJson } = require('./utils')
+const { getProjectInfos } = require('./utils')
 
 const { getTemplate, createReadme } = require('./utils')
 const {
@@ -19,16 +19,16 @@ const {
  * Ask user questions and return context to generate a README
  */
 const askQuestions = async () => {
-  const packageJson = await getPackageJson()
+  const projectInfos = await getProjectInfos()
 
   const questions = [
-    askProjectName(),
-    askProjectDescription(packageJson),
-    askAuhtorName(packageJson),
+    askProjectName(projectInfos),
+    askProjectDescription(projectInfos),
+    askAuhtorName(projectInfos),
     askAuhtorGithub(),
     askAuhtorTwitter(),
-    askLicenseUrl(),
-    await askContributing(packageJson)
+    askLicenseUrl(projectInfos),
+    askContributing(projectInfos)
   ]
 
   return inquirer.prompt(questions)

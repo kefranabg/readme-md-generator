@@ -46,7 +46,7 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 Please ⭐️ this repository if you like it.
 <% if (licenseUrl) { -%>
 
-##  License
+## License
 
 <% if (authorName && authorGithubUsername) { -%>
 Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).

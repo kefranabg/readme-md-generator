@@ -1,8 +1,6 @@
-const getProjectName = require('project-name')
-
-module.exports = () => ({
+module.exports = projectInfos => ({
   type: 'input',
   message: 'Enter your project name',
   name: 'projectName',
-  default: getProjectName() || undefined
+  default: projectInfos.name
 })
