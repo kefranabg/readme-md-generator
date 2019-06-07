@@ -11,7 +11,8 @@ const {
   askAuhtorName,
   askAuhtorGithub,
   askAuhtorTwitter,
-  askLicenseUrl
+  askLicenseUrl,
+  askContributing
 } = require('./questions')
 
 /**
@@ -26,7 +27,8 @@ const askQuestions = async () => {
     askAuhtorName(packageJson),
     askAuhtorGithub(),
     askAuhtorTwitter(),
-    askLicenseUrl()
+    askLicenseUrl(),
+    await askContributing(packageJson)
   ]
 
   return inquirer.prompt(questions)

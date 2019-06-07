@@ -2,6 +2,18 @@ const util = require('util')
 const readFile = util.promisify(require('fs').readFile)
 const writeFile = util.promisify(require('fs').writeFile)
 const loadJsonFile = require('load-json-file')
+const get = require('lodash/get')
+const isNil = require('lodash/isNil')
+const exec = util.promisify(require('child_process').exec)
+
+/**
+ * Clean repository url by removing '.git' and 'git+'
+ *
+ * @param {string} cleanReposUrl
+ */
+const cleanReposUrl = reposUrl => {
+  return reposUrl.replace('git+', '').replace('.git', '')
+}
 
 /**
  * Create readme file from the given readmeContent
@@ -22,19 +34,71 @@ const getTemplate = async templatePath => await readFile(templatePath, 'utf8')
  * Get package.json content
  */
 const getPackageJson = async () => {
-  let packageJson = undefined
-
   try {
-    packageJson = await loadJsonFile('package.json')
+    return loadJsonFile('package.json')
   } catch (err) {
-    // eslint-disable-next-line no-empty
+    return undefined
+  }
+}
+
+/**
+ * Get repository url from pakage json
+ *
+ * @param {string} reposUrl
+ */
+const getReposUrlFromPackageJson = async packageJson => {
+  const reposUrl = get(packageJson, 'repository.url', undefined)
+  return isNil(reposUrl) ? undefined : cleanReposUrl(reposUrl)
+}
+
+/**
+ * Get repository url from git
+ *
+ * @param {string} reposUrl
+ */
+const getReposUrlFromGit = async () => {
+  try {
+    const url = await exec('git config --get remote.origin.url')
+    return cleanReposUrl(url.stdout)
+  } catch (err) {
+    return undefined
+  }
+}
+
+/**
+ * Get repository url from package.json or git
+ *
+ * @param {string} packageJson
+ */
+const getReposUrl = async packageJson =>
+  (await getReposUrlFromPackageJson(packageJson)) ||
+  (await getReposUrlFromGit())
+
+/**
+ * Get repository issues url from package.json or git
+ *
+ * @param {string} packageJson
+ */
+const getReposIssuesUrl = async packageJson => {
+  let reposIssuesUrl = get(packageJson, 'bugs.url', undefined)
+
+  if (isNil(reposIssuesUrl)) {
+    const reposUrl = await getReposUrl()
+
+    if (!isNil(reposUrl)) {
+      reposIssuesUrl = `${reposUrl}/issues`
+    }
   }
 
-  return packageJson
+  return reposIssuesUrl
 }
 
 module.exports = {
   getPackageJson,
   getTemplate,
-  createReadme
+  createReadme,
+  getReposUrlFromPackageJson,
+  getReposUrlFromGit,
+  getReposUrl,
+  getReposIssuesUrl
 }

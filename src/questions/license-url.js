@@ -1,7 +1,5 @@
-module.exports = () => {
-  return {
-    type: 'input',
-    message: 'Enter url of your license (press enter to skip)',
-    name: 'licenseUrl'
-  }
-}
+module.exports = () => ({
+  type: 'input',
+  message: 'Enter the url of your license (use empty value to skip)',
+  name: 'licenseUrl'
+})

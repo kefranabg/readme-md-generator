@@ -1,5 +1,5 @@
 module.exports = () => ({
   type: 'input',
-  message: 'Enter your Github username (press enter to skip)',
+  message: 'Enter your Github username (use empty value to skip)',
   name: 'authorGithubUsername'
 })

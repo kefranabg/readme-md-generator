@@ -26,6 +26,10 @@ Just run the following command and answer questions :
 readme-cli
 ```
 
+## Contributing
+
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](test) if you want to contribute.
+
 ## Author
 
 👤 **Franck Abgrall**

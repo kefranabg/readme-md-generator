@@ -21,6 +21,12 @@ npm run start
 ```sh
 npm run test
 ```
+<% if (licenseUrl) { -%>
+
+## Contributing
+
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](<%= licenseUrl %>) if you want to contribute.
+<% } -%>
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
 ## Author
