@@ -7,17 +7,18 @@ const isNil = require('lodash/isNil')
 const exec = util.promisify(require('child_process').exec)
 const getProjectName = require('project-name')
 
+const GITHUB_URL = 'https://github.com/'
+
 /**
  * Clean repository url by removing '.git' and 'git+'
  *
- * @param {string} cleanReposUrl
+ * @param {string} reposUrl
  */
-const cleanReposUrl = reposUrl => {
-  return reposUrl
+const cleanReposUrl = reposUrl =>
+  reposUrl
     .replace('\n', '')
     .replace('git+', '')
     .replace('.git', '')
-}
 
 /**
  * Create readme file from the given readmeContent
@@ -48,7 +49,7 @@ const getPackageJson = async () => {
 /**
  * Get repository url from pakage json
  *
- * @param {string} reposUrl
+ * @param {Object} reposUrl
  */
 const getReposUrlFromPackageJson = async packageJson => {
   const reposUrl = get(packageJson, 'repository.url', undefined)
@@ -57,13 +58,11 @@ const getReposUrlFromPackageJson = async packageJson => {
 
 /**
  * Get repository url from git
- *
- * @param {string} reposUrl
  */
 const getReposUrlFromGit = async () => {
   try {
-    const url = await exec('git config --get remote.origin.url')
-    return cleanReposUrl(url.stdout)
+    const result = await exec('git config --get remote.origin.url')
+    return cleanReposUrl(result.stdout)
   } catch (err) {
     return undefined
   }
@@ -72,7 +71,7 @@ const getReposUrlFromGit = async () => {
 /**
  * Get repository url from package.json or git
  *
- * @param {string} packageJson
+ * @param {Object} packageJson
  */
 const getReposUrl = async packageJson =>
   (await getReposUrlFromPackageJson(packageJson)) ||
@@ -81,7 +80,7 @@ const getReposUrl = async packageJson =>
 /**
  * Get repository issues url from package.json or git
  *
- * @param {string} packageJson
+ * @param {Object} packageJson
  */
 const getReposIssuesUrl = async packageJson => {
   let reposIssuesUrl = get(packageJson, 'bugs.url', undefined)
@@ -97,6 +96,24 @@ const getReposIssuesUrl = async packageJson => {
   return reposIssuesUrl
 }
 
+/**
+ * Check if repository is a Github repository
+ *
+ * @param {string} repositoryUrl
+ */
+const isGithubRepository = repositoryUrl => repositoryUrl.includes(GITHUB_URL)
+
+/**
+ * Get github username from repository url
+ *
+ * @param {string} repositoryUrl
+ */
+const getGithubUsernameFromRepositoryUrl = async repositoryUrl =>
+  repositoryUrl.replace(GITHUB_URL, '').split('/')[0]
+
+/**
+ * Get project informations from git and package.json
+ */
 const getProjectInfos = async () => {
   const packageJson = await getPackageJson()
   const name = getProjectName() || undefined
@@ -104,13 +121,19 @@ const getProjectInfos = async () => {
   const author = get(packageJson, 'author', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
+  let githubUsername = undefined
+
+  if (!isNil(repositoryUrl) && isGithubRepository(repositoryUrl)) {
+    githubUsername = await getGithubUsernameFromRepositoryUrl(repositoryUrl)
+  }
 
   return {
     name,
     description,
     author,
     repositoryUrl,
-    contributingUrl
+    contributingUrl,
+    githubUsername
   }
 }
 
