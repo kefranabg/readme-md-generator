@@ -1,6 +1,6 @@
 module.exports = projectInfos => ({
   type: 'input',
-  message: 'Enter your project name',
+  message: '💡  Project name',
   name: 'projectName',
   default: projectInfos.name
 })
