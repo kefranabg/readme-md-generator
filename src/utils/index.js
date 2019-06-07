@@ -119,6 +119,7 @@ const getProjectInfos = async () => {
   const name = getProjectName() || undefined
   const description = get(packageJson, 'description', undefined)
   const author = get(packageJson, 'author', undefined)
+  const version = get(packageJson, 'version', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
   let githubUsername = undefined
@@ -130,6 +131,7 @@ const getProjectInfos = async () => {
   return {
     name,
     description,
+    version,
     author,
     repositoryUrl,
     contributingUrl,

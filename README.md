@@ -1,7 +1,8 @@
-[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-cli.svg)](https://greenkeeper.io/)
-
 <h1 align="center">Welcome to readme-cli 👋</h1>
-
+<p>
+  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img src="https://badges.greenkeeper.io/kefranabg/readme-cli.svg" />
+</p>
 > Generates beautiful README files from git config & package.json infos
 
 ## Install

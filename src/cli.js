@@ -12,7 +12,8 @@ const {
   askAuthorGithub,
   askAuthorTwitter,
   askLicenseUrl,
-  askContributing
+  askContributing,
+  askProjectVersion
 } = require('./questions')
 
 /**
@@ -23,6 +24,7 @@ const askQuestions = async () => {
 
   const questions = [
     askProjectName(projectInfos),
+    askProjectVersion(projectInfos),
     askProjectDescription(projectInfos),
     askAuhtorName(projectInfos),
     askAuthorGithub(projectInfos),

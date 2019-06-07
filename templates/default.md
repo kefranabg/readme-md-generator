@@ -1,4 +1,9 @@
 <h1 align="center">Welcome to <%= projectName %> 👋</h1>
+<p>
+<% if (projectVersion) { -%>
+  <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
+<% } -%>
+</p>
 <% if (projectDescription) { -%>
 
 > <%= projectDescription %>
