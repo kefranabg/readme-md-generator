@@ -2,7 +2,7 @@
 
 <h1 align="center">Welcome to readme-cli 👋</h1>
 
-> Generates beautiful README files
+> Generates beautiful README files from git config & package.json infos
 
 ## Install
 

@@ -1,7 +1,7 @@
 {
   "name": "readme-cli",
   "version": "1.0.0",
-  "description": "Generates beautiful README files",
+  "description": "Generates beautiful README files from git config & package.json infos",
   "main": "src/index.js",
   "dependencies": {
     "date-fns": "^1.30.1",
