@@ -17,6 +17,6 @@ yargs
   )
   .help()
   .epilog(
-    'for more information, find our manual at https://github.com/kefranabg/readme-cli'
+    'for more information, find our manual at https://github.com/kefranabg/readme-md-generator'
   )
   .parse()

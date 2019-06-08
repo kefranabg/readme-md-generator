@@ -1,5 +1,5 @@
 {
-  "name": "readme-cli",
+  "name": "readme-md-generator",
   "version": "1.0.0",
   "description": "Generates beautiful README files from git config & package.json infos",
   "main": "src/index.js",
@@ -27,19 +27,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kefranabg/readme-cli.git"
+    "url": "git+https://github.com/kefranabg/readme-md-generator.git"
   },
   "keywords": [
     "readme",
+    "md",
     "cli",
-    "generator"
+    "generator",
+    "template"
   ],
   "author": "Franck Abgrall",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kefranabg/readme-cli/issues"
+    "url": "https://github.com/kefranabg/readme-md-generator/issues"
   },
-  "homepage": "https://github.com/kefranabg/readme-cli#readme",
+  "homepage": "https://github.com/kefranabg/readme-md-generator#readme",
   "engines": {
     "npm": ">=5.5.0",
     "node": ">=9.3.0"
