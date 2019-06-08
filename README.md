@@ -5,8 +5,8 @@
   <a href="https://github.com/kefranabg/readme-cli#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
-  <a href="https://github.com/kefranabg/readme-cli/issues?q=is%3Aissue+is%3Aclosed">
-    <img alt="Maintenance" src="https://img.shields.io/github/issues-closed/readme-cli/readme-cli.svg" target="_blank" />
+  <a href="https://github.com/kefranabg/readme-cli/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
   <a href="https://github.com/kefranabg/readme-cli/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />

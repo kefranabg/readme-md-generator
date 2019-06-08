@@ -9,7 +9,7 @@
   </a>
 <% } -%>
 <% if (isGithubRepos) { -%>
-  <a href="<%= repositoryUrl %>/issues?q=is%3Aissue+is%3Aclosed">
+  <a href="<%= repositoryUrl %>/graphs/commit-activity">
     <img alt="Maintenance" src="https://img.shields.io/github/issues-closed/readme-cli/readme-cli.svg" target="_blank" />
   </a>
 <% } -%>
