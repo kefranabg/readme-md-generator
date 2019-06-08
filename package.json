@@ -22,12 +22,13 @@
     "yargs": "^13.2.4"
   },
   "devDependencies": {
+    "codecov": "^3.5.0",
     "jest": "^24.8.0"
   },
   "scripts": {
     "lint": "eslint src/**",
     "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
-    "test": "jest"
+    "test": "jest --coverage && codecov"
   },
   "repository": {
     "type": "git",
