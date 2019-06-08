@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p>
-  <img
   <img src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+	<img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg">
   <a href="https://greenkeeper.io/">
     <img alt="Greenkeeper" src="https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg" target="_blank" />
   </a>
