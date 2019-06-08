@@ -18,7 +18,7 @@
 
 > Generates beautiful README files from git config & package.json infos
 
-## Install
+## Installl
 
 With npm :
 
