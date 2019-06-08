@@ -42,7 +42,7 @@ const buildReadmeContent = async (context, templateName) => {
   const currentYear = getYear(new Date())
   const templatePath = path.resolve(
     __dirname,
-    `../../templates/${templateName}.md`
+    `../templates/${templateName}.md`
   )
   const template = await getReadmeTemplate(templatePath)
 

@@ -21,11 +21,13 @@
     "project-name": "^1.0.0",
     "yargs": "^13.2.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
   "scripts": {
     "lint": "eslint src/**",
     "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
-    "test:unit": "echo \"Error: no test specified\" && exit 0"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

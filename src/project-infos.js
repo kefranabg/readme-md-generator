@@ -5,7 +5,7 @@ const util = require('util')
 const ora = require('ora')
 const exec = util.promisify(require('child_process').exec)
 
-const { getPackageJson } = require('../utils')
+const { getPackageJson } = require('./utils')
 
 const GITHUB_URL = 'https://github.com/'
 
