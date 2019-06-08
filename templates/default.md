@@ -3,6 +3,11 @@
 <% if (projectVersion) { -%>
   <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
 <% } -%>
+<% if (projectDocumentationUrl) { -%>
+  <a href="<%= projectDocumentationUrl %>">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+<% } -%>
 <% if (licenseName && licenseUrl) { -%>
   <a href="<%= licenseUrl %>">
     <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" target="_blank" />

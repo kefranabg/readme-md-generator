@@ -8,6 +8,7 @@ const askLicenseUrl = require('./license-url')
 const askContributing = require('./contributing')
 const askProjectVersion = require('./project-version')
 const askProjectPrerequisites = require('./project-prerequisites')
+const askProjectDocumentationUrl = require('./project-documentation-url')
 
 module.exports = {
   askProjectName,
@@ -19,5 +20,6 @@ module.exports = {
   askLicenseUrl,
   askContributing,
   askProjectVersion,
-  askProjectPrerequisites
+  askProjectPrerequisites,
+  askProjectDocumentationUrl
 }

@@ -126,6 +126,7 @@ const getProjectInfos = async () => {
   const author = get(packageJson, 'author', undefined)
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
+  const documentationUrl = get(packageJson, 'homepage', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
   const githubUsername = isGithubRepository(repositoryUrl)
@@ -145,7 +146,8 @@ const getProjectInfos = async () => {
     githubUsername,
     engines,
     licenseName,
-    licenseUrl
+    licenseUrl,
+    documentationUrl
   }
 }
 

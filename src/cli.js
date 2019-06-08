@@ -16,7 +16,8 @@ const {
   askContributing,
   askProjectVersion,
   askProjectPrerequisites,
-  askLicenseName
+  askLicenseName,
+  askProjectDocumentationUrl
 } = require('./questions')
 
 /**
@@ -29,6 +30,7 @@ const askQuestions = async () => {
     askProjectName,
     askProjectVersion,
     askProjectDescription,
+    askProjectDocumentationUrl,
     askAuhtorName,
     askAuthorGithub,
     askAuthorTwitter,
