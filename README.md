@@ -2,6 +2,9 @@
 <p>
   <img src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
 	<img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg">
+	<a href="https://codecov.io/gh/kefranabg/readme-md-generator">
+		<img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
+	</a>
   <a href="https://greenkeeper.io/">
     <img alt="Greenkeeper" src="https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg" target="_blank" />
   </a>
