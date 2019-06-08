@@ -32,7 +32,7 @@ yarn global add readme-md-generator
 Just run the following command and answer questions :
 
 ```sh
-readme-md-generator
+readme
 ```
 
 ## Contributing
