@@ -15,6 +15,8 @@
 
 ## Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg)](https://greenkeeper.io/)
+
 With npm :
 
 ```sh
