@@ -3,6 +3,7 @@ const path = require('path')
 const inquirer = require('inquirer')
 const { isNil } = require('lodash')
 const getYear = require('date-fns/get_year')
+const boxen = require('boxen')
 const { getProjectInfos } = require('./utils')
 
 const { getTemplate, createReadme } = require('./utils')
@@ -23,8 +24,7 @@ const {
 /**
  * Ask user questions and return context to generate a README
  */
-const askQuestions = async () => {
-  const projectInfos = await getProjectInfos()
+const askQuestions = async projectInfos => {
   let answersContext = {
     isGithubRepos: projectInfos.isGithubRepos,
     repositoryUrl: projectInfos.repositoryUrl,
@@ -60,13 +60,36 @@ const askQuestions = async () => {
   return answersContext
 }
 
+/**
+ * Display end message
+ */
+const displayEndMessage = () => {
+  process.stdout.write(
+    boxen(
+      `
+README.md was successfully generated.
+Thanks for using readme-md-generator !
+`,
+      {
+        padding: 1,
+        margin: { top: 2, bottom: 3 },
+        borderColor: 'cyan',
+        align: 'center',
+        borderStyle: 'double'
+      }
+    )
+  )
+}
+
 module.exports = async args => {
   const templatePath = path.resolve(
     __dirname,
     `../templates/${args.template}.md`
   )
+
   const template = await getTemplate(templatePath)
-  const context = await askQuestions()
+  const projectInfos = await getProjectInfos()
+  const context = await askQuestions(projectInfos)
   const currentYear = getYear(new Date())
 
   const readmeContent = ejs.render(template, {
@@ -76,4 +99,6 @@ module.exports = async args => {
   })
 
   await createReadme(readmeContent)
+
+  displayEndMessage()
 }

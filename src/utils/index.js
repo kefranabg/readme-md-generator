@@ -6,6 +6,7 @@ const get = require('lodash/get')
 const isNil = require('lodash/isNil')
 const exec = util.promisify(require('child_process').exec)
 const getProjectName = require('project-name')
+const ora = require('ora')
 
 const GITHUB_URL = 'https://github.com/'
 
@@ -33,7 +34,18 @@ const createReadme = async readmeContent =>
  *
  * @param {string} templatePath
  */
-const getTemplate = async templatePath => await readFile(templatePath, 'utf8')
+const getTemplate = async templatePath => {
+  const spinner = ora('Loading README template').start()
+
+  try {
+    const template = await readFile(templatePath, 'utf8')
+    spinner.succeed('README template loaded')
+    return template
+  } catch (err) {
+    spinner.fail('README template loading fail')
+    throw err
+  }
+}
 
 /**
  * Get package.json content
@@ -119,6 +131,8 @@ const getLicenseUrlFromGithubRepositoryUrl = repositoryUrl =>
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
+  const spinner = ora('Gathering project infos').start()
+
   const packageJson = await getPackageJson()
   const name = getProjectName() || undefined
   const description = get(packageJson, 'description', undefined)
@@ -136,6 +150,8 @@ const getProjectInfos = async () => {
   const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
+
+  spinner.succeed('Project infos gathered')
 
   return {
     name,
