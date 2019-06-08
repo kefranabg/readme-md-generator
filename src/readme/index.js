@@ -54,7 +54,6 @@ const buildReadmeContent = async (context, templateName) => {
 }
 
 module.exports = {
-  getReadmeTemplate,
   writeReadme,
   buildReadmeContent
 }
