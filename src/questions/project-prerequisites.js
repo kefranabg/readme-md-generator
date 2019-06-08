@@ -1,5 +1,5 @@
-const isNil = require('lodash/isNil')
 const isEmpty = require('lodash/isEmpty')
+const isNil = require('lodash/isNil')
 
 /**
  * Return engines as formatted choices

@@ -1,16 +1,15 @@
-const ejs = require('ejs')
-const path = require('path')
 const inquirer = require('inquirer')
 const { isNil } = require('lodash')
-const getYear = require('date-fns/get_year')
-const boxen = require('boxen')
-const { getProjectInfos } = require('./utils')
 
-const { getTemplate, createReadme } = require('./utils')
+const { buildReadmeContent, writeReadme } = require('./readme')
+const { getProjectInfos } = require('./project-infos')
 const questionsBuilders = require('./questions')
+const { showEndMessage } = require('./utils')
 
 /**
  * Ask user questions and return context to generate a README
+ *
+ * @param {Object} projectInfos
  */
 const askQuestions = async projectInfos => {
   let answersContext = {
@@ -35,44 +34,22 @@ const askQuestions = async projectInfos => {
 }
 
 /**
- * Display end message
+ * Main process:
+ * 1) Gather project infos
+ * 2) Ask user questions
+ * 3) Build README content
+ * 4) Create README.md file
+ *
+ * @param {Object} args
  */
-const displayEndMessage = () => {
-  process.stdout.write(
-    boxen(
-      `
-README.md was successfully generated.
-Thanks for using readme-md-generator !
-`,
-      {
-        padding: 1,
-        margin: { top: 2, bottom: 3 },
-        borderColor: 'cyan',
-        align: 'center',
-        borderStyle: 'double'
-      }
-    )
-  )
-}
-
-module.exports = async args => {
-  const templatePath = path.resolve(
-    __dirname,
-    `../templates/${args.template}.md`
-  )
-
-  const template = await getTemplate(templatePath)
+const mainProcess = async args => {
   const projectInfos = await getProjectInfos()
-  const context = await askQuestions(projectInfos)
-  const currentYear = getYear(new Date())
+  const answersContext = await askQuestions(projectInfos)
+  const readmeContent = await buildReadmeContent(answersContext, args.template)
 
-  const readmeContent = ejs.render(template, {
-    filename: templatePath,
-    currentYear,
-    ...context
-  })
+  await writeReadme(readmeContent)
 
-  await createReadme(readmeContent)
-
-  displayEndMessage()
+  showEndMessage()
 }
+
+module.exports = mainProcess

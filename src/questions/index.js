@@ -1,25 +1,13 @@
-const askProjectName = require('./project-name')
-const askProjectDescription = require('./project-description')
-const askAuhtorName = require('./author-name')
-const askAuthorGithub = require('./author-github')
-const askAuthorTwitter = require('./author-twitter')
-const askLicenseName = require('./license-name')
-const askLicenseUrl = require('./license-url')
-const askContributing = require('./contributing')
-const askProjectVersion = require('./project-version')
-const askProjectPrerequisites = require('./project-prerequisites')
-const askProjectDocumentationUrl = require('./project-documentation-url')
-
 module.exports = {
-  askProjectName,
-  askProjectVersion,
-  askProjectDescription,
-  askProjectDocumentationUrl,
-  askAuhtorName,
-  askAuthorGithub,
-  askAuthorTwitter,
-  askProjectPrerequisites,
-  askLicenseName,
-  askLicenseUrl,
-  askContributing
+  askProjectName: require('./project-name'),
+  askProjectVersion: require('./project-version'),
+  askProjectDescription: require('./project-description'),
+  askProjectDocumentationUrl: require('./project-documentation-url'),
+  askAuhtorName: require('./author-name'),
+  askAuthorGithub: require('./author-github'),
+  askAuthorTwitter: require('./author-twitter'),
+  askProjectPrerequisites: require('./project-prerequisites'),
+  askLicenseName: require('./license-name'),
+  askLicenseUrl: require('./license-url'),
+  askContributing: require('./contributing')
 }

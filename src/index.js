@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs')
-const generateReadme = require('./cli')
+
+const main = require('./cli')
 
 yargs
   .usage('Usage: $0 <command> [options]')
@@ -13,7 +14,7 @@ yargs
         desc: 'The name of template you want to use',
         default: 'default'
       }),
-    args => generateReadme(args)
+    args => main(args)
   )
   .help()
   .epilog(
