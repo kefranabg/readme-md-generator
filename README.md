@@ -2,6 +2,9 @@
 <p>
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://badges.greenkeeper.io/kefranabg/readme-cli.svg" />
+  <a href="https://github.com/kefranabg/readme-cli/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
 </p>
 > Generates beautiful README files from git config & package.json infos
 
@@ -29,7 +32,7 @@ readme-cli
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](test) if you want to contribute.
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-cli/issues) if you want to contribute.
 
 ## Author
 
@@ -46,7 +49,7 @@ Please ⭐️ this repository if you like it.
 
 Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
 
-📜 This project is under [license](https://github.com/kefranabg/readme-cli/blob/master/LICENSE).
+📜 This project is [MIT](https://github.com/kefranabg/readme-cli/blob/master/LICENSE) licensed.
 
 ---
 

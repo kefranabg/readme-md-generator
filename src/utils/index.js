@@ -101,15 +101,19 @@ const getReposIssuesUrl = async packageJson => {
  *
  * @param {string} repositoryUrl
  */
-const isGithubRepository = repositoryUrl => repositoryUrl.includes(GITHUB_URL)
+const isGithubRepository = repositoryUrl =>
+  !isNil(repositoryUrl) && repositoryUrl.includes(GITHUB_URL)
 
 /**
  * Get github username from repository url
  *
  * @param {string} repositoryUrl
  */
-const getGithubUsernameFromRepositoryUrl = async repositoryUrl =>
+const getGithubUsernameFromRepositoryUrl = repositoryUrl =>
   repositoryUrl.replace(GITHUB_URL, '').split('/')[0]
+
+const getLicenseUrlFromGithubRepositoryUrl = repositoryUrl =>
+  `${repositoryUrl}/blob/master/LICENSE`
 
 /**
  * Get project informations from git and package.json
@@ -121,12 +125,15 @@ const getProjectInfos = async () => {
   const engines = get(packageJson, 'engines', undefined)
   const author = get(packageJson, 'author', undefined)
   const version = get(packageJson, 'version', undefined)
+  const licenseName = get(packageJson, 'license', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
-  const githubUsername =
-    !isNil(repositoryUrl) && isGithubRepository(repositoryUrl)
-      ? await getGithubUsernameFromRepositoryUrl(repositoryUrl)
-      : undefined
+  const githubUsername = isGithubRepository(repositoryUrl)
+    ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
+    : undefined
+  const licenseUrl = isGithubRepository(repositoryUrl)
+    ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
+    : undefined
 
   return {
     name,
@@ -136,7 +143,9 @@ const getProjectInfos = async () => {
     repositoryUrl,
     contributingUrl,
     githubUsername,
-    engines
+    engines,
+    licenseName,
+    licenseUrl
   }
 }
 

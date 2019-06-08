@@ -15,7 +15,8 @@ const {
   askLicenseUrl,
   askContributing,
   askProjectVersion,
-  askProjectPrerequisites
+  askProjectPrerequisites,
+  askLicenseName
 } = require('./questions')
 
 /**
@@ -23,20 +24,33 @@ const {
  */
 const askQuestions = async () => {
   const projectInfos = await getProjectInfos()
+  let answersContext = {}
+  const questionFns = [
+    askProjectName,
+    askProjectVersion,
+    askProjectDescription,
+    askAuhtorName,
+    askAuthorGithub,
+    askAuthorTwitter,
+    askProjectPrerequisites,
+    askLicenseName,
+    askLicenseUrl,
+    askContributing
+  ]
 
-  const questions = [
-    askProjectName(projectInfos),
-    askProjectVersion(projectInfos),
-    askProjectDescription(projectInfos),
-    askAuhtorName(projectInfos),
-    askAuthorGithub(projectInfos),
-    askAuthorTwitter(),
-    askProjectPrerequisites(projectInfos),
-    askLicenseUrl(projectInfos),
-    askContributing(projectInfos)
-  ].filter(negate(isNil)) // Remove undefined items from array
+  for (const questionFn of questionFns) {
+    const question = questionFn(projectInfos, answersContext)
 
-  return inquirer.prompt(questions)
+    if (!isNil(question)) {
+      const currentAnswerContext = await inquirer.prompt([question])
+      answersContext = {
+        ...answersContext,
+        ...currentAnswerContext
+      }
+    }
+  }
+
+  return answersContext
 }
 
 module.exports = async args => {

@@ -3,6 +3,11 @@
 <% if (projectVersion) { -%>
   <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
 <% } -%>
+<% if (licenseName && licenseUrl) { -%>
+  <a href="<%= licenseUrl %>">
+    <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" target="_blank" />
+  </a>
+<% } -%>
 </p>
 <% if (projectDescription) { -%>
 
@@ -32,11 +37,11 @@ npm run start
 ```sh
 npm run test
 ```
-<% if (licenseUrl) { -%>
+<% if (contributingUrl) { -%>
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](<%= licenseUrl %>) if you want to contribute.
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](<%= contributingUrl %>) if you want to contribute.
 <% } -%>
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
@@ -55,14 +60,14 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 ## Show your support
 
 Please ⭐️ this repository if you like it.
-<% if (licenseUrl) { -%>
+<% if (licenseName && licenseUrl) { -%>
 
 ## License
 
 <% if (authorName && authorGithubUsername) { -%>
 Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).
 <% } %>
-📜 This project is under [license](<%= licenseUrl %>).
+📜 This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
 <% } -%>
 
 ***
