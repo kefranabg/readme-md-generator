@@ -1,6 +1,10 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-0.1.0"-blue.svg?cacheSeconds=2592000" />
+  <img
+  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://greenkeeper.io/">
+    <img alt="Greenkeeper" src="https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg" target="_blank" />
+  </a>
   <a href="https://github.com/kefranabg/readme-md-generator#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
@@ -14,8 +18,6 @@
 > Generates beautiful README files from git config & package.json infos
 
 ## Install
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg)](https://greenkeeper.io/)
 
 With npm :
 
