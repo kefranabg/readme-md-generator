@@ -12,14 +12,14 @@ const askProjectDocumentationUrl = require('./project-documentation-url')
 
 module.exports = {
   askProjectName,
+  askProjectVersion,
   askProjectDescription,
+  askProjectDocumentationUrl,
   askAuhtorName,
   askAuthorGithub,
   askAuthorTwitter,
+  askProjectPrerequisites,
   askLicenseName,
   askLicenseUrl,
-  askContributing,
-  askProjectVersion,
-  askProjectPrerequisites,
-  askProjectDocumentationUrl
+  askContributing
 }

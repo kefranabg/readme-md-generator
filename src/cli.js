@@ -7,19 +7,7 @@ const boxen = require('boxen')
 const { getProjectInfos } = require('./utils')
 
 const { getTemplate, createReadme } = require('./utils')
-const {
-  askProjectName,
-  askProjectDescription,
-  askAuhtorName,
-  askAuthorGithub,
-  askAuthorTwitter,
-  askLicenseUrl,
-  askContributing,
-  askProjectVersion,
-  askProjectPrerequisites,
-  askLicenseName,
-  askProjectDocumentationUrl
-} = require('./questions')
+const questionsBuilders = require('./questions')
 
 /**
  * Ask user questions and return context to generate a README
@@ -31,22 +19,8 @@ const askQuestions = async projectInfos => {
     projectPrerequisites: undefined
   }
 
-  const questionFns = [
-    askProjectName,
-    askProjectVersion,
-    askProjectDescription,
-    askProjectDocumentationUrl,
-    askAuhtorName,
-    askAuthorGithub,
-    askAuthorTwitter,
-    askProjectPrerequisites,
-    askLicenseName,
-    askLicenseUrl,
-    askContributing
-  ]
-
-  for (const questionFn of questionFns) {
-    const question = questionFn(projectInfos, answersContext)
+  for (const questionBuilder of Object.values(questionsBuilders)) {
+    const question = questionBuilder(projectInfos, answersContext)
 
     if (!isNil(question)) {
       const currentAnswerContext = await inquirer.prompt([question])
