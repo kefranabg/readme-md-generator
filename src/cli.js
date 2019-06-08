@@ -25,7 +25,10 @@ const {
  */
 const askQuestions = async () => {
   const projectInfos = await getProjectInfos()
-  let answersContext = {}
+  let answersContext = {
+    isGithubRepos: projectInfos.isGithubRepos,
+    repositoryUrl: projectInfos.repositoryUrl
+  }
   const questionFns = [
     askProjectName,
     askProjectVersion,

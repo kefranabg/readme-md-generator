@@ -1,6 +1,6 @@
 module.exports = projectInfos => ({
   type: 'input',
-  message: '📘  Project documenration url (use empty value to skip)',
+  message: '📘  Project documentation url (use empty value to skip)',
   name: 'projectDocumentationUrl',
   default: projectInfos.documentationUrl
 })

@@ -129,10 +129,11 @@ const getProjectInfos = async () => {
   const documentationUrl = get(packageJson, 'homepage', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
-  const githubUsername = isGithubRepository(repositoryUrl)
+  const isGithubRepos = isGithubRepository(repositoryUrl)
+  const githubUsername = isGithubRepos
     ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
     : undefined
-  const licenseUrl = isGithubRepository(repositoryUrl)
+  const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
 
@@ -147,7 +148,8 @@ const getProjectInfos = async () => {
     engines,
     licenseName,
     licenseUrl,
-    documentationUrl
+    documentationUrl,
+    isGithubRepos
   }
 }
 

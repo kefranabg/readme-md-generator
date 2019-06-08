@@ -8,6 +8,11 @@
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
 <% } -%>
+<% if (isGithubRepos) { -%>
+  <a href="<%= repositoryUrl %>/issues?q=is%3Aissue+is%3Aclosed">
+    <img alt="Maintenance" src="https://img.shields.io/github/issues-closed/readme-cli/readme-cli.svg" target="_blank" />
+  </a>
+<% } -%>
 <% if (licenseName && licenseUrl) { -%>
   <a href="<%= licenseUrl %>">
     <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" target="_blank" />
