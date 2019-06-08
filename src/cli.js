@@ -1,7 +1,7 @@
 const ejs = require('ejs')
 const path = require('path')
 const inquirer = require('inquirer')
-const { negate, isNil } = require('lodash')
+const { isNil } = require('lodash')
 const getYear = require('date-fns/get_year')
 const { getProjectInfos } = require('./utils')
 
