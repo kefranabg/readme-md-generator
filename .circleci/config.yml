@@ -55,7 +55,7 @@ jobs:
           at: .
       - run:
           name: 'Run unit tests'
-          command: npm run test
+          command: npm run test:ci
 
 workflows:
   version: 2

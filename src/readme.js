@@ -1,10 +1,11 @@
 const ejs = require('ejs')
 const path = require('path')
 const ora = require('ora')
-const util = require('util')
+const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
-const readFile = util.promisify(require('fs').readFile)
-const writeFile = util.promisify(require('fs').writeFile)
+const fs = require('fs')
+
+const README_PATH = 'README.md'
 
 /**
  * Create readme file from the given readmeContent
@@ -12,7 +13,7 @@ const writeFile = util.promisify(require('fs').writeFile)
  * @param {string} readmeContent
  */
 const writeReadme = async readmeContent =>
-  await writeFile('README.md', readmeContent)
+  promisify(fs.writeFile)(README_PATH, readmeContent)
 
 /**
  * Get README template content from the given templatePath
@@ -23,7 +24,7 @@ const getReadmeTemplate = async templatePath => {
   const spinner = ora('Loading README template').start()
 
   try {
-    const template = await readFile(templatePath, 'utf8')
+    const template = await promisify(fs.readFile)(templatePath, 'utf8')
     spinner.succeed('README template loaded')
     return template
   } catch (err) {
@@ -55,5 +56,6 @@ const buildReadmeContent = async (context, templateName) => {
 
 module.exports = {
   writeReadme,
-  buildReadmeContent
+  buildReadmeContent,
+  README_PATH
 }
