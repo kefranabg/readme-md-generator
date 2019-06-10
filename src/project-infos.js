@@ -1,9 +1,8 @@
 const getProjectName = require('project-name')
 const isNil = require('lodash/isNil')
 const get = require('lodash/get')
-const util = require('util')
 const ora = require('ora')
-const exec = util.promisify(require('child_process').exec)
+const { execSync } = require('child_process')
 
 const { getPackageJson } = require('./utils')
 
@@ -33,10 +32,10 @@ const getReposUrlFromPackageJson = async packageJson => {
 /**
  * Get repository url from git
  */
-const getReposUrlFromGit = async () => {
+const getReposUrlFromGit = () => {
   try {
-    const result = await exec('git config --get remote.origin.url')
-    return cleanReposUrl(result.stdout)
+    const stdout = execSync('git config --get remote.origin.url')
+    return cleanReposUrl(stdout)
   } catch (err) {
     return undefined
   }
@@ -48,8 +47,7 @@ const getReposUrlFromGit = async () => {
  * @param {Object} packageJson
  */
 const getReposUrl = async packageJson =>
-  (await getReposUrlFromPackageJson(packageJson)) ||
-  (await getReposUrlFromGit())
+  (await getReposUrlFromPackageJson(packageJson)) || getReposUrlFromGit()
 
 /**
  * Get repository issues url from package.json or git
@@ -101,7 +99,7 @@ const getProjectInfos = async () => {
   const spinner = ora('Gathering project infos').start()
 
   const packageJson = await getPackageJson()
-  const name = getProjectName() || undefined
+  const name = getProjectName()
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
   const author = get(packageJson, 'author', undefined)
