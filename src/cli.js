@@ -1,10 +1,10 @@
 const inquirer = require('inquirer')
 const { isNil } = require('lodash')
 
-const { buildReadmeContent, writeReadme } = require('./readme')
-const { getProjectInfos } = require('./project-infos')
+const readme = require('./readme')
+const projectInfos = require('./project-infos')
 const questionsBuilders = require('./questions')
-const { showEndMessage } = require('./utils')
+const utils = require('./utils')
 
 /**
  * Ask user questions and return context to generate a README
@@ -42,14 +42,22 @@ const askQuestions = async projectInfos => {
  *
  * @param {Object} args
  */
-const mainProcess = async args => {
-  const projectInfos = await getProjectInfos()
-  const answersContext = await askQuestions(projectInfos)
-  const readmeContent = await buildReadmeContent(answersContext, args.template)
+const mainProcess = async ({ template }) => {
+  const projectInformations = await projectInfos.getProjectInfos()
+  const answersContext = await cli.askQuestions(projectInformations)
+  const readmeContent = await readme.buildReadmeContent(
+    answersContext,
+    template
+  )
 
-  await writeReadme(readmeContent)
+  await readme.writeReadme(readmeContent)
 
-  showEndMessage()
+  utils.showEndMessage()
 }
 
-module.exports = mainProcess
+const cli = {
+  mainProcess,
+  askQuestions
+}
+
+module.exports = cli

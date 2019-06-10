@@ -2,7 +2,7 @@
 
 const yargs = require('yargs')
 
-const main = require('./cli')
+const { mainProcess } = require('./cli')
 
 yargs
   .usage('Usage: $0 <command> [options]')
@@ -14,7 +14,7 @@ yargs
         desc: 'The name of template you want to use',
         default: 'default'
       }),
-    args => main(args)
+    args => mainProcess(args)
   )
   .help()
   .epilog(
