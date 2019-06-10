@@ -9,7 +9,7 @@ describe('askLicenseName', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '🔒  License name (use empty value to skip)',
+      message: '📝  License name (use empty value to skip)',
       name: 'licenseName',
       default: licenseName
     })

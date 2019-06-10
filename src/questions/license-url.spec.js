@@ -11,7 +11,7 @@ describe('askLicenseUrl', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '🔒  License url (use empty value to skip)',
+      message: '📝  License url (use empty value to skip)',
       name: 'licenseUrl',
       default: licenseUrl
     })

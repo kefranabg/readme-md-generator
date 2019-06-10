@@ -1,10 +1,10 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/version-0.1.3-blue.svg?cacheSeconds=2592000" />
-	<!-- <img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg"> -->
-	<a href="https://codecov.io/gh/kefranabg/readme-md-generator">
-		<img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
-	</a>
+  <!-- <img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg"> -->
+  <a href="https://codecov.io/gh/kefranabg/readme-md-generator">
+    <img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
+  </a>
   <a href="https://greenkeeper.io/">
     <img alt="Greenkeeper" src="https://badges.greenkeeper.io/kefranabg/readme-md-generator.svg" target="_blank" />
   </a>
@@ -21,7 +21,7 @@
 
 > CLI that generates beautiful README.md files.<br /> `readme-md-generator` will suggest you default answers by reading your `package.json` and `git` configuration.
 
-## Demo
+## ✨ Demo
 
 ```json
 // My project package.json (NOT REQUIRED TO RUN README-MD-GENERATOR)
@@ -54,7 +54,7 @@ Generated `README.md` :
 
 <img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
 
-## Install
+## 📦 Install
 
 With npm :
 
@@ -68,7 +68,7 @@ With yarn :
 yarn global add readme-md-generator
 ```
 
-## Usage
+## 🚀 Usage
 
 Just run the following command and answer questions :
 
@@ -76,26 +76,26 @@ Just run the following command and answer questions :
 readme
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
 
-## Author
+## 👤 Author
 
-👤 **Franck Abgrall**
+**Franck Abgrall**
 
-- Twitter 👉 [@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github 👉 [@kefranabg](https://github.com/kefranabg)
+- Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
+- Github: [@kefranabg](https://github.com/kefranabg)
 
-## Show your support
+## 🙏 Show your support
 
 Please ⭐️ this repository if you like it.
 
-## License
+## 📝 License
 
 Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
 
-📜 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ---
 

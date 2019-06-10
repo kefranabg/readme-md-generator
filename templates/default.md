@@ -25,59 +25,59 @@
 <% } -%>
 <% if (projectPrerequisites) { -%>
 
-## Prerequisites
+## ⚠️ Prerequisites
 
 - <%= projectPrerequisites.join("\n- "); %>
 <% } -%>
 
-## Install
+## 📦 Install
 
 ```sh
 npm i
 ```
 
-## Usage
+## 🚀 Usage
 
 ```sh
 npm run start
 ```
 
-## Run tests
+## ✅ Run tests
 
 ```sh
 npm run test
 ```
 <% if (contributingUrl) { -%>
 
-## Contributing
+## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome. Feel free to check [issues page](<%= contributingUrl %>) if you want to contribute.
 <% } -%>
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
-## Author
+## 👤 Author
 <% if (authorName) { %>
-👤 **<%= authorName %>**
+**<%= authorName %>**
 <% } %>
 <% if (authorTwitterUsername) { -%>
-* Twitter 👉 [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
+* Twitter: [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
 <% } -%>
 <% if (authorGithubUsername) { -%>
-* Github 👉 [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
+* Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
 <% } -%>
 
-## Show your support
+## 🙏 Show your support
 
 Please ⭐️ this repository if you like it.
 <% if (licenseName && licenseUrl) { -%>
 
-## License
+## 📝 License
 
 <% if (authorName && authorGithubUsername) { -%>
 Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).
 <% } %>
-📜 This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
+This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
 <% } -%>
 
 ***

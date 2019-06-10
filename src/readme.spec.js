@@ -83,48 +83,48 @@ describe('readme', () => {
 
 > Generates beautiful README files from git config &amp; package.json infos
 
-## Prerequisites
+## ⚠️ Prerequisites
 
 - npm &gt;=5.5.0
 - node &gt;=9.3.0
 
-## Install
+## 📦 Install
 
 \`\`\`sh
 npm i
 \`\`\`
 
-## Usage
+## 🚀 Usage
 
 \`\`\`sh
 npm run start
 \`\`\`
 
-## Run tests
+## ✅ Run tests
 
 \`\`\`sh
 npm run test
 \`\`\`
 
-## Contributing
+## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
 
-## Author
+## 👤 Author
 
-👤 **Franck Abgrall**
+**Franck Abgrall**
 
-* Github 👉 [@kefranabg](https://github.com/kefranabg)
+* Github: [@kefranabg](https://github.com/kefranabg)
 
-## Show your support
+## 🙏 Show your support
 
 Please ⭐️ this repository if you like it.
 
-## License
+## 📝 License
 
 Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
 
-📜 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_`)

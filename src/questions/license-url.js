@@ -5,7 +5,7 @@ module.exports = (projectInfos, answersContext) =>
     ? undefined
     : {
         type: 'input',
-        message: '🔒  License url (use empty value to skip)',
+        message: '📝  License url (use empty value to skip)',
         name: 'licenseUrl',
         default: projectInfos.licenseUrl
       }
