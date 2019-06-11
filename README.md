@@ -23,8 +23,18 @@
 
 ## ✨ Demo
 
+`readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process :
+
+<img width="700" src="https://user-images.githubusercontent.com/9840435/59162633-8f291b80-8af4-11e9-9985-b0f768cbc2b1.gif" alt="demo"/>
+
+Generated `README.md` :
+
+<img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
+
+Example of `package.json` with good meta data :
+
 ```json
-// My project package.json (NOT REQUIRED TO RUN README-MD-GENERATOR)
+// The package.json is not required to run README-MD-GENERATOR
 {
   "name": "readme-md-generator",
   "version": "0.1.3",
@@ -45,14 +55,6 @@
   }
 }
 ```
-
-`readme-md-generator` will process as following within a `git` repository that contains a `package.json` config like the one above :
-
-<img width="700" src="https://user-images.githubusercontent.com/9840435/59162633-8f291b80-8af4-11e9-9985-b0f768cbc2b1.gif" alt="demo"/>
-
-Generated `README.md` :
-
-<img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
 
 ## 📦 Install
 
