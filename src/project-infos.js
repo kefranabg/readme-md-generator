@@ -92,6 +92,9 @@ const getGithubUsernameFromRepositoryUrl = repositoryUrl =>
 const getLicenseUrlFromGithubRepositoryUrl = repositoryUrl =>
   `${repositoryUrl}/blob/master/LICENSE`
 
+const getReadmeUrlFromGithubRepositoryUrl = repositoryUrl =>
+  `${repositoryUrl}#readme`
+
 /**
  * Get project informations from git and package.json
  */
@@ -105,10 +108,12 @@ const getProjectInfos = async () => {
   const author = get(packageJson, 'author', undefined)
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
-  const documentationUrl = get(packageJson, 'homepage', undefined)
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
   const isGithubRepos = isGithubRepository(repositoryUrl)
+  const documentationUrl = isGithubRepos
+    ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
+    : undefined
   const githubUsername = isGithubRepos
     ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
     : undefined

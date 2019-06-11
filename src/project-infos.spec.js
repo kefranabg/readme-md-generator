@@ -40,7 +40,7 @@ describe('projectInfos', () => {
         description: 'CLI that generates beautiful README.md files.',
         author: 'Franck Abgrall',
         license: 'MIT',
-        homepage: 'https://github.com/kefranabg/readme-md-generator#readme',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
         repository: {
           type: 'git',
           url: 'git+https://github.com/kefranabg/readme-md-generator.git'
@@ -89,7 +89,7 @@ describe('projectInfos', () => {
         description: 'CLI that generates beautiful README.md files.',
         author: 'Franck Abgrall',
         license: 'MIT',
-        homepage: 'https://gitlab.com/kefranabg/readme-md-generator#readme',
+        homepage: 'https://gitlab.com/kefranabg/readme-md-generator',
         repository: {
           type: 'git',
           url: 'git+https://gitlab.com/kefranabg/readme-md-generator.git'
@@ -124,8 +124,7 @@ describe('projectInfos', () => {
         },
         licenseName: 'MIT',
         licenseUrl: undefined,
-        documentationUrl:
-          'https://gitlab.com/kefranabg/readme-md-generator#readme',
+        documentationUrl: undefined,
         isGithubRepos: false
       })
     })
@@ -151,7 +150,8 @@ describe('projectInfos', () => {
         licenseName: undefined,
         licenseUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
-        documentationUrl: undefined,
+        documentationUrl:
+          'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true
       })
     })
@@ -212,7 +212,7 @@ describe('projectInfos', () => {
         description: 'CLI that generates beautiful README.md files.',
         author: 'Franck Abgrall',
         license: 'MIT',
-        homepage: 'https://github.com/kefranabg/readme-md-generator#readme',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
         repository: {
           type: 'git',
           url: 'git+https://github.com/kefranabg/readme-md-generator.git'
