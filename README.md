@@ -72,7 +72,7 @@ yarn global add readme-md-generator
 
 ## 🚀 Usage
 
-Just run the following command and answer questions :
+Just run the following command at the root of your project and answer questions :
 
 ```sh
 readme
