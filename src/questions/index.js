@@ -2,6 +2,7 @@ module.exports = {
   askProjectName: require('./project-name'),
   askProjectVersion: require('./project-version'),
   askProjectDescription: require('./project-description'),
+  askProjectHomepage: require('./project-homepage'),
   askProjectDocumentationUrl: require('./project-documentation-url'),
   askAuhtorName: require('./author-name'),
   askAuthorGithub: require('./author-github'),

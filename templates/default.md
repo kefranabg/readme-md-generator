@@ -23,6 +23,12 @@
 
 > <%= projectDescription %>
 <% } -%>
+<% if (projectHomepage) { -%>
+
+## 🏠 Homepage
+
+[<%= projectHomepage %>](<%= projectHomepage %>)
+<% } -%>
 <% if (projectPrerequisites) { -%>
 
 ## ⚠️ Prerequisites

@@ -66,6 +66,7 @@ describe('projectInfos', () => {
         version: '0.1.3',
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
         githubUsername: 'kefranabg',
@@ -117,6 +118,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://gitlab.com/kefranabg/readme-md-generator/issues',
+        homepage: 'https://gitlab.com/kefranabg/readme-md-generator',
         githubUsername: undefined,
         engines: {
           npm: '>=5.5.0',
@@ -145,6 +147,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
+        homepage: undefined,
         githubUsername: 'kefranabg',
         engines: undefined,
         licenseName: undefined,
@@ -172,6 +175,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://gitlab.com/kefranabg/readme-md-generator/issues',
+        homepage: undefined,
         githubUsername: undefined,
         engines: undefined,
         licenseName: undefined,
@@ -196,6 +200,7 @@ describe('projectInfos', () => {
         author: undefined,
         repositoryUrl: undefined,
         contributingUrl: undefined,
+        homepage: undefined,
         githubUsername: undefined,
         engines: undefined,
         licenseName: undefined,
@@ -240,6 +245,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
         githubUsername: 'kefranabg',
         engines: {
           npm: '>=5.5.0',

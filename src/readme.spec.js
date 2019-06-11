@@ -41,6 +41,8 @@ describe('readme', () => {
         'Generates beautiful README files from git config & package.json infos',
       projectDocumentationUrl:
         'https://github.com/kefranabg/readme-md-generator#readme',
+      projectHomepage:
+        'https://github.com/kefranabg/readme-md-generator#readme',
       authorName: 'Franck Abgrall',
       authorGithubUsername: 'kefranabg',
       authorTwitterUsername: '',
@@ -82,6 +84,10 @@ describe('readme', () => {
 </p>
 
 > Generates beautiful README files from git config &amp; package.json infos
+
+## 🏠 Homepage
+
+[https://github.com/kefranabg/readme-md-generator#readme](https://github.com/kefranabg/readme-md-generator#readme)
 
 ## ⚠️ Prerequisites
 
