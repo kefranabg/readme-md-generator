@@ -1,6 +1,7 @@
 const getProjectName = require('project-name')
 const isNil = require('lodash/isNil')
 const get = require('lodash/get')
+const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
 
@@ -109,6 +110,10 @@ const getProjectInfos = async () => {
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
+  const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
+  const testCommand = has(packageJson, 'scripts.test')
+    ? 'npm run test'
+    : undefined
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
   const isGithubRepos = isGithubRepository(repositoryUrl)
@@ -137,7 +142,9 @@ const getProjectInfos = async () => {
     licenseName,
     licenseUrl,
     documentationUrl,
-    isGithubRepos
+    isGithubRepos,
+    usage,
+    testCommand
   }
 }
 

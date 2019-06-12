@@ -25,11 +25,15 @@
 
 `readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process :
 
-<img width="700" src="https://user-images.githubusercontent.com/9840435/59162633-8f291b80-8af4-11e9-9985-b0f768cbc2b1.gif" alt="demo"/>
+<div align="center">
+  <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/59162633-8f291b80-8af4-11e9-9985-b0f768cbc2b1.gif" alt="demo"/>
+</div>
 
 Generated `README.md` :
 
-<img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
+<div align="center">
+  <img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
+</div>
 
 Example of `package.json` with good meta data :
 

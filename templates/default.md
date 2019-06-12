@@ -35,24 +35,30 @@
 
 - <%= projectPrerequisites.join("\n- "); %>
 <% } -%>
+<% if (installCommand) { -%>
 
 ## 📦 Install
 
 ```sh
-npm i
+<%= installCommand %>
 ```
+<% } -%>
+<% if (usage) { -%>
 
 ## 🚀 Usage
 
 ```sh
-npm run start
+<%= usage %>
 ```
+<% } -%>
+<% if (testCommand) { -%>
 
 ## ✅ Run tests
 
 ```sh
-npm run test
+<%= testCommand %>
 ```
+<% } -%>
 <% if (contributingUrl) { -%>
 
 ## 🤝 Contributing

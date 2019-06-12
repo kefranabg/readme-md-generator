@@ -82,7 +82,11 @@ describe('readme', () => {
       licenseName: 'MIT',
       licenseUrl:
         'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
-      contributingUrl: 'https://github.com/kefranabg/readme-md-generator/issues'
+      contributingUrl:
+        'https://github.com/kefranabg/readme-md-generator/issues',
+      installCommand: 'npm install',
+      usage: 'npm start',
+      testCommand: 'npm run test'
     }
 
     afterEach(() => {
@@ -130,13 +134,13 @@ describe('readme', () => {
 ## 📦 Install
 
 \`\`\`sh
-npm i
+npm install
 \`\`\`
 
 ## 🚀 Usage
 
 \`\`\`sh
-npm run start
+npm start
 \`\`\`
 
 ## ✅ Run tests

@@ -79,7 +79,9 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
-        isGithubRepos: true
+        isGithubRepos: true,
+        usage: undefined,
+        testCommand: undefined
       })
     })
 
@@ -127,7 +129,9 @@ describe('projectInfos', () => {
         licenseName: 'MIT',
         licenseUrl: undefined,
         documentationUrl: undefined,
-        isGithubRepos: false
+        isGithubRepos: false,
+        usage: undefined,
+        testCommand: undefined
       })
     })
 
@@ -155,7 +159,9 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
-        isGithubRepos: true
+        isGithubRepos: true,
+        usage: undefined,
+        testCommand: undefined
       })
     })
 
@@ -181,7 +187,9 @@ describe('projectInfos', () => {
         licenseName: undefined,
         licenseUrl: undefined,
         documentationUrl: undefined,
-        isGithubRepos: false
+        isGithubRepos: false,
+        usage: undefined,
+        testCommand: undefined
       })
     })
 
@@ -206,7 +214,9 @@ describe('projectInfos', () => {
         licenseName: undefined,
         licenseUrl: undefined,
         documentationUrl: undefined,
-        isGithubRepos: false
+        isGithubRepos: false,
+        usage: undefined,
+        testCommand: undefined
       })
     })
 
@@ -256,7 +266,9 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
-        isGithubRepos: true
+        isGithubRepos: true,
+        usage: undefined,
+        testCommand: undefined
       })
     })
   })
