@@ -12,8 +12,17 @@ const README_PATH = 'README.md'
  *
  * @param {string} readmeContent
  */
-const writeReadme = async readmeContent =>
-  promisify(fs.writeFile)(README_PATH, readmeContent)
+const writeReadme = async readmeContent => {
+  const spinner = ora('Creating README').start()
+
+  try {
+    await promisify(fs.writeFile)(README_PATH, readmeContent)
+    spinner.succeed('README created')
+  } catch (err) {
+    spinner.fail('README creation fail')
+    throw err
+  }
+}
 
 /**
  * Get README template content from the given templatePath

@@ -6,7 +6,50 @@ jest.mock('ora')
 const { writeReadme, buildReadmeContent, README_PATH } = require('./readme')
 
 describe('readme', () => {
+  const succeed = jest.fn()
+  const fail = jest.fn()
+
+  ora.mockReturnValue({
+    start: () => ({
+      succeed,
+      fail
+    })
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   describe('writeReadme', () => {
+    it('should call ora with correct parameters in success case', async () => {
+      const readmeContent = 'content'
+      fs.writeFile = jest.fn((path, content, cb) => cb(null, 'done'))
+
+      await writeReadme(readmeContent)
+
+      expect(ora).toHaveBeenCalledTimes(1)
+      expect(ora).toHaveBeenCalledWith('Creating README')
+      expect(succeed).toHaveBeenCalledTimes(1)
+      expect(succeed).toHaveBeenCalledWith('README created')
+    })
+
+    it('should call ora with correct parameters in fail case', async () => {
+      const readmeContent = 'content'
+      fs.writeFile = jest.fn(() => {
+        throw new Error('error')
+      })
+
+      try {
+        await writeReadme(readmeContent)
+        // eslint-disable-next-line no-empty
+      } catch (err) {}
+
+      expect(ora).toHaveBeenCalledTimes(1)
+      expect(ora).toHaveBeenCalledWith('Creating README')
+      expect(fail).toHaveBeenCalledTimes(1)
+      expect(fail).toHaveBeenCalledWith('README creation fail')
+    })
+
     it('should call writeFile with correct parameters', async () => {
       const readmeContent = 'content'
       fs.writeFile = jest.fn((path, content, cb) => cb(null, 'done'))
@@ -20,16 +63,6 @@ describe('readme', () => {
   })
 
   describe('buildReadmeContent', () => {
-    const succeed = jest.fn()
-    const fail = jest.fn()
-
-    ora.mockReturnValue({
-      start: () => ({
-        succeed,
-        fail
-      })
-    })
-
     const templateName = 'default'
     const context = {
       isGithubRepos: true,
