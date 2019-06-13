@@ -12,9 +12,9 @@
   </a>
 </p>
 
-### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
-
 > CLI that generates beautiful README.md files.
+
+### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
 ## Prerequisites
 
