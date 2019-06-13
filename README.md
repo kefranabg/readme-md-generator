@@ -12,9 +12,9 @@
   </a>
 </p>
 
-> CLI that generates beautiful README.md files.
+### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
-## 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
+> CLI that generates beautiful README.md files.
 
 ## Prerequisites
 
@@ -51,14 +51,13 @@ npm run test
 Contributions, issues and feature requests are welcome !<br />
 Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues).
 
-## 🙏 Show your support
+## Show your support
 
-Give a ⭐️ if it helps you !
+Give a ⭐️ if this project helped you !
 
 ## 📝 License
 
-Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
-
+Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).<br />
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ---
