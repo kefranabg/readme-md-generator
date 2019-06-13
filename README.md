@@ -12,13 +12,9 @@
   </a>
 </p>
 
-> CLI that generates beautiful README.md files.
+> CLI that generates beautiful README.md files.<br /> Homepage: [https://github.com/kefranabg/readme-md-generator#readme](https://github.com/kefranabg/readme-md-generator#readme)
 
-## Homepage
-
-[https://github.com/kefranabg/readme-md-generator#readme](https://github.com/kefranabg/readme-md-generator#readme)
-
-## Prerequisites
+## ⚠️ Prerequisites
 
 - npm &gt;=5.5.0
 - node &gt;=9.3.0
