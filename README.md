@@ -14,28 +14,28 @@
 
 > CLI that generates beautiful README.md files.
 
-## 🏠 Homepage
+## Homepage
 
 [https://github.com/kefranabg/readme-md-generator#readme](https://github.com/kefranabg/readme-md-generator#readme)
 
-## ⚠️ Prerequisites
+## Prerequisites
 
 - npm &gt;=5.5.0
 - node &gt;=9.3.0
 
-## 📦 Install
+## Install
 
 ```sh
 npm install
 ```
 
-## 🚀 Usage
+## Usage
 
 ```sh
 npm run start
 ```
 
-## ✅ Run tests
+## Run tests
 
 ```sh
 npm run test
@@ -49,8 +49,8 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 
 **Franck Abgrall**
 
-* Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
-* Github: [@kefranabg](https://github.com/kefranabg)
+- Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
+- Github: [@kefranabg](https://github.com/kefranabg)
 
 ## 🙏 Show your support
 
@@ -62,5 +62,6 @@ Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
 
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
