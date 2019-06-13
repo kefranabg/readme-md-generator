@@ -26,13 +26,13 @@
 `readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process :
 
 <p align="center">
-  <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/59162633-8f291b80-8af4-11e9-9985-b0f768cbc2b1.gif" alt="demo"/>
+  <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/59459416-07f1e580-8e1d-11e9-89e7-6a5e6b373e93.gif" alt="demo"/>
 </p>
 
 Generated `README.md` :
 
 <p align="center">
-  <img width="700" src="https://user-images.githubusercontent.com/9840435/59162884-02cd2780-8af9-11e9-9765-e1af31fd8bc2.jpg" alt="cli output"/>
+  <img width="700" src="https://user-images.githubusercontent.com/9840435/59458494-d7a94780-8e1a-11e9-9103-42639c347c38.jpg" alt="cli output"/>
 </p>
 
 Example of `package.json` with good meta data :
@@ -86,21 +86,20 @@ readme
 
 Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
 
-## 👤 Author
+## Author
 
-**Franck Abgrall**
+👤 **Franck Abgrall**
 
 - Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
 - Github: [@kefranabg](https://github.com/kefranabg)
 
-## 🙏 Show your support
+## Show your support
 
-Please ⭐️ this repository if you like it.
+Please ⭐️ this repository if this project helped you !
 
 ## 📝 License
 
-Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
-
+Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).<br />
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ---

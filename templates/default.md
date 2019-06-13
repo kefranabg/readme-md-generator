@@ -25,19 +25,17 @@
 <% } -%>
 <% if (projectHomepage) { -%>
 
-## 🏠 Homepage
-
-[<%= projectHomepage %>](<%= projectHomepage %>)
+### 🏠 [Homepage](<%= projectHomepage %>)
 <% } -%>
 <% if (projectPrerequisites) { -%>
 
-## ⚠️ Prerequisites
+## Prerequisites
 
 - <%= projectPrerequisites.join("\n- "); %>
 <% } -%>
 <% if (installCommand) { -%>
 
-## 📦 Install
+## Install
 
 ```sh
 <%= installCommand %>
@@ -45,7 +43,7 @@
 <% } -%>
 <% if (usage) { -%>
 
-## 🚀 Usage
+## Usage
 
 ```sh
 <%= usage %>
@@ -53,23 +51,17 @@
 <% } -%>
 <% if (testCommand) { -%>
 
-## ✅ Run tests
+## Run tests
 
 ```sh
 <%= testCommand %>
 ```
 <% } -%>
-<% if (contributingUrl) { -%>
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](<%= contributingUrl %>) if you want to contribute.
-<% } -%>
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
-## 👤 Author
+## Author
 <% if (authorName) { %>
-**<%= authorName %>**
+👤 **<%= authorName %>**
 <% } %>
 <% if (authorTwitterUsername) { -%>
 * Twitter: [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
@@ -78,17 +70,23 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
 <% } -%>
+<% if (contributingUrl) { -%>
 
-## 🙏 Show your support
+## 🤝 Contributing
 
-Please ⭐️ this repository if you like it.
+Contributions, issues and feature requests are welcome !<br />Feel free to check [issues page](<%= contributingUrl %>).
+<% } -%>
+
+## Show your support
+
+Give a ⭐️ if this project helped you !
 <% if (licenseName && licenseUrl) { -%>
 
 ## 📝 License
 
 <% if (authorName && authorGithubUsername) { -%>
-Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).
-<% } %>
+Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).<br />
+<% } -%>
 This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
 <% } -%>
 

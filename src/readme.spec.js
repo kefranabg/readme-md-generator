@@ -122,51 +122,48 @@ describe('readme', () => {
 
 > Generates beautiful README files from git config &amp; package.json infos
 
-## 🏠 Homepage
+### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
-[https://github.com/kefranabg/readme-md-generator#readme](https://github.com/kefranabg/readme-md-generator#readme)
-
-## ⚠️ Prerequisites
+## Prerequisites
 
 - npm &gt;=5.5.0
 - node &gt;=9.3.0
 
-## 📦 Install
+## Install
 
 \`\`\`sh
 npm install
 \`\`\`
 
-## 🚀 Usage
+## Usage
 
 \`\`\`sh
 npm start
 \`\`\`
 
-## ✅ Run tests
+## Run tests
 
 \`\`\`sh
 npm run test
 \`\`\`
 
-## 🤝 Contributing
+## Author
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
-
-## 👤 Author
-
-**Franck Abgrall**
+👤 **Franck Abgrall**
 
 * Github: [@kefranabg](https://github.com/kefranabg)
 
-## 🙏 Show your support
+## 🤝 Contributing
 
-Please ⭐️ this repository if you like it.
+Contributions, issues and feature requests are welcome !<br />Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you !
 
 ## 📝 License
 
-Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).
-
+Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).<br />
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ***
