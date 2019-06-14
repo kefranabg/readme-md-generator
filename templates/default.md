@@ -18,6 +18,11 @@
     <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" target="_blank" />
   </a>
 <% } -%>
+<% if (authorTwitterUsername) { -%>
+  <a href="https://twitter.com/<%= authorTwitterUsername %>">
+    <img alt="Twitter: <%= authorTwitterUsername %>" src="https://img.shields.io/twitter/follow/<%= authorTwitterUsername %>.svg?style=social" target="_blank" />
+  </a>
+<% } -%>
 </p>
 <% if (projectDescription) { -%>
 
