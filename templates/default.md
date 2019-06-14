@@ -3,6 +3,11 @@
 <% if (projectVersion) { -%>
   <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
 <% } -%>
+<% if (projectPrerequisites) { -%>
+<% projectPrerequisites.map(({ name, value }) => { -%>
+  <img src="https://img.shields.io/badge/<%= name %>-<%= encodeURIComponent(value) %>-brightgreen.svg" />
+<% }) -%>
+<% } -%>
 <% if (projectDocumentationUrl) { -%>
   <a href="<%= projectDocumentationUrl %>">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
@@ -36,7 +41,9 @@
 
 ## Prerequisites
 
-- <%= projectPrerequisites.join("\n- "); %>
+<% projectPrerequisites.map(({ name, value }) => { -%>
+- <%= name %> <%= value %>
+<% }) -%>
 <% } -%>
 <% if (installCommand) { -%>
 

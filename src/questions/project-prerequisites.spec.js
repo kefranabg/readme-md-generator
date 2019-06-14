@@ -4,7 +4,7 @@ describe('askProjectPrerequisites', () => {
   it('should return correct question format', () => {
     const engines = {
       npm: '>=5.5.0',
-      node: '>=9.3.0'
+      node: '>= 9.3.0'
     }
     const projectInfos = { engines }
 
@@ -18,12 +18,12 @@ describe('askProjectPrerequisites', () => {
         {
           checked: true,
           name: 'npm >=5.5.0',
-          value: 'npm >=5.5.0'
+          value: { name: 'npm', value: '>=5.5.0' }
         },
         {
           checked: true,
-          name: 'node >=9.3.0',
-          value: 'node >=9.3.0'
+          name: 'node >= 9.3.0',
+          value: { name: 'node', value: '>= 9.3.0' }
         }
       ]
     })

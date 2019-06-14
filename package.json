@@ -26,7 +26,7 @@
     "jest": "^24.8.0"
   },
   "scripts": {
-    "lint": "eslint src/**",
+    "lint": "eslint src",
     "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
     "test": "jest",
     "test:ci": "jest --coverage && codecov"

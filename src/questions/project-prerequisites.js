@@ -7,13 +7,14 @@ const isNil = require('lodash/isNil')
  * @param {Object} engines
  */
 const buildFormattedChoices = engines =>
-  Object.keys(engines)
-    .map(key => `${key} ${engines[key]}`)
-    .map(value => ({
-      name: value,
-      value,
-      checked: true
-    }))
+  Object.keys(engines).map(key => ({
+    name: `${key} ${engines[key]}`,
+    value: {
+      name: key,
+      value: engines[key]
+    },
+    checked: true
+  }))
 
 /**
  * Check if projectInfos has engines properties
