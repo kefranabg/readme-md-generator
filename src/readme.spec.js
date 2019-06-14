@@ -78,7 +78,7 @@ describe('readme', () => {
         'https://github.com/kefranabg/readme-md-generator#readme',
       authorName: 'Franck Abgrall',
       authorGithubUsername: 'kefranabg',
-      authorTwitterUsername: '',
+      authorTwitterUsername: 'FranckAbgrall',
       licenseName: 'MIT',
       licenseUrl:
         'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
@@ -118,6 +118,9 @@ describe('readme', () => {
   <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
   </a>
+  <a href="https://twitter.com/FranckAbgrall">
+    <img alt="Twitter: FranckAbgrall" src="https://img.shields.io/twitter/follow/FranckAbgrall.svg?style=social" target="_blank" />
+  </a>
 </p>
 
 > Generates beautiful README files from git config &amp; package.json infos
@@ -151,6 +154,7 @@ npm run test
 
 👤 **Franck Abgrall**
 
+* Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
 * Github: [@kefranabg](https://github.com/kefranabg)
 
 ## 🤝 Contributing
