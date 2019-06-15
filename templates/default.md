@@ -5,7 +5,7 @@
 <% } -%>
 <% if (projectPrerequisites) { -%>
 <% projectPrerequisites.map(({ name, value }) => { -%>
-  <img src="https://img.shields.io/badge/<%= name %>-<%= encodeURIComponent(value) %>-brightgreen.svg" />
+  <img src="https://img.shields.io/badge/<%= name %>-<%= encodeURIComponent(value) %>-blue.svg" />
 <% }) -%>
 <% } -%>
 <% if (projectDocumentationUrl) { -%>
