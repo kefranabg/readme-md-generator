@@ -38,19 +38,17 @@ const askQuestions = async (projectInfos, skipQuestions) => {
 
 /**
  * Get the default answer depending on the question type
- * 
- * @param {Object} question 
+ *
+ * @param {Object} question
  */
 const getDefaultAnswer = question => {
   switch (question.type) {
-    case "input":
-      return question.default || ""
-    case "checkbox":
-      return question.choices
-        .filter(itm => itm.checked)
-        .map(itm => itm.value)
+    case 'input':
+      return question.default || ''
+    case 'checkbox':
+      return question.choices.filter(itm => itm.checked).map(itm => itm.value)
     default:
-      return null;
+      return undefined
   }
 }
 

@@ -12,9 +12,23 @@ inquirer.prompt = jest.fn(([question]) =>
 )
 
 jest.mock('./questions', () => ({
-  askProjectName: jest.fn(() => ({ name: 'askProjectName' })),
-  askProjectVersion: jest.fn(() => ({ name: 'askProjectVersion' })),
-  askProjectDescription: jest.fn(() => ({ name: 'askProjectDescription' }))
+  askProjectName: jest.fn(() => ({
+    name: 'askProjectName',
+    type: 'input',
+    default: 'default'
+  })),
+  askProjectVersion: jest.fn(() => ({
+    name: 'askProjectVersion',
+    type: 'input'
+  })),
+  askProjectDescription: jest.fn(() => ({
+    name: 'askProjectDescription',
+    type: 'checkbox',
+    choices: [
+      { value: { name: 'choiceOne', value: 1 }, checked: true },
+      { value: { name: 'choiceTwo', value: 2 }, checked: false }
+    ]
+  }))
 }))
 
 describe('cli', () => {
@@ -57,6 +71,22 @@ describe('cli', () => {
       expect(readme.writeReadme).toHaveBeenCalledWith(readmeContent)
       expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
     })
+
+    it('should forward --yes option to askQuestions', async () => {
+      const template = 'default'
+      const projectInformations = { name: 'readme-md-generator' }
+      const skipQuestions = true
+      utils.showEndMessage = jest.fn()
+
+      await cli.mainProcess({ template, yes: skipQuestions })
+
+      expect(cli.askQuestions).toHaveBeenCalledWith(
+        projectInformations,
+        skipQuestions
+      )
+
+      expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
+    })
   })
 
   describe('askQuestions', () => {
@@ -68,6 +98,18 @@ describe('cli', () => {
       expect(questions.askProjectName).toHaveBeenCalledTimes(1)
       expect(questions.askProjectVersion).toHaveBeenCalledTimes(1)
       expect(questions.askProjectDescription).toHaveBeenCalledTimes(1)
+    })
+
+    it('should use default values with --yes option', async () => {
+      const projectInfos = { name: 'readme-md-generator' }
+
+      const result = await cli.askQuestions(projectInfos, true)
+
+      expect(result.askProjectName).toEqual('default')
+      expect(result.askProjectVersion).toEqual('')
+      expect(result.askProjectDescription).toEqual([
+        { name: 'choiceOne', value: 1 }
+      ])
     })
 
     it('should return merged contexts', async () => {
