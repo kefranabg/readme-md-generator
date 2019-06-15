@@ -22,7 +22,7 @@ const showEndMessage = () => process.stdout.write(boxen(END_MSG, BOXEN_CONFIG))
  */
 const getPackageJson = async () => {
   try {
-    return loadJsonFile('package.json')
+    return await loadJsonFile('package.json')
   } catch (err) {
     return undefined
   }
