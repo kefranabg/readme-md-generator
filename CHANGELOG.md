@@ -1,6 +1,7 @@
 # Changelog
 
 <a name="0.3.0"></a>
+
 ## 0.3.0 (2019-06-15)
 
 ### Added
@@ -29,5 +30,3 @@
 - 🐛 Fix error when package.json does not exist ([#42](https://github.com/kefranabg/readme-md-generator/issues/42)) ([fe0fc61](https://github.com/kefranabg/readme-md-generator/commit/fe0fc61e4664baf457e1d6f4a35e50e8cd325c10))
 - 🐛 Fix current working directory error ([#46](https://github.com/kefranabg/readme-md-generator/issues/46)) ([6c184ba](https://github.com/kefranabg/readme-md-generator/commit/6c184ba009cfafb25adb1ff7ba6e1c4570de7503))
 - ✏️ Remove whitespace before punctuation marks ([#36](https://github.com/kefranabg/readme-md-generator/issues/36)) ([094f9fb](https://github.com/kefranabg/readme-md-generator/commit/094f9fb5e7ebe6cc9001d1fe54cd9be0362730bd))
-
-
