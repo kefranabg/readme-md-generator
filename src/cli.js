@@ -22,8 +22,10 @@ const askQuestions = async (projectInfos, skipQuestions) => {
     const question = questionBuilder(projectInfos, answersContext)
 
     if (!isNil(question)) {
+      const defaultAnswer = getDefaultAnswer(question);
+
       const currentAnswerContext = skipQuestions
-        ? { [question.name]: question.default }
+        ? { [question.name]: defaultAnswer }
         : await inquirer.prompt([question])
 
       answersContext = {
@@ -34,6 +36,24 @@ const askQuestions = async (projectInfos, skipQuestions) => {
   }
 
   return answersContext
+}
+
+/**
+ * Get the default answer depending on the question type
+ * 
+ * @param {Object} question 
+ */
+const getDefaultAnswer = question => {
+  switch (question.type) {
+    case "input":
+      return question.default || ""
+    case "checkbox":
+      return question.choices
+        .filter(itm => itm.checked)
+        .map(itm => itm.value)
+    default:
+      return null;
+  }
 }
 
 /**
