@@ -159,11 +159,11 @@ npm run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome !<br />Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues).
 
 ## Show your support
 
-Give a ⭐️ if this project helped you !
+Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
