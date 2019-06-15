@@ -14,7 +14,6 @@
     "load-json-file": "^6.0.0",
     "lodash": "^4.17.11",
     "ora": "^3.4.0",
-    "project-name": "^1.0.0",
     "yargs": "^13.2.4"
   },
   "devDependencies": {

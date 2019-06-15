@@ -9,7 +9,8 @@ jest.mock('child_process', () => ({
   execSync: jest.fn()
 }))
 jest.mock('./utils', () => ({
-  getPackageJson: jest.fn()
+  getPackageJson: jest.fn(),
+  getProjectName: jest.fn(() => 'readme-md-generator')
 }))
 
 const succeed = jest.fn()

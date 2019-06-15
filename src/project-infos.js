@@ -1,11 +1,10 @@
-const getProjectName = require('project-name')
 const isNil = require('lodash/isNil')
 const get = require('lodash/get')
 const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
 
-const { getPackageJson } = require('./utils')
+const { getPackageJson, getProjectName } = require('./utils')
 
 const GITHUB_URL = 'https://github.com/'
 
@@ -103,7 +102,7 @@ const getProjectInfos = async () => {
   const spinner = ora('Gathering project infos').start()
 
   const packageJson = await getPackageJson()
-  const name = getProjectName()
+  const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
   const author = get(packageJson, 'author', undefined)
