@@ -65,12 +65,12 @@ describe('utils', () => {
   describe('getProjectName', () => {
     const projectName = 'readme-md-generator'
 
-    beforeAll(() => {
+    beforeEach(() => {
       path.basename = jest.fn(() => projectName)
       getReposName.sync = jest.fn()
     })
 
-    afterAll(() => {
+    afterEach(() => {
       path.basename = realPathBasename
       getReposName.sync = realGetReposNameSync
     })
@@ -97,9 +97,11 @@ describe('utils', () => {
       expect(path.basename).not.toHaveBeenCalled()
     })
 
-    it('should return folder basename when package.json and git repos name are not defined', () => {
+    it('should return folder basename when package.json and git repos name is undefined', () => {
       const packageJson = undefined
-      getReposName.sync.mockReturnValue(undefined)
+      getReposName.sync.mockImplementation(() => {
+        throw new Error('error')
+      })
 
       const result = getProjectName(packageJson)
 
