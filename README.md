@@ -28,19 +28,19 @@
 
 ## ✨ Demo
 
-`readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process :
+`readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process:
 
 <p align="center">
   <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/59459416-07f1e580-8e1d-11e9-89e7-6a5e6b373e93.gif" alt="demo"/>
 </p>
 
-Generated `README.md` :
+Generated `README.md`:
 
 <p align="center">
   <img width="700" src="https://user-images.githubusercontent.com/9840435/59458494-d7a94780-8e1a-11e9-9103-42639c347c38.jpg" alt="cli output"/>
 </p>
 
-Example of `package.json` with good meta data :
+Example of `package.json` with good meta data:
 
 ```json
 // The package.json is not required to run README-MD-GENERATOR
@@ -67,13 +67,13 @@ Example of `package.json` with good meta data :
 
 ## 📦 Install
 
-With npm :
+With npm:
 
 ```sh
 npm i -g readme-md-generator
 ```
 
-With yarn :
+With yarn:
 
 ```sh
 yarn global add readme-md-generator
@@ -81,7 +81,7 @@ yarn global add readme-md-generator
 
 ## 🚀 Usage
 
-Just run the following command at the root of your project and answer questions :
+Just run the following command at the root of your project and answer questions:
 
 ```sh
 readme
@@ -100,7 +100,7 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 
 ## Show your support
 
-Please ⭐️ this repository if this project helped you !
+Please ⭐️ this repository if this project helped you!
 
 ## 📝 License
 

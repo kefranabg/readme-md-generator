@@ -86,12 +86,12 @@
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome !<br />Feel free to check [issues page](<%= contributingUrl %>).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= contributingUrl %>).
 <% } -%>
 
 ## Show your support
 
-Give a ⭐️ if this project helped you !
+Give a ⭐️ if this project helped you!
 <% if (licenseName && licenseUrl) { -%>
 
 ## 📝 License
