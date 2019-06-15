@@ -44,7 +44,10 @@ describe('cli', () => {
 
       expect(projectInfos.getProjectInfos).toHaveBeenCalledTimes(1)
       expect(cli.askQuestions).toHaveBeenCalledTimes(1)
-      expect(cli.askQuestions).toHaveBeenCalledWith(projectInformations, undefined)
+      expect(cli.askQuestions).toHaveBeenCalledWith(
+        projectInformations,
+        undefined
+      )
       expect(readme.buildReadmeContent).toHaveBeenCalledTimes(1)
       expect(readme.buildReadmeContent).toHaveBeenCalledWith(
         answersContext,
