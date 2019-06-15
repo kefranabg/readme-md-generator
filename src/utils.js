@@ -2,7 +2,7 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 
 const END_MSG = `README.md was successfully generated.
-Thanks for using readme-md-generator !`
+Thanks for using readme-md-generator!`
 
 const BOXEN_CONFIG = {
   padding: 1,
