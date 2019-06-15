@@ -42,7 +42,7 @@ describe('readme', () => {
       try {
         await writeReadme(readmeContent)
         // eslint-disable-next-line no-empty
-      } catch (err) { }
+      } catch (err) {}
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Creating README')
@@ -182,7 +182,7 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
       try {
         await buildReadmeContent(context, templateName)
         // eslint-disable-next-line no-empty
-      } catch (err) { }
+      } catch (err) {}
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Loading README template')
