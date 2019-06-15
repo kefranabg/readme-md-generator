@@ -76,6 +76,7 @@ const mainProcess = async ({ template, yes }) => {
 
 const cli = {
   mainProcess,
+  getDefaultAnswer,
   askQuestions
 }
 

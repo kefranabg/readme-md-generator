@@ -89,6 +89,37 @@ describe('cli', () => {
     })
   })
 
+  describe('getDefaultAnswer', () => {
+    it('should handle input prompts correctly', () => {
+      let question = { type: 'input', default: 'default' }
+      let result = cli.getDefaultAnswer(question)
+      expect(result).toEqual(question.default)
+
+      question = {
+        type: 'checkbox',
+        choices: [
+          { value: { name: 'name', value: 'value' }, checked: true },
+          { checked: false }
+        ]
+      }
+      result = cli.getDefaultAnswer(question)
+      expect(result.length).toEqual(1)
+      expect(result[0].name).toEqual(question.choices[0].value.name)
+    })
+
+    it('should return empty string for non-defaulted fields', () => {
+      const question = { type: 'input' }
+      const result = cli.getDefaultAnswer(question)
+      expect(result).toEqual('')
+    })
+
+    it('should return undefined for invalid types', () => {
+      const question = { type: 'invalid' }
+      const result = cli.getDefaultAnswer(question)
+      expect(result).toEqual(undefined)
+    })
+  })
+
   describe('askQuestions', () => {
     it('should call all builder functions exported by questions', async () => {
       const projectInfos = { name: 'readme-md-generator' }
