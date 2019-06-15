@@ -87,6 +87,11 @@ Just run the following command at the root of your project and answer questions:
 readme
 ```
 
+### Available options
+
+- `--version` Display `readme-md-generator` version number
+- `-y, --yes` Use default values for all questions
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
