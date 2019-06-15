@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.2.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-0.3.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg" />
   <img src="https://img.shields.io/badge/node-%3E%3D9.3.0-blue.svg" />
   <!-- <img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg"> -->
@@ -89,7 +89,8 @@ readme
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
+Contributions, issues and feature requests are welcome.<br />
+Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
 
 ## Author
 
