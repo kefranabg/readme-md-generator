@@ -22,10 +22,8 @@ const askQuestions = async (projectInfos, skipQuestions) => {
     const question = questionBuilder(projectInfos, answersContext)
 
     if (!isNil(question)) {
-      const defaultAnswer = getDefaultAnswer(question);
-
       const currentAnswerContext = skipQuestions
-        ? { [question.name]: defaultAnswer }
+        ? { [question.name]: getDefaultAnswer(question) }
         : await inquirer.prompt([question])
 
       answersContext = {
