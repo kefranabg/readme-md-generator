@@ -18,7 +18,7 @@ yargs
   )
   .boolean('yes')
   .alias('y', 'yes')
-  .describe('yes', 'Use default values for all fields.')
+  .describe('yes', 'Use default values for all fields')
   .help()
   .epilog(
     'for more information, find our manual at https://github.com/kefranabg/readme-md-generator'
