@@ -46,7 +46,7 @@ const getDefaultAnswer = question => {
     case 'input':
       return question.default || ''
     case 'checkbox':
-      return question.choices.filter(itm => itm.checked).map(itm => itm.value)
+      return question.choices.filter(choice => choice.checked).map(choice => choice.value)
     default:
       return undefined
   }
