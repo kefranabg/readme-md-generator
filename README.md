@@ -1,6 +1,8 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/version-0.2.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-brightgreen.svg" />
+  <img src="https://img.shields.io/badge/node-%3E%3D9.3.0-brightgreen.svg" />
   <!-- <img src="https://img.shields.io/jsdelivr/npm/hm/readme-md-generator.svg"> -->
   <a href="https://codecov.io/gh/kefranabg/readme-md-generator">
     <img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
