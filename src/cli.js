@@ -11,7 +11,7 @@ const utils = require('./utils')
  *
  * @param {Object} projectInfos
  */
-const askQuestions = async projectInfos => {
+const askQuestions = async (projectInfos, skipQuestions) => {
   let answersContext = {
     isGithubRepos: projectInfos.isGithubRepos,
     repositoryUrl: projectInfos.repositoryUrl,
@@ -22,7 +22,10 @@ const askQuestions = async projectInfos => {
     const question = questionBuilder(projectInfos, answersContext)
 
     if (!isNil(question)) {
-      const currentAnswerContext = await inquirer.prompt([question])
+      const currentAnswerContext = skipQuestions
+        ? { [question.name]: question.default }
+        : await inquirer.prompt([question])
+
       answersContext = {
         ...answersContext,
         ...currentAnswerContext
@@ -42,9 +45,9 @@ const askQuestions = async projectInfos => {
  *
  * @param {Object} args
  */
-const mainProcess = async ({ template }) => {
+const mainProcess = async ({ template, yes }) => {
   const projectInformations = await projectInfos.getProjectInfos()
-  const answersContext = await cli.askQuestions(projectInformations)
+  const answersContext = await cli.askQuestions(projectInformations, yes)
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
     template
