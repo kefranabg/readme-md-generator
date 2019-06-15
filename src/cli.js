@@ -11,7 +11,7 @@ const utils = require('./utils')
  *
  * @param {Object} projectInfos
  */
-const askQuestions = async projectInfos => {
+const askQuestions = async (projectInfos, skipQuestions) => {
   let answersContext = {
     isGithubRepos: projectInfos.isGithubRepos,
     repositoryUrl: projectInfos.repositoryUrl,
@@ -22,7 +22,10 @@ const askQuestions = async projectInfos => {
     const question = questionBuilder(projectInfos, answersContext)
 
     if (!isNil(question)) {
-      const currentAnswerContext = await inquirer.prompt([question])
+      const currentAnswerContext = skipQuestions
+        ? { [question.name]: getDefaultAnswer(question) }
+        : await inquirer.prompt([question])
+
       answersContext = {
         ...answersContext,
         ...currentAnswerContext
@@ -34,6 +37,24 @@ const askQuestions = async projectInfos => {
 }
 
 /**
+ * Get the default answer depending on the question type
+ *
+ * @param {Object} question
+ */
+const getDefaultAnswer = question => {
+  switch (question.type) {
+    case 'input':
+      return question.default || ''
+    case 'checkbox':
+      return question.choices
+        .filter(choice => choice.checked)
+        .map(choice => choice.value)
+    default:
+      return undefined
+  }
+}
+
+/**
  * Main process:
  * 1) Gather project infos
  * 2) Ask user questions
@@ -42,9 +63,9 @@ const askQuestions = async projectInfos => {
  *
  * @param {Object} args
  */
-const mainProcess = async ({ template }) => {
+const mainProcess = async ({ template, yes }) => {
   const projectInformations = await projectInfos.getProjectInfos()
-  const answersContext = await cli.askQuestions(projectInformations)
+  const answersContext = await cli.askQuestions(projectInformations, yes)
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
     template
@@ -57,6 +78,7 @@ const mainProcess = async ({ template }) => {
 
 const cli = {
   mainProcess,
+  getDefaultAnswer,
   askQuestions
 }
 
