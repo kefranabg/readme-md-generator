@@ -20,6 +20,7 @@ yargs
   .alias('y', 'yes')
   .describe('yes', 'Use default values for all fields')
   .help()
+  .alias('v', 'version')
   .epilog(
     'for more information, find our manual at https://github.com/kefranabg/readme-md-generator'
   )
