@@ -66,15 +66,7 @@ Just run the following command at the root of your project and answer questions:
 npx readme-md-generator
 ```
 
-<<<<<<< Updated upstream
 OR use default values for all questions (`-y, --yes`):
-=======
-## 🚀 Usage
-
-Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since npm `5.2.0`)
-
-Just run the following command at the root of your project and answer questions:
->>>>>>> Stashed changes
 
 ```sh
 npx readme-md-generator -y
