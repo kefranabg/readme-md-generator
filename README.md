@@ -56,32 +56,21 @@ Example of `package.json` with good meta data:
 }
 ```
 
-## 📦 Install
-
-With npm:
-
-```sh
-npm i -g readme-md-generator
-```
-
-With yarn:
-
-```sh
-yarn global add readme-md-generator
-```
-
 ## 🚀 Usage
+
+Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since npm `5.2.0`)
 
 Just run the following command at the root of your project and answer questions:
 
 ```sh
-readme
+npx readme-md-generator
 ```
 
-### Available options
+OR use default values for all questions (`-y, --yes`):
 
-- `--version` Display `readme-md-generator` version number
-- `-y, --yes` Use default values for all questions
+```sh
+npx readme-md-generator -y
+```
 
 ## 🤝 Contributing
 
