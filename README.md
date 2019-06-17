@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to readme-md-generator 👋</h1>
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.3.0-orange.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/npm/v/readme-md-generator.svg?orange=blue" />
   <a href="https://www.npmjs.com/package/readme-md-generator">
     <img alt="downloads" src="https://img.shields.io/npm/dm/readme-md-generator.svg?color=blue" target="_blank" />
   </a>
@@ -66,7 +66,15 @@ Just run the following command at the root of your project and answer questions:
 npx readme-md-generator
 ```
 
+<<<<<<< Updated upstream
 OR use default values for all questions (`-y, --yes`):
+=======
+## 🚀 Usage
+
+Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since npm `5.2.0`)
+
+Just run the following command at the root of your project and answer questions:
+>>>>>>> Stashed changes
 
 ```sh
 npx readme-md-generator -y
