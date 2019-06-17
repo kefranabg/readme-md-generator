@@ -72,17 +72,6 @@ OR use default values for all questions (`-y, --yes`):
 npx readme-md-generator -y
 ```
 
-## Author
-
-👤 **Franck Abgrall**
-
-- Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github: [@kefranabg](https://github.com/kefranabg)
-
-## Show your support
-
-Please ⭐️ this repository if this project helped you!
-
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
@@ -95,6 +84,17 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
 <table><tr><td align="center"><a href="https://www.franck-abgrall.me/"><img src="https://avatars3.githubusercontent.com/u/9840435?v=4" width="75px;" alt="Franck Abgrall"/><br /><sub><b>Franck Abgrall</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=kefranabg" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Author
+
+👤 **Franck Abgrall**
+
+- Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
+- Github: [@kefranabg](https://github.com/kefranabg)
+
+## Show your support
+
+Please ⭐️ this repository if this project helped you!
 
 ## 📝 License
 
