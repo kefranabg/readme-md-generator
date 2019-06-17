@@ -11,7 +11,51 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/9840435?v=4",
       "profile": "https://www.franck-abgrall.me/",
       "contributions": [
+        "code",
+        "doc",
+        "test",
+        "question",
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "yannbertrand",
+      "name": "Yann Bertrand",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5855339?v=4",
+      "profile": "http://yann-bertrand.fr/",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "NikxDa",
+      "name": "Nik",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3141005?v=4",
+      "profile": "https://nikx.io",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "ssoobratty",
+      "name": "Saffaanh Soobratty",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7631054?v=4",
+      "profile": "https://github.com/ssoobratty",
+      "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "samit4me",
+      "name": "Samuel Sharpe",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3248531?v=4",
+      "profile": "https://github.com/samit4me",
+      "contributions": [
+        "doc"
       ]
     }
   ],
@@ -19,5 +63,6 @@
   "projectName": "readme-md-generator",
   "projectOwner": "kefranabg",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitConvention": "none"
 }

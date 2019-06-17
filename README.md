@@ -81,7 +81,15 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://www.franck-abgrall.me/"><img src="https://avatars3.githubusercontent.com/u/9840435?v=4" width="75px;" alt="Franck Abgrall"/><br /><sub><b>Franck Abgrall</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=kefranabg" title="Code">💻</a></td></tr></table>
+<table>
+  <tr>
+    <td align="center"><a href="https://www.franck-abgrall.me/"><img src="https://avatars3.githubusercontent.com/u/9840435?v=4" width="75px;" alt="Franck Abgrall"/><br /><sub><b>Franck Abgrall</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=kefranabg" title="Code">💻</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=kefranabg" title="Documentation">📖</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=kefranabg" title="Tests">⚠️</a> <a href="#question-kefranabg" title="Answering Questions">💬</a> <a href="https://github.com/kefranabg/readme-md-generator/issues?q=author%3Akefranabg" title="Bug reports">🐛</a> <a href="#maintenance-kefranabg" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://yann-bertrand.fr/"><img src="https://avatars0.githubusercontent.com/u/5855339?v=4" width="75px;" alt="Yann Bertrand"/><br /><sub><b>Yann Bertrand</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=yannbertrand" title="Code">💻</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=yannbertrand" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://nikx.io"><img src="https://avatars2.githubusercontent.com/u/3141005?v=4" width="75px;" alt="Nik"/><br /><sub><b>Nik</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Code">💻</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Documentation">📖</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/ssoobratty"><img src="https://avatars3.githubusercontent.com/u/7631054?v=4" width="75px;" alt="Saffaanh Soobratty"/><br /><sub><b>Saffaanh Soobratty</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=ssoobratty" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/samit4me"><img src="https://avatars3.githubusercontent.com/u/3248531?v=4" width="75px;" alt="Samuel Sharpe"/><br /><sub><b>Samuel Sharpe</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=samit4me" title="Documentation">📖</a></td>
+  </tr>
+</table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
