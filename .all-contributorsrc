@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "kefranabg",
+      "name": "Franck Abgrall",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9840435?v=4",
+      "profile": "https://www.franck-abgrall.me/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "readme-md-generator",
+  "projectOwner": "kefranabg",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
