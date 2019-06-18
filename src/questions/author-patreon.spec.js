@@ -1,13 +1,28 @@
-const askPatreonLink = require('./author-patreon')
+const askPatreonUsername = require('./author-patreon')
 
-describe('askPatreonLink', () => {
+describe('askPatreonUsername', () => {
   it('should return correct question format', () => {
-    const result = askPatreonLink()
+    const patreonUsername = 'FranckAbgrall'
+    const projectInfos = { patreonUsername }
+    const answersContext = { authorName: 'Franck Abgrall' }
+
+    const result = askPatreonUsername(projectInfos, answersContext)
 
     expect(result).toEqual({
       type: 'input',
-      message: '👤  Patreon link (use empty value to skip)',
-      name: 'authorPatreonLink'
+      message: '👤  Patreon username (use empty value to skip)',
+      name: 'authorPatreonUsername',
+      default: patreonUsername
     })
+  })
+
+  it('should return undefined', () => {
+    const patreonUsername = 'FranckAbgrall'
+    const projectInfos = { patreonUsername }
+    const answersContext = { authorName: 'Franck Abgrall' }
+
+    const result = askPatreonUsername(projectInfos, answersContext)
+
+    expect(result).toBe(undefined)
   })
 })

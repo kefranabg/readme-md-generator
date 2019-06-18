@@ -69,7 +69,7 @@
 <%= testCommand %>
 ```
 <% } -%>
-<% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
+<% if (authorName || authorTwitterUsername || authorGithubUsername || authorPatreonUsername) { -%>
 
 ## Author
 <% if (authorName) { %>
@@ -81,8 +81,10 @@
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
-<% if (authorPatreonLink) { -%>
-* Patreon: <%= authorPatreonLink %>
+<% if (authorPatreonUsername) { -%>
+* Patreon: <a href="https://www.patreon.com/<%= authorPatreonUsername %>">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 <% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>
