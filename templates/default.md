@@ -81,6 +81,9 @@
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
+<% if (authorPatreonLink) { -%>
+* Patreon: <%= authorPatreonLink %>
+<% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>
 
