@@ -6,7 +6,7 @@ describe('askPatreonLink', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '👤  Patreon link',
+      message: '👤  Patreon link (use empty value to skip)',
       name: 'authorPatreonLink'
     })
   })
