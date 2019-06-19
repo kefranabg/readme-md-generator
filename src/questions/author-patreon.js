@@ -1,6 +1,6 @@
 const isEmpty = require('lodash/isEmpty')
 
-module.exports = (projectInfos, answersContext) => (
+module.exports = (projectInfos, answersContext) =>
   isEmpty(answersContext.authorName)
   ? undefined
   : {
@@ -8,4 +8,4 @@ module.exports = (projectInfos, answersContext) => (
       message: '👤  Patreon username (use empty value to skip)',
       name: 'authorPatreonUsername',
       default: projectInfos.patreonUsername
-})
+    }
