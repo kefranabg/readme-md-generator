@@ -69,7 +69,7 @@
 <%= testCommand %>
 ```
 <% } -%>
-<% if (authorName || authorTwitterUsername || authorGithubUsername || authorPatreonUsername) { -%>
+<% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
 
 ## Author
 <% if (authorName) { %>
@@ -80,11 +80,6 @@
 <% } -%>
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
-<% } -%>
-<% if (authorPatreonUsername) { -%>
-* Patreon: <a href="https://www.patreon.com/<%= authorPatreonUsername %>">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
 <% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>
@@ -97,6 +92,12 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+<% if (authorPatreonUsername) { -%>
+
+<a href="https://www.patreon.com/<%= authorPatreonUsername %>">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+<% } -%>
 <% if (licenseName && licenseUrl) { -%>
 
 ## 📝 License

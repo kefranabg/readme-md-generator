@@ -88,6 +88,7 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
     <td align="center"><a href="https://nikx.io"><img src="https://avatars2.githubusercontent.com/u/3141005?v=4" width="75px;" alt="Nik"/><br /><sub><b>Nik</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Code">💻</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Documentation">📖</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=NikxDa" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/ssoobratty"><img src="https://avatars3.githubusercontent.com/u/7631054?v=4" width="75px;" alt="Saffaanh Soobratty"/><br /><sub><b>Saffaanh Soobratty</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=ssoobratty" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/samit4me"><img src="https://avatars3.githubusercontent.com/u/3248531?v=4" width="75px;" alt="Samuel Sharpe"/><br /><sub><b>Samuel Sharpe</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=samit4me" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/apatrascu"><img src="https://avatars3.githubusercontent.com/u/1193770?v=4" width="75px;" alt="Alecsandru Patrascu"/><br /><sub><b>Alecsandru Patrascu</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=apatrascu" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -103,6 +104,10 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
 ## Show your support
 
 Please ⭐️ this repository if this project helped you!
+
+<a href="https://www.patreon.com/FranckAbgrall">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 
 ## 📝 License
 
