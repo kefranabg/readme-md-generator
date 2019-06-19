@@ -19,7 +19,7 @@ describe('askPatreonUsername', () => {
   it('should return undefined', () => {
     const patreonUsername = 'FranckAbgrall'
     const projectInfos = { patreonUsername }
-    const answersContext = { authorName: 'Franck Abgrall' }
+    const answersContext = { authorName: '' }
 
     const result = askPatreonUsername(projectInfos, answersContext)
 
