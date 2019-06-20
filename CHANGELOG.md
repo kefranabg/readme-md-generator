@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="0.4.0"></a>
+## 0.4.0 (2019-06-19)
+
+### Added
+
+- ✨ Add -v alias for --version option ([#50](https://github.com/kefranabg/readme-md-generator/issues/50)) [[a30cf02](https://github.com/kefranabg/readme-md-generator/commit/a30cf02531a4d26e85ed5e9db9ada6262d478711)]
+- ✨ Enable funding [[af10690](https://github.com/kefranabg/readme-md-generator/commit/af10690857df92d29807a37abce055d5351f99f4)]
+- ✨ Ask for Patreon username ([#58](https://github.com/kefranabg/readme-md-generator/issues/58)) [[59b57af](https://github.com/kefranabg/readme-md-generator/commit/59b57af7aa5ce91ff0ce1998bff835d781b5df79)]
+
+### Miscellaneous
+
+- 📝 Add available options in README ([#49](https://github.com/kefranabg/readme-md-generator/issues/49)) [[93da519](https://github.com/kefranabg/readme-md-generator/commit/93da51958d04335674201490cb90b9f04f5551bb)]
+- 📝 Update badge list on README [[e87ed1a](https://github.com/kefranabg/readme-md-generator/commit/e87ed1ae92f04cc94e06a3e6339090588b3eaa17)]
+- 📝 Update doc to use npx ([#55](https://github.com/kefranabg/readme-md-generator/issues/55)) [[77d6fdc](https://github.com/kefranabg/readme-md-generator/commit/77d6fdc4f0a2d9b86d3169f35ed8eab355ebcd68)]
+- 📝 Replace static version badge by a dynamic one [[99a507d](https://github.com/kefranabg/readme-md-generator/commit/99a507d6ebf54b58aaf941e1752e7e4d16565a53)]
+- 📝 Update README [[0dff1e5](https://github.com/kefranabg/readme-md-generator/commit/0dff1e5562404559b2ad64ccf0c8fc3d1df73f92)]
+-  docs: add kefranabg as a contributor ([#57](https://github.com/kefranabg/readme-md-generator/issues/57)) [[e5d9d53](https://github.com/kefranabg/readme-md-generator/commit/e5d9d5376b8341e06005e497728935c2874631b6)]
+- 👥 Add contributors [[2533cd8](https://github.com/kefranabg/readme-md-generator/commit/2533cd8f2c8c78a043e67ca2bead9b4606606121)]
+
+
 <a name="0.3.0"></a>
 
 ## 0.3.0 (2019-06-15)
