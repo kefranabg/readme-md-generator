@@ -6,11 +6,9 @@ const questionsBuilders = require('./questions')
 const utils = require('./utils')
 
 /**
- * Ask user questions and return context to generate a README
- *
- * @param {Object} projectInfos
+ * Get questions
  */
-const askQuestions = async (projectInfos, skipQuestions) => {
+const getQuestions = () => {
   const questions = []
 
   for (const questionBuilder of Object.values(questionsBuilders)) {
@@ -18,8 +16,19 @@ const askQuestions = async (projectInfos, skipQuestions) => {
     questions.push(question)
   }
 
+  return questions
+}
+
+/**
+ * Ask user questions and return context to generate a README
+ *
+ * @param {Object} projectInfos
+ */
+const askQuestions = async (projectInfos, skipQuestions) => {
+  const questions = getQuestions()
+
   const answersContext = skipQuestions
-    ? getDefaultAnswers(questions)
+    ? utils.getDefaultAnswers(questions)
     : await inquirer.prompt(questions)
 
   return {
@@ -27,37 +36,6 @@ const askQuestions = async (projectInfos, skipQuestions) => {
     repositoryUrl: projectInfos.repositoryUrl,
     projectPrerequisites: undefined,
     ...answersContext
-  }
-}
-
-const getDefaultAnswers = questions => {
-  let answersContext = {}
-
-  questions.forEach(question => {
-    answersContext = {
-      [question.name]: getDefaultAnswer(question),
-      ...answersContext
-    }
-  })
-
-  return answersContext
-}
-
-/**
- * Get the default answer depending on the question type
- *
- * @param {Object} question
- */
-const getDefaultAnswer = question => {
-  switch (question.type) {
-    case 'input':
-      return question.default || ''
-    case 'checkbox':
-      return question.choices
-        .filter(choice => choice.checked)
-        .map(choice => choice.value)
-    default:
-      return undefined
   }
 }
 
@@ -85,7 +63,6 @@ const mainProcess = async ({ template, yes }) => {
 
 const cli = {
   mainProcess,
-  getDefaultAnswer,
   askQuestions
 }
 

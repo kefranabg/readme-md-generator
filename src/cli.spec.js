@@ -7,8 +7,13 @@ const questions = require('./questions')
 
 const realAskQuestions = cli.askQuestions
 
-inquirer.prompt = jest.fn(([question]) =>
-  Promise.resolve({ [question.name]: 'value' })
+inquirer.prompt = jest.fn(questions =>
+  Promise.resolve(
+    questions.reduce((result, question) => {
+      result[question.name] = 'value'
+      return result
+    }, {})
+  )
 )
 
 jest.mock('./questions', () => ({
@@ -92,39 +97,6 @@ describe('cli', () => {
         projectInformations,
         skipQuestions
       )
-    })
-  })
-
-  describe('getDefaultAnswer', () => {
-    it('should handle input prompts correctly', () => {
-      const question = { type: 'input', default: 'default' }
-      const result = cli.getDefaultAnswer(question)
-      expect(result).toEqual(question.default)
-    })
-
-    it('should handle choices prompts correctly', () => {
-      const value = { name: 'name', value: 'value' }
-      const question = {
-        type: 'checkbox',
-        choices: [{ value, checked: true }, { checked: false }]
-      }
-      const result = cli.getDefaultAnswer(question)
-
-      expect(result).toEqual([value])
-    })
-
-    it('should return empty string for non-defaulted fields', () => {
-      const question = { type: 'input' }
-      const result = cli.getDefaultAnswer(question)
-
-      expect(result).toEqual('')
-    })
-
-    it('should return undefined for invalid types', () => {
-      const question = { type: 'invalid' }
-      const result = cli.getDefaultAnswer(question)
-
-      expect(result).toEqual(undefined)
     })
   })
 
