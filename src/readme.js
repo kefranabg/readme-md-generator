@@ -43,10 +43,11 @@ const getReadmeTemplate = async templatePath => {
 }
 
 /**
- * Build README content with the given answersContext and templateName
+ * Build README content with the given answersContext, templateName, customTemplate
  *
  * @param {Object} context
  * @param {string} templateName
+ * @param {string} customTemplate
  */
 const buildReadmeContent = async (context, templateName, customTemplate) => {
   const currentYear = getYear(new Date())
