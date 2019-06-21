@@ -1,5 +1,4 @@
 const inquirer = require('inquirer')
-const { isNil } = require('lodash')
 
 const readme = require('./readme')
 const projectInfos = require('./project-infos')
@@ -12,26 +11,34 @@ const utils = require('./utils')
  * @param {Object} projectInfos
  */
 const askQuestions = async (projectInfos, skipQuestions) => {
-  let answersContext = {
-    isGithubRepos: projectInfos.isGithubRepos,
-    repositoryUrl: projectInfos.repositoryUrl,
-    projectPrerequisites: undefined
-  }
+  const questions = []
 
   for (const questionBuilder of Object.values(questionsBuilders)) {
-    const question = questionBuilder(projectInfos, answersContext)
-
-    if (!isNil(question)) {
-      const currentAnswerContext = skipQuestions
-        ? { [question.name]: getDefaultAnswer(question) }
-        : await inquirer.prompt([question])
-
-      answersContext = {
-        ...answersContext,
-        ...currentAnswerContext
-      }
-    }
+    const question = questionBuilder(projectInfos)
+    questions.push(question)
   }
+
+  const answersContext = skipQuestions
+    ? getDefaultAnswers(questions)
+    : await inquirer.prompt(questions)
+
+  return {
+    isGithubRepos: projectInfos.isGithubRepos,
+    repositoryUrl: projectInfos.repositoryUrl,
+    projectPrerequisites: undefined,
+    ...answersContext
+  }
+}
+
+const getDefaultAnswers = questions => {
+  let answersContext = {}
+
+  questions.forEach(question => {
+    answersContext = {
+      [question.name]: getDefaultAnswer(question),
+      ...answersContext
+    }
+  })
 
   return answersContext
 }
