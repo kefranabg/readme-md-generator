@@ -1,6 +1,7 @@
 const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
+const fs = require('fs')
 const getReposName = require('git-repo-name')
 
 const END_MSG = `README.md was successfully generated.
@@ -99,10 +100,24 @@ const getDefaultAnswer = (question, answersContext) => {
   }
 }
 
+/**
+ * Check if given file path is valid
+ */
+const validateFilePath = filePath => {
+  let isValid = null
+  try {
+    isValid = fs.lstatSync(filePath).isFile()
+  } catch (err) {
+    isValid = false
+  }
+  return isValid
+}
+
 module.exports = {
   getPackageJson,
   showEndMessage,
   getProjectName,
+  validateFilePath,
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswers,
