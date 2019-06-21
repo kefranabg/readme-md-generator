@@ -50,10 +50,8 @@ const getReadmeTemplate = async templatePath => {
  */
 const buildReadmeContent = async (context, templateName, customTemplate) => {
   const currentYear = getYear(new Date())
-  const templatePath = customTemplate || path.resolve(
-    __dirname,
-    `../templates/${templateName}.md`
-  )
+  const templatePath =
+    customTemplate || path.resolve(__dirname, `../templates/${templateName}.md`)
   const template = await getReadmeTemplate(templatePath)
 
   return ejs.render(template, {
