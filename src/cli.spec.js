@@ -78,7 +78,8 @@ describe('cli', () => {
       expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
         1,
         answersContext,
-        template
+        template,
+        null
       )
       expect(readme.writeReadme).toHaveBeenNthCalledWith(1, readmeContent)
       expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
