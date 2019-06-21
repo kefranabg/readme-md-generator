@@ -16,6 +16,9 @@ yargs
       }),
     args => mainProcess(args)
   )
+  .string('p')
+  .alias('p', 'path')
+  .describe('path', 'Path to your own template')
   .boolean('yes')
   .alias('y', 'yes')
   .describe('yes', 'Use default values for all fields')
