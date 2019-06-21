@@ -48,9 +48,9 @@ const getReadmeTemplate = async templatePath => {
  * @param {Object} context
  * @param {string} templateName
  */
-const buildReadmeContent = async (context, templateName) => {
+const buildReadmeContent = async (context, templateName, customTemplate) => {
   const currentYear = getYear(new Date())
-  const templatePath = path.resolve(
+  const templatePath = customTemplate || path.resolve(
     __dirname,
     `../templates/${templateName}.md`
   )
