@@ -65,10 +65,46 @@ const getPackageJson = async () => {
   }
 }
 
+/**
+ * Get default question's answers
+ *
+ * @param {Array} questions
+ */
+const getDefaultAnswers = questions =>
+  questions.reduce(
+    (answersContext, question) => ({
+      ...answersContext,
+      [question.name]: getDefaultAnswer(question, answersContext)
+    }),
+    {}
+  )
+
+/**
+ * Get the default answer depending on the question type
+ *
+ * @param {Object} question
+ */
+const getDefaultAnswer = (question, answersContext) => {
+  if (question.when && !question.when(answersContext)) return undefined
+
+  switch (question.type) {
+    case 'input':
+      return question.default || ''
+    case 'checkbox':
+      return question.choices
+        .filter(choice => choice.checked)
+        .map(choice => choice.value)
+    default:
+      return undefined
+  }
+}
+
 module.exports = {
   getPackageJson,
   showEndMessage,
   getProjectName,
   END_MSG,
-  BOXEN_CONFIG
+  BOXEN_CONFIG,
+  getDefaultAnswers,
+  getDefaultAnswer
 }

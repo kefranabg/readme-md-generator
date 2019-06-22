@@ -37,7 +37,7 @@
 
 ### 🏠 [Homepage](<%= projectHomepage %>)
 <% } -%>
-<% if (projectPrerequisites) { -%>
+<% if (projectPrerequisites && projectPrerequisites.length) { -%>
 
 ## Prerequisites
 

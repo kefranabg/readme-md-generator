@@ -1,10 +1,23 @@
 const inquirer = require('inquirer')
-const { isNil } = require('lodash')
 
 const readme = require('./readme')
-const projectInfos = require('./project-infos')
+const infos = require('./project-infos')
 const questionsBuilders = require('./questions')
 const utils = require('./utils')
+
+/**
+ * Get questions
+ *
+ * @param {Object} projectInfos
+ */
+const getQuestions = projectInfos =>
+  Object.values(questionsBuilders).reduce(
+    (questions, questionBuilder) => [
+      ...questions,
+      questionBuilder(projectInfos)
+    ],
+    []
+  )
 
 /**
  * Ask user questions and return context to generate a README
@@ -12,45 +25,17 @@ const utils = require('./utils')
  * @param {Object} projectInfos
  */
 const askQuestions = async (projectInfos, skipQuestions) => {
-  let answersContext = {
+  const questions = getQuestions(projectInfos)
+
+  const answersContext = skipQuestions
+    ? utils.getDefaultAnswers(questions)
+    : await inquirer.prompt(questions)
+
+  return {
     isGithubRepos: projectInfos.isGithubRepos,
     repositoryUrl: projectInfos.repositoryUrl,
-    projectPrerequisites: undefined
-  }
-
-  for (const questionBuilder of Object.values(questionsBuilders)) {
-    const question = questionBuilder(projectInfos, answersContext)
-
-    if (!isNil(question)) {
-      const currentAnswerContext = skipQuestions
-        ? { [question.name]: getDefaultAnswer(question) }
-        : await inquirer.prompt([question])
-
-      answersContext = {
-        ...answersContext,
-        ...currentAnswerContext
-      }
-    }
-  }
-
-  return answersContext
-}
-
-/**
- * Get the default answer depending on the question type
- *
- * @param {Object} question
- */
-const getDefaultAnswer = question => {
-  switch (question.type) {
-    case 'input':
-      return question.default || ''
-    case 'checkbox':
-      return question.choices
-        .filter(choice => choice.checked)
-        .map(choice => choice.value)
-    default:
-      return undefined
+    projectPrerequisites: undefined,
+    ...answersContext
   }
 }
 
@@ -64,7 +49,7 @@ const getDefaultAnswer = question => {
  * @param {Object} args
  */
 const mainProcess = async ({ template, yes }) => {
-  const projectInformations = await projectInfos.getProjectInfos()
+  const projectInformations = await infos.getProjectInfos()
   const answersContext = await cli.askQuestions(projectInformations, yes)
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
@@ -78,7 +63,6 @@ const mainProcess = async ({ template, yes }) => {
 
 const cli = {
   mainProcess,
-  getDefaultAnswer,
   askQuestions
 }
 
