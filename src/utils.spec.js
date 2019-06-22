@@ -214,7 +214,7 @@ describe('utils', () => {
     })
 
     it('should exit process if file path is an empty string', () => {
-      const exit = jest.spyOn(process, 'exit').mockImplementation(() => { })
+      const exit = jest.spyOn(process, 'exit').mockImplementation(() => {})
       getTemplatePath('default', '')
 
       expect(exit).toHaveBeenCalledWith(1)
