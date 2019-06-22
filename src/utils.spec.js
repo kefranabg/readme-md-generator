@@ -11,6 +11,7 @@ const {
   getPackageJson,
   showEndMessage,
   getProjectName,
+  getTemplatePath,
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswer,
@@ -193,6 +194,30 @@ describe('utils', () => {
         questionOne: 'answer 1',
         questionTwo: 'answer 2'
       })
+    })
+  })
+
+  describe('getTemplatePath', () => {
+    it('should return default template path if the file path is undefined', () => {
+      const actualResult = getTemplatePath('default', undefined)
+      const expectedResult = path.resolve(__dirname, `../templates/default.md`)
+
+      expect(actualResult).toEqual(expectedResult)
+    })
+
+    it('should return custom template path if the file path has valid value', () => {
+      const customTemplate = path.resolve(__dirname, `../templates/default.md`)
+      const expectedResult = customTemplate
+      const actualResult = getTemplatePath('default', customTemplate)
+
+      expect(actualResult).toEqual(expectedResult)
+    })
+
+    it('should exit process if file path is an empty string', () => {
+      const exit = jest.spyOn(process, 'exit').mockImplementation(() => { })
+      getTemplatePath('default', '')
+
+      expect(exit).toHaveBeenCalledWith(1)
     })
   })
 })
