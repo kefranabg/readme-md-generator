@@ -2,6 +2,7 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const { isNil } = require('lodash')
 
 const realPathBasename = path.basename
 const realGetReposNameSync = getReposName.sync
@@ -143,6 +144,31 @@ describe('utils', () => {
       const result = getDefaultAnswer(question)
 
       expect(result).toEqual(undefined)
+    })
+
+    it('should return undefined if when function is defined and return false', () => {
+      const answersContext = {}
+      const question = {
+        type: 'input',
+        when: ansewersContext => !isNil(ansewersContext.licenseUrl)
+      }
+
+      const result = getDefaultAnswer(question, answersContext)
+
+      expect(result).toEqual(undefined)
+    })
+
+    it('should return correct value if when function is defined and return true', () => {
+      const answersContext = { licenseUrl: 'licenseUrl' }
+      const question = {
+        type: 'input',
+        default: 'default',
+        when: ansewersContext => !isNil(ansewersContext.licenseUrl)
+      }
+
+      const result = getDefaultAnswer(question, answersContext)
+
+      expect(result).toEqual('default')
     })
   })
 

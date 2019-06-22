@@ -74,7 +74,7 @@ const getDefaultAnswers = questions =>
   questions.reduce(
     (answersContext, question) => ({
       ...answersContext,
-      [question.name]: getDefaultAnswer(question)
+      [question.name]: getDefaultAnswer(question, answersContext)
     }),
     {}
   )
@@ -84,7 +84,9 @@ const getDefaultAnswers = questions =>
  *
  * @param {Object} question
  */
-const getDefaultAnswer = question => {
+const getDefaultAnswer = (question, answersContext) => {
+  if (question.when && !question.when(answersContext)) return undefined
+
   switch (question.type) {
     case 'input':
       return question.default || ''

@@ -1,23 +1,23 @@
 const inquirer = require('inquirer')
 
 const readme = require('./readme')
-const projectInfos = require('./project-infos')
+const infos = require('./project-infos')
 const questionsBuilders = require('./questions')
 const utils = require('./utils')
 
 /**
  * Get questions
+ *
+ * @param {Object} projectInfos
  */
-const getQuestions = () => {
-  const questions = []
-
-  for (const questionBuilder of Object.values(questionsBuilders)) {
-    const question = questionBuilder(projectInfos)
-    questions.push(question)
-  }
-
-  return questions
-}
+const getQuestions = projectInfos =>
+  Object.values(questionsBuilders).reduce(
+    (questions, questionBuilder) => [
+      ...questions,
+      questionBuilder(projectInfos)
+    ],
+    []
+  )
 
 /**
  * Ask user questions and return context to generate a README
@@ -25,7 +25,7 @@ const getQuestions = () => {
  * @param {Object} projectInfos
  */
 const askQuestions = async (projectInfos, skipQuestions) => {
-  const questions = getQuestions()
+  const questions = getQuestions(projectInfos)
 
   const answersContext = skipQuestions
     ? utils.getDefaultAnswers(questions)
@@ -49,7 +49,7 @@ const askQuestions = async (projectInfos, skipQuestions) => {
  * @param {Object} args
  */
 const mainProcess = async ({ template, yes }) => {
-  const projectInformations = await projectInfos.getProjectInfos()
+  const projectInformations = await infos.getProjectInfos()
   const answersContext = await cli.askQuestions(projectInformations, yes)
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
