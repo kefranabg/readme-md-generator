@@ -102,8 +102,11 @@ const getDefaultAnswer = (question, answersContext) => {
 
 /**
  * Check if given file path is valid
+ *
+ * @param {string} filePath
  */
 const validateFilePath = filePath => {
+  if (filePath === undefined) return
   let isValidPath = null
 
   try {
@@ -116,14 +119,30 @@ const validateFilePath = filePath => {
     process.exit(1)
   }
 
-  return isValidPath
+  return
+}
+
+/**
+ * Get path to the template
+ *
+ * @param {string} availableTemplate
+ * @param {string} customTemplate
+ */
+const getTemplatePath = (availableTemplate, customTemplate) => {
+  validateFilePath(customTemplate)
+
+  const templatePath =
+    customTemplate ||
+    path.resolve(__dirname, `../templates/${availableTemplate}.md`)
+
+  return templatePath
 }
 
 module.exports = {
   getPackageJson,
   showEndMessage,
   getProjectName,
-  validateFilePath,
+  getTemplatePath,
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswers,

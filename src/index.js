@@ -3,6 +3,7 @@
 const yargs = require('yargs')
 
 const { mainProcess } = require('./cli')
+const { getTemplatePath } = require('./utils')
 
 yargs
   .usage('Usage: $0 <command> [options]')
@@ -14,7 +15,11 @@ yargs
         desc: 'The name of template you want to use',
         default: 'default'
       }),
-    args => mainProcess(args)
+    args => {
+      const { template: availableTemplate, path: customTemplate, yes } = args
+      const templatePath = getTemplatePath(availableTemplate, customTemplate)
+      mainProcess({ templatePath, yes })
+    }
   )
   .string('p')
   .alias('p', 'path')

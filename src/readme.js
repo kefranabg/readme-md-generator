@@ -1,5 +1,4 @@
 const ejs = require('ejs')
-const path = require('path')
 const ora = require('ora')
 const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
@@ -49,10 +48,8 @@ const getReadmeTemplate = async templatePath => {
  * @param {string} templateName
  * @param {string} customTemplate
  */
-const buildReadmeContent = async (context, templateName, customTemplate) => {
+const buildReadmeContent = async (context, templatePath) => {
   const currentYear = getYear(new Date())
-  const templatePath =
-    customTemplate || path.resolve(__dirname, `../templates/${templateName}.md`)
   const template = await getReadmeTemplate(templatePath)
 
   return ejs.render(template, {
