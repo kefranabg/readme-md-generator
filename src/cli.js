@@ -25,7 +25,7 @@ const getQuestions = projectInfos =>
  * @param {Object} projectInfos
  */
 const askQuestions = async (projectInfos, skipQuestions) => {
-  const questions = getQuestions()
+  const questions = getQuestions(projectInfos)
 
   const answersContext = skipQuestions
     ? utils.getDefaultAnswers(questions)
