@@ -104,13 +104,19 @@ const getDefaultAnswer = (question, answersContext) => {
  * Check if given file path is valid
  */
 const validateFilePath = filePath => {
-  let isValid = null
+  let isValidPath = null
+
   try {
-    isValid = fs.lstatSync(filePath).isFile()
+    isValidPath = fs.lstatSync(filePath).isFile()
   } catch (err) {
-    isValid = false
+    isValidPath = false
   }
-  return isValid
+  if (!isValidPath) {
+    process.stdout.write('Path to file is not valid. Please try again.')
+    process.exit(1)
+  }
+
+  return isValidPath
 }
 
 module.exports = {
