@@ -57,7 +57,7 @@ describe('cli', () => {
     })
 
     it('should call main functions with correct args', async () => {
-      const template = 'default'
+      const templatePath = 'default'
       const projectInformations = { name: 'readme-md-generator' }
       const readmeContent = 'content'
       projectInfos.getProjectInfos = jest.fn(() =>
@@ -67,7 +67,7 @@ describe('cli', () => {
       readme.writeReadme = jest.fn()
       utils.showEndMessage = jest.fn()
 
-      await cli.mainProcess({ template })
+      await cli.mainProcess({ templatePath })
 
       expect(projectInfos.getProjectInfos).toHaveBeenCalledTimes(1)
       expect(cli.askQuestions).toHaveBeenNthCalledWith(
@@ -78,20 +78,19 @@ describe('cli', () => {
       expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
         1,
         answersContext,
-        template,
-        null
+        templatePath
       )
       expect(readme.writeReadme).toHaveBeenNthCalledWith(1, readmeContent)
       expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
     })
 
     it('should forward --yes option to askQuestions', async () => {
-      const template = 'default'
+      const templatePath = 'default'
       const projectInformations = { name: 'readme-md-generator' }
       const skipQuestions = true
       utils.showEndMessage = jest.fn()
 
-      await cli.mainProcess({ template, yes: skipQuestions })
+      await cli.mainProcess({ templatePath, yes: skipQuestions })
 
       expect(cli.askQuestions).toHaveBeenNthCalledWith(
         1,

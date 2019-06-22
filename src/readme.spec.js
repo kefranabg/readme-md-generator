@@ -1,5 +1,6 @@
 const fs = require('fs')
 const ora = require('ora')
+const path = require('path')
 
 jest.mock('ora')
 
@@ -63,7 +64,7 @@ describe('readme', () => {
   })
 
   describe('buildReadmeContent', () => {
-    const templateName = 'default'
+    const templatePath = path.resolve(__dirname, `../templates/default.md`)
     const context = {
       isGithubRepos: true,
       repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
@@ -98,7 +99,7 @@ describe('readme', () => {
     })
 
     it('should call ora with correct parameters in success case', async () => {
-      await buildReadmeContent(context, templateName)
+      await buildReadmeContent(context, templatePath)
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Loading README template')
@@ -107,7 +108,7 @@ describe('readme', () => {
     })
 
     it('should return readme template content', async () => {
-      const result = await buildReadmeContent(context, templateName)
+      const result = await buildReadmeContent(context, templatePath)
 
       expect(result).toMatchSnapshot()
     })
@@ -118,7 +119,7 @@ describe('readme', () => {
       })
 
       try {
-        await buildReadmeContent(context, templateName)
+        await buildReadmeContent(context, templatePath)
         // eslint-disable-next-line no-empty
       } catch (err) {}
 
