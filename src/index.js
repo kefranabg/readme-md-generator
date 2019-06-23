@@ -3,7 +3,7 @@
 const yargs = require('yargs')
 
 const { mainProcess } = require('./cli')
-const { getTemplatePath } = require('./utils')
+const { getReadmeTemplatePath } = require('./readme')
 
 yargs
   .usage('Usage: $0 <command> [options]')
@@ -16,9 +16,8 @@ yargs
         default: 'default'
       }),
     args => {
-      const { template: availableTemplate, path: customTemplate, yes } = args
-      const templatePath = getTemplatePath(availableTemplate, customTemplate)
-      mainProcess({ templatePath, yes })
+      const templatePath = getReadmeTemplatePath(args)
+      mainProcess({ templatePath, yes: args.yes })
     }
   )
   .string('p')

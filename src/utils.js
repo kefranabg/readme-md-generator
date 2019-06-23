@@ -1,7 +1,6 @@
 const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
-const fs = require('fs')
 const getReposName = require('git-repo-name')
 
 const END_MSG = `README.md was successfully generated.
@@ -100,49 +99,10 @@ const getDefaultAnswer = (question, answersContext) => {
   }
 }
 
-/**
- * Check if given file path is valid
- *
- * @param {string} filePath
- */
-const validateFilePath = filePath => {
-  if (filePath === undefined) return
-  let isValidPath = null
-
-  try {
-    isValidPath = fs.lstatSync(filePath).isFile()
-  } catch (err) {
-    isValidPath = false
-  }
-  if (!isValidPath) {
-    process.stdout.write('Path to file is not valid. Please try again.')
-    process.exit(1)
-  }
-
-  return
-}
-
-/**
- * Get path to the template
- *
- * @param {string} availableTemplate
- * @param {string} customTemplate
- */
-const getTemplatePath = (availableTemplate, customTemplate) => {
-  validateFilePath(customTemplate)
-
-  const templatePath =
-    customTemplate ||
-    path.resolve(__dirname, `../templates/${availableTemplate}.md`)
-
-  return templatePath
-}
-
 module.exports = {
   getPackageJson,
   showEndMessage,
   getProjectName,
-  getTemplatePath,
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswers,

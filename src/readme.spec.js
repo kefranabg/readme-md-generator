@@ -4,7 +4,12 @@ const path = require('path')
 
 jest.mock('ora')
 
-const { writeReadme, buildReadmeContent, README_PATH } = require('./readme')
+const {
+  writeReadme,
+  buildReadmeContent,
+  README_PATH,
+  getReadmeTemplatePath
+} = require('./readme')
 
 describe('readme', () => {
   const succeed = jest.fn()
@@ -127,6 +132,67 @@ describe('readme', () => {
       expect(ora).toHaveBeenCalledWith('Loading README template')
       expect(fail).toHaveBeenCalledTimes(1)
       expect(fail).toHaveBeenCalledWith('README template loading fail')
+    })
+  })
+
+  describe('getReadmeTemplatePath', () => {
+    it('should return default template path if customTemplate is undefined', () => {
+      const args = { template: 'default' }
+      const actualResult = getReadmeTemplatePath(args)
+      const expectedResult = path.resolve(__dirname, `../templates/default.md`)
+
+      expect(actualResult).toEqual(expectedResult)
+    })
+
+    it('should return custom template path if customTemplate is defined', () => {
+      const customTemplatePath = path.resolve(
+        __dirname,
+        `../templates/default.md`
+      )
+      const args = { template: 'default', path: customTemplatePath }
+      const expectedResult = customTemplatePath
+      const actualResult = getReadmeTemplatePath(args)
+
+      expect(actualResult).toEqual(expectedResult)
+    })
+
+    it('should throw an error if customTemplate is defined but invalid', () => {
+      const args = { template: 'default', path: 'wrong path' }
+
+      expect(() => getReadmeTemplatePath(args)).toThrow()
+    })
+
+    it('should call ora with correct parameters in fail case', async () => {
+      const args = { template: 'default', path: 'wrong path' }
+
+      try {
+        getReadmeTemplatePath(args)
+        // eslint-disable-next-line no-empty
+      } catch (err) {}
+
+      expect(ora).toHaveBeenNthCalledWith(1, 'Resolving README template path')
+      expect(fail).toHaveBeenNthCalledWith(
+        1,
+        'The template path wrong path is not valid.'
+      )
+    })
+
+    it('should call ora with correct parameters in success case', async () => {
+      const args = {
+        template: 'default',
+        path: path.resolve(__dirname, `../templates/default.md`)
+      }
+
+      try {
+        getReadmeTemplatePath(args)
+        // eslint-disable-next-line no-empty
+      } catch (err) {}
+
+      expect(ora).toHaveBeenNthCalledWith(1, 'Resolving README template path')
+      expect(succeed).toHaveBeenNthCalledWith(
+        1,
+        'README template path resolved'
+      )
     })
   })
 })
