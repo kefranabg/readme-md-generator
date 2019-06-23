@@ -48,12 +48,12 @@ const askQuestions = async (projectInfos, skipQuestions) => {
  *
  * @param {Object} args
  */
-const mainProcess = async ({ template, yes }) => {
+const mainProcess = async ({ templatePath, yes }) => {
   const projectInformations = await infos.getProjectInfos()
   const answersContext = await cli.askQuestions(projectInformations, yes)
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
-    template
+    templatePath
   )
 
   await readme.writeReadme(readmeContent)

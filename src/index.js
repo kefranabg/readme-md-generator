@@ -3,6 +3,7 @@
 const yargs = require('yargs')
 
 const { mainProcess } = require('./cli')
+const { getReadmeTemplatePath } = require('./readme')
 
 yargs
   .usage('Usage: $0 <command> [options]')
@@ -14,8 +15,14 @@ yargs
         desc: 'The name of template you want to use',
         default: 'default'
       }),
-    args => mainProcess(args)
+    args => {
+      const templatePath = getReadmeTemplatePath(args)
+      mainProcess({ templatePath, yes: args.yes })
+    }
   )
+  .string('p')
+  .alias('p', 'path')
+  .describe('path', 'Path to your own template')
   .boolean('yes')
   .alias('y', 'yes')
   .describe('yes', 'Use default values for all fields')

@@ -1,9 +1,10 @@
 const ejs = require('ejs')
-const path = require('path')
 const ora = require('ora')
 const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
 const fs = require('fs')
+const path = require('path')
+const { isNil } = require('lodash')
 
 const README_PATH = 'README.md'
 
@@ -43,17 +44,13 @@ const getReadmeTemplate = async templatePath => {
 }
 
 /**
- * Build README content with the given answersContext and templateName
+ * Build README content with the given context and templatePath
  *
  * @param {Object} context
- * @param {string} templateName
+ * @param {string} templatePath
  */
-const buildReadmeContent = async (context, templateName) => {
+const buildReadmeContent = async (context, templatePath) => {
   const currentYear = getYear(new Date())
-  const templatePath = path.resolve(
-    __dirname,
-    `../templates/${templateName}.md`
-  )
   const template = await getReadmeTemplate(templatePath)
 
   return ejs.render(template, {
@@ -63,8 +60,36 @@ const buildReadmeContent = async (context, templateName) => {
   })
 }
 
+/**
+ * Get path to the readme template
+ *
+ * @param {string} availableTemplate
+ * @param {string} customTemplate
+ */
+const getReadmeTemplatePath = args => {
+  const spinner = ora('Resolving README template path').start()
+
+  const { template: availableTemplate, path: customTemplate } = args
+
+  const templatePath = isNil(customTemplate)
+    ? path.resolve(__dirname, `../templates/${availableTemplate}.md`)
+    : customTemplate
+
+  try {
+    fs.lstatSync(templatePath).isFile()
+  } catch (err) {
+    spinner.fail(`The template path '${templatePath}' is not valid.`)
+    throw err
+  }
+
+  spinner.succeed('README template path resolved')
+
+  return templatePath
+}
+
 module.exports = {
   writeReadme,
   buildReadmeContent,
-  README_PATH
+  README_PATH,
+  getReadmeTemplatePath
 }
