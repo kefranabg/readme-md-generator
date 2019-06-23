@@ -273,7 +273,7 @@ describe('projectInfos', () => {
       })
     })
 
-    it('should return correct infos when author defined as an object', async () => {
+    it('should return correct infos when author is defined as an object', async () => {
       const packgeJsonInfos = {
         name: 'readme-md-generator',
         version: '0.1.3',
