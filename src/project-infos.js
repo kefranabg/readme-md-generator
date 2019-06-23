@@ -104,10 +104,9 @@ const getReadmeUrlFromGithubRepositoryUrl = repositoryUrl =>
 const getAuthorName = packageJson => {
   if (has(packageJson, 'author.name')) {
     return get(packageJson, 'author.name', undefined)
-  } else if (
-    has(packageJson, 'author') &&
-    typeof packageJson.author === 'string'
-  ) {
+  }
+
+  if (has(packageJson, 'author') && typeof packageJson.author === 'string') {
     return get(packageJson, 'author', undefined)
   }
 

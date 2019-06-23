@@ -29,7 +29,7 @@ describe('readme', () => {
   describe('writeReadme', () => {
     it('should call ora with correct parameters in success case', async () => {
       const readmeContent = 'content'
-      fs.writeFile = jest.fn((path, content, cb) => cb(null, 'done'))
+      fs.writeFile = jest.fn((_, __, cb) => cb(null, 'done'))
 
       await writeReadme(readmeContent)
 
@@ -58,7 +58,7 @@ describe('readme', () => {
 
     it('should call writeFile with correct parameters', async () => {
       const readmeContent = 'content'
-      fs.writeFile = jest.fn((path, content, cb) => cb(null, 'done'))
+      fs.writeFile = jest.fn((_, __, cb) => cb(null, 'done'))
 
       await writeReadme(readmeContent)
 
@@ -69,7 +69,7 @@ describe('readme', () => {
   })
 
   describe('buildReadmeContent', () => {
-    const templatePath = path.resolve(__dirname, `../templates/default.md`)
+    const templatePath = path.resolve(__dirname, '../templates/default.md')
     const context = {
       isGithubRepos: true,
       repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
@@ -139,7 +139,7 @@ describe('readme', () => {
     it('should return default template path if customTemplate is undefined', () => {
       const args = { template: 'default' }
       const actualResult = getReadmeTemplatePath(args)
-      const expectedResult = path.resolve(__dirname, `../templates/default.md`)
+      const expectedResult = path.resolve(__dirname, '../templates/default.md')
 
       expect(actualResult).toEqual(expectedResult)
     })
@@ -147,7 +147,7 @@ describe('readme', () => {
     it('should return custom template path if customTemplate is defined', () => {
       const customTemplatePath = path.resolve(
         __dirname,
-        `../templates/default.md`
+        '../templates/default.md'
       )
       const args = { template: 'default', path: customTemplatePath }
       const expectedResult = customTemplatePath
@@ -180,7 +180,7 @@ describe('readme', () => {
     it('should call ora with correct parameters in success case', async () => {
       const args = {
         template: 'default',
-        path: path.resolve(__dirname, `../templates/default.md`)
+        path: path.resolve(__dirname, '../templates/default.md')
       }
 
       try {
