@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   askProjectName: require('./project-name'),
   askProjectVersion: require('./project-version'),

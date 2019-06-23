@@ -24,10 +24,7 @@ const showEndMessage = () => process.stdout.write(boxen(END_MSG, BOXEN_CONFIG))
  *
  * @param {Object} packageJson
  */
-const getPackageJsonName = (packageJson = {}) => {
-  return packageJson.name || undefined
-}
-
+const getPackageJsonName = (packageJson = {}) => packageJson.name || undefined
 /**
  * Get git repository name
  *
@@ -66,20 +63,6 @@ const getPackageJson = async () => {
 }
 
 /**
- * Get default question's answers
- *
- * @param {Array} questions
- */
-const getDefaultAnswers = questions =>
-  questions.reduce(
-    (answersContext, question) => ({
-      ...answersContext,
-      [question.name]: getDefaultAnswer(question, answersContext)
-    }),
-    {}
-  )
-
-/**
  * Get the default answer depending on the question type
  *
  * @param {Object} question
@@ -98,6 +81,20 @@ const getDefaultAnswer = (question, answersContext) => {
       return undefined
   }
 }
+
+/**
+ * Get default question's answers
+ *
+ * @param {Array} questions
+ */
+const getDefaultAnswers = questions =>
+  questions.reduce(
+    (answersContext, question) => ({
+      ...answersContext,
+      [question.name]: getDefaultAnswer(question, answersContext)
+    }),
+    {}
+  )
 
 module.exports = {
   getPackageJson,
