@@ -66,6 +66,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nekofar",
+      "name": "Milad Nekofar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/147401?v=4",
+      "profile": "http://milad.nekofar.com",
+      "contributions": [
+        "code",
+        "test",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

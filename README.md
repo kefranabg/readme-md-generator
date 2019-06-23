@@ -89,6 +89,7 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
     <td align="center"><a href="https://github.com/ssoobratty"><img src="https://avatars3.githubusercontent.com/u/7631054?v=4" width="75px;" alt="Saffaanh Soobratty"/><br /><sub><b>Saffaanh Soobratty</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=ssoobratty" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/samit4me"><img src="https://avatars3.githubusercontent.com/u/3248531?v=4" width="75px;" alt="Samuel Sharpe"/><br /><sub><b>Samuel Sharpe</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=samit4me" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/apatrascu"><img src="https://avatars3.githubusercontent.com/u/1193770?v=4" width="75px;" alt="Alecsandru Patrascu"/><br /><sub><b>Alecsandru Patrascu</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=apatrascu" title="Code">💻</a></td>
+    <td align="center"><a href="http://milad.nekofar.com"><img src="https://avatars3.githubusercontent.com/u/147401?v=4" width="75px;" alt="Milad Nekofar"/><br /><sub><b>Milad Nekofar</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=nekofar" title="Code">💻</a> <a href="https://github.com/kefranabg/readme-md-generator/commits?author=nekofar" title="Tests">⚠️</a> <a href="#ideas-nekofar" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
