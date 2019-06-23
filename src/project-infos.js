@@ -96,6 +96,17 @@ const getReadmeUrlFromGithubRepositoryUrl = repositoryUrl =>
   `${repositoryUrl}#readme`
 
 /**
+ * Get project author name from package.json
+ *
+ * @param packageJson
+ * @returns {string} authorName
+ */
+const getAuthorName = packageJson => {
+  const pathToProp = has(packageJson, 'author.name') ? 'author.name' : 'author'
+  return get(packageJson, pathToProp, undefined)
+}
+
+/**
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
@@ -105,7 +116,7 @@ const getProjectInfos = async () => {
   const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
-  const author = get(packageJson, 'author', undefined)
+  const author = getAuthorName(packageJson)
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
