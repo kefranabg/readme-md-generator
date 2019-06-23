@@ -4,6 +4,7 @@ const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
 const fs = require('fs')
 const path = require('path')
+const { isNil } = require('lodash')
 
 const README_PATH = 'README.md'
 
@@ -70,14 +71,14 @@ const getReadmeTemplatePath = args => {
 
   const { template: availableTemplate, path: customTemplate } = args
 
-  const templatePath =
-    customTemplate ||
-    path.resolve(__dirname, `../templates/${availableTemplate}.md`)
+  const templatePath = isNil(customTemplate)
+    ? path.resolve(__dirname, `../templates/${availableTemplate}.md`)
+    : customTemplate
 
   try {
     fs.lstatSync(templatePath).isFile()
   } catch (err) {
-    spinner.fail(`The template path ${templatePath} is not valid.`)
+    spinner.fail(`The template path '${templatePath}' is not valid.`)
     throw err
   }
 

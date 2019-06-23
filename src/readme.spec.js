@@ -173,7 +173,7 @@ describe('readme', () => {
       expect(ora).toHaveBeenNthCalledWith(1, 'Resolving README template path')
       expect(fail).toHaveBeenNthCalledWith(
         1,
-        'The template path wrong path is not valid.'
+        "The template path 'wrong path' is not valid."
       )
     })
 
