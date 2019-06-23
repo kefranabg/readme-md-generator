@@ -2,7 +2,7 @@
 
 const yargs = require('yargs')
 
-const { mainProcess } = require('./cli')
+const mainProcess = require('./cli')
 const { getReadmeTemplatePath } = require('./readme')
 
 yargs
