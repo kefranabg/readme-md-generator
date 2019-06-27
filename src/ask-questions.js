@@ -1,4 +1,5 @@
 const inquirer = require('inquirer')
+const { flatMap } = require('lodash')
 
 const questionsBuilders = require('./questions')
 const utils = require('./utils')
@@ -10,7 +11,7 @@ const utils = require('./utils')
  * @param {Boolean} useDefaultAnswers
  */
 module.exports = async (projectInfos, useDefaultAnswers) => {
-  const questions = Object.values(questionsBuilders).flatMap(questionBuilder =>
+  const questions = flatMap(Object.values(questionsBuilders), questionBuilder =>
     questionBuilder(projectInfos)
   )
 
