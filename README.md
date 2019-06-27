@@ -66,11 +66,19 @@ Just run the following command at the root of your project and answer questions:
 npx readme-md-generator
 ```
 
-OR use default values for all questions (`-y, --yes`):
+Or use default values for all questions (`-y`):
 
 ```sh
 npx readme-md-generator -y
 ```
+
+Use you own `ejs` README template (`-p`):
+
+```sh
+npx readme-md-generator -p path/to/my/own/template.md
+```
+
+You can find [template examples here](https://github.com/kefranabg/readme-md-generator/tree/master/templates).
 
 ## 🤝 Contributing
 
