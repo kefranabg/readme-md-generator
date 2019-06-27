@@ -40,7 +40,7 @@ describe('ask-questions', () => {
   it('should call all builder functions exported by questions', async () => {
     const projectInfos = { name: 'readme-md-generator' }
 
-    await askQuestions(projectInfos)
+    await askQuestions(projectInfos, false)
 
     expect(questions.askProjectName).toHaveBeenCalledTimes(1)
     expect(questions.askProjectVersion).toHaveBeenCalledTimes(1)
@@ -66,7 +66,7 @@ describe('ask-questions', () => {
   it('should return merged contexts', async () => {
     const projectInfos = { name: 'readme-md-generator' }
 
-    const context = await askQuestions(projectInfos)
+    const context = await askQuestions(projectInfos, false)
 
     expect(context).toEqual({
       projectName: 'value',

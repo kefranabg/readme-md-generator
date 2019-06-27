@@ -44,21 +44,29 @@ describe('mainProcess', () => {
   })
 
   it('should call main functions with correct args', async () => {
-    const templatePath = 'default'
+    const customTemplatePath = undefined
+    const useDefaultAnswers = true
     const projectInformations = { name: 'readme-md-generator' }
     const readmeContent = 'content'
+    const templatePath = 'path/to/template'
     infos.getProjectInfos = jest.fn(() => Promise.resolve(projectInformations))
     readme.buildReadmeContent = jest.fn(() => Promise.resolve(readmeContent))
+    readme.getReadmeTemplatePath = jest.fn(() => Promise.resolve(templatePath))
     readme.writeReadme = jest.fn()
     utils.showEndMessage = jest.fn()
 
-    await mainProcess({ templatePath })
+    await mainProcess({ customTemplatePath, useDefaultAnswers })
 
+    expect(readme.getReadmeTemplatePath).toHaveBeenNthCalledWith(
+      1,
+      customTemplatePath,
+      useDefaultAnswers
+    )
     expect(infos.getProjectInfos).toHaveBeenCalledTimes(1)
     expect(askQuestions).toHaveBeenNthCalledWith(
       1,
       projectInformations,
-      undefined
+      useDefaultAnswers
     )
     expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
       1,
@@ -67,20 +75,5 @@ describe('mainProcess', () => {
     )
     expect(readme.writeReadme).toHaveBeenNthCalledWith(1, readmeContent)
     expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
-  })
-
-  it('should forward --yes option to askQuestions', async () => {
-    const template = 'default'
-    const projectInformations = { name: 'readme-md-generator' }
-    const skipQuestions = true
-    utils.showEndMessage = jest.fn()
-
-    await mainProcess({ template, yes: skipQuestions })
-
-    expect(askQuestions).toHaveBeenNthCalledWith(
-      1,
-      projectInformations,
-      skipQuestions
-    )
   })
 })
