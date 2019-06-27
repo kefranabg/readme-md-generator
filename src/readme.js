@@ -3,8 +3,9 @@ const ora = require('ora')
 const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
 const fs = require('fs')
-const path = require('path')
 const { isNil } = require('lodash')
+
+const chooseTemplate = require('./choose-template')
 
 const README_PATH = 'README.md'
 
@@ -61,19 +62,12 @@ const buildReadmeContent = async (context, templatePath) => {
 }
 
 /**
- * Get path to the readme template
+ * Validate template path
  *
- * @param {string} availableTemplate
- * @param {string} customTemplate
+ * @param {string} templatePath
  */
-const getReadmeTemplatePath = args => {
+const validateReadmeTemplatePath = templatePath => {
   const spinner = ora('Resolving README template path').start()
-
-  const { template: availableTemplate, path: customTemplate } = args
-
-  const templatePath = isNil(customTemplate)
-    ? path.resolve(__dirname, `../templates/${availableTemplate}.md`)
-    : customTemplate
 
   try {
     fs.lstatSync(templatePath).isFile()
@@ -83,6 +77,20 @@ const getReadmeTemplatePath = args => {
   }
 
   spinner.succeed('README template path resolved')
+}
+
+/**
+ * Get readme template path
+ * (either a custom template, or a template that user will choose from prompt)
+ *
+ * @param {String} customTemplate
+ */
+const getReadmeTemplatePath = async (customTemplate, useDefaultAnswers) => {
+  const templatePath = isNil(customTemplate)
+    ? await chooseTemplate(useDefaultAnswers)
+    : customTemplate
+
+  validateReadmeTemplatePath(templatePath)
 
   return templatePath
 }

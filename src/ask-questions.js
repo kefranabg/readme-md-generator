@@ -4,28 +4,17 @@ const questionsBuilders = require('./questions')
 const utils = require('./utils')
 
 /**
- * Get questions
- *
- * @param {Object} projectInfos
- */
-const getQuestions = projectInfos =>
-  Object.values(questionsBuilders).reduce(
-    (questions, questionBuilder) => [
-      ...questions,
-      questionBuilder(projectInfos)
-    ],
-    []
-  )
-
-/**
  * Ask user questions and return context to generate a README
  *
  * @param {Object} projectInfos
+ * @param {Boolean} useDefaultAnswers
  */
-module.exports = async (projectInfos, skipQuestions) => {
-  const questions = getQuestions(projectInfos)
+module.exports = async (projectInfos, useDefaultAnswers) => {
+  const questions = Object.values(questionsBuilders).flatMap(questionBuilder =>
+    questionBuilder(projectInfos)
+  )
 
-  const answersContext = skipQuestions
+  const answersContext = useDefaultAnswers
     ? utils.getDefaultAnswers(questions)
     : await inquirer.prompt(questions)
 
