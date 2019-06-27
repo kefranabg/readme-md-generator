@@ -5,11 +5,14 @@
     <img alt="downloads" src="https://img.shields.io/npm/dm/readme-md-generator.svg?color=blue" target="_blank" />
   </a>
   <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
   </a>
   <a href="https://codecov.io/gh/kefranabg/readme-md-generator">
     <img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
-  </a>  
+  </a>
+  <a href="https://github.com/frinyvonnick/gitmoji-changelog">
+    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
+  </a>
   <a href="https://twitter.com/FranckAbgrall">
     <img alt="Twitter: FranckAbgrall" src="https://img.shields.io/twitter/follow/FranckAbgrall.svg?style=social" target="_blank" />
   </a>
@@ -22,13 +25,13 @@
 `readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process:
 
 <p align="center">
-  <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/59459416-07f1e580-8e1d-11e9-89e7-6a5e6b373e93.gif" alt="demo"/>
+  <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/60266022-72a82400-98e7-11e9-9958-f9004c2f97e1.gif" alt="demo"/>
 </p>
 
 Generated `README.md`:
 
 <p align="center">
-  <img width="700" src="https://user-images.githubusercontent.com/9840435/59458494-d7a94780-8e1a-11e9-9103-42639c347c38.jpg" alt="cli output"/>
+  <img width="700" src="https://user-images.githubusercontent.com/9840435/60266090-9cf9e180-98e7-11e9-9cac-3afeec349bbc.jpg" alt="cli output"/>
 </p>
 
 Example of `package.json` with good meta data:
@@ -66,11 +69,19 @@ Just run the following command at the root of your project and answer questions:
 npx readme-md-generator
 ```
 
-OR use default values for all questions (`-y, --yes`):
+Or use default values for all questions (`-y`):
 
 ```sh
 npx readme-md-generator -y
 ```
+
+Use your own `ejs` README template (`-p`):
+
+```sh
+npx readme-md-generator -p path/to/my/own/template.md
+```
+
+You can find [ejs README template examples here](https://github.com/kefranabg/readme-md-generator/tree/master/templates).
 
 ## 🤝 Contributing
 
