@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   askProjectName: require('./project-name'),
   askProjectVersion: require('./project-version'),
@@ -7,6 +8,7 @@ module.exports = {
   askAuhtorName: require('./author-name'),
   askAuthorGithub: require('./author-github'),
   askAuthorTwitter: require('./author-twitter'),
+  askAuthorPatreon: require('./author-patreon'),
   askProjectPrerequisites: require('./project-prerequisites'),
   askLicenseName: require('./license-name'),
   askLicenseUrl: require('./license-url'),

@@ -57,6 +57,36 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "apatrascu",
+      "name": "Alecsandru Patrascu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1193770?v=4",
+      "profile": "https://github.com/apatrascu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nekofar",
+      "name": "Milad Nekofar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/147401?v=4",
+      "profile": "http://milad.nekofar.com",
+      "contributions": [
+        "code",
+        "test",
+        "ideas"
+      ]
+    },
+    {
+      "login": "hgb123",
+      "name": "Bao Ho",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/18468577?v=4",
+      "profile": "https://github.com/hgb123",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

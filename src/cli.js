@@ -1,85 +1,34 @@
-const inquirer = require('inquirer')
-const { isNil } = require('lodash')
-
 const readme = require('./readme')
-const projectInfos = require('./project-infos')
-const questionsBuilders = require('./questions')
+const infos = require('./project-infos')
 const utils = require('./utils')
-
-/**
- * Ask user questions and return context to generate a README
- *
- * @param {Object} projectInfos
- */
-const askQuestions = async (projectInfos, skipQuestions) => {
-  let answersContext = {
-    isGithubRepos: projectInfos.isGithubRepos,
-    repositoryUrl: projectInfos.repositoryUrl,
-    projectPrerequisites: undefined
-  }
-
-  for (const questionBuilder of Object.values(questionsBuilders)) {
-    const question = questionBuilder(projectInfos, answersContext)
-
-    if (!isNil(question)) {
-      const currentAnswerContext = skipQuestions
-        ? { [question.name]: getDefaultAnswer(question) }
-        : await inquirer.prompt([question])
-
-      answersContext = {
-        ...answersContext,
-        ...currentAnswerContext
-      }
-    }
-  }
-
-  return answersContext
-}
-
-/**
- * Get the default answer depending on the question type
- *
- * @param {Object} question
- */
-const getDefaultAnswer = question => {
-  switch (question.type) {
-    case 'input':
-      return question.default || ''
-    case 'checkbox':
-      return question.choices
-        .filter(choice => choice.checked)
-        .map(choice => choice.value)
-    default:
-      return undefined
-  }
-}
+const askQuestions = require('./ask-questions')
 
 /**
  * Main process:
- * 1) Gather project infos
- * 2) Ask user questions
- * 3) Build README content
- * 4) Create README.md file
+ * 1) Get README template path
+ * 2) Gather project infos
+ * 3) Ask user questions
+ * 4) Build README content
+ * 5) Create README.md file
  *
  * @param {Object} args
  */
-const mainProcess = async ({ template, yes }) => {
-  const projectInformations = await projectInfos.getProjectInfos()
-  const answersContext = await cli.askQuestions(projectInformations, yes)
+module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
+  const templatePath = await readme.getReadmeTemplatePath(
+    customTemplatePath,
+    useDefaultAnswers
+  )
+  const projectInformations = await infos.getProjectInfos()
+  const answersContext = await askQuestions(
+    projectInformations,
+    useDefaultAnswers
+  )
   const readmeContent = await readme.buildReadmeContent(
     answersContext,
-    template
+    templatePath
   )
 
   await readme.writeReadme(readmeContent)
 
   utils.showEndMessage()
 }
-
-const cli = {
-  mainProcess,
-  getDefaultAnswer,
-  askQuestions
-}
-
-module.exports = cli

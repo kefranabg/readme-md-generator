@@ -2,6 +2,7 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const { isNil } = require('lodash')
 
 const realPathBasename = path.basename
 const realGetReposNameSync = getReposName.sync
@@ -11,7 +12,9 @@ const {
   showEndMessage,
   getProjectName,
   END_MSG,
-  BOXEN_CONFIG
+  BOXEN_CONFIG,
+  getDefaultAnswer,
+  getDefaultAnswers
 } = require('./utils')
 
 jest.mock('load-json-file')
@@ -108,6 +111,88 @@ describe('utils', () => {
       expect(result).toEqual(projectName)
       expect(getReposName.sync).toHaveBeenCalled()
       expect(path.basename).toHaveBeenCalled()
+    })
+  })
+
+  describe('getDefaultAnswer', () => {
+    it('should handle input prompts correctly', () => {
+      const question = { type: 'input', default: 'default' }
+      const result = getDefaultAnswer(question)
+      expect(result).toEqual(question.default)
+    })
+
+    it('should handle choices prompts correctly', () => {
+      const value = { name: 'name', value: 'value' }
+      const question = {
+        type: 'checkbox',
+        choices: [{ value, checked: true }, { checked: false }]
+      }
+      const result = getDefaultAnswer(question)
+
+      expect(result).toEqual([value])
+    })
+
+    it('should return empty string for non-defaulted fields', () => {
+      const question = { type: 'input' }
+      const result = getDefaultAnswer(question)
+
+      expect(result).toEqual('')
+    })
+
+    it('should return undefined for invalid types', () => {
+      const question = { type: 'invalid' }
+      const result = getDefaultAnswer(question)
+
+      expect(result).toEqual(undefined)
+    })
+
+    it('should return undefined if when function is defined and return false', () => {
+      const answersContext = {}
+      const question = {
+        type: 'input',
+        when: ansewersContext => !isNil(ansewersContext.licenseUrl)
+      }
+
+      const result = getDefaultAnswer(question, answersContext)
+
+      expect(result).toEqual(undefined)
+    })
+
+    it('should return correct value if when function is defined and return true', () => {
+      const answersContext = { licenseUrl: 'licenseUrl' }
+      const question = {
+        type: 'input',
+        default: 'default',
+        when: ansewersContext => !isNil(ansewersContext.licenseUrl)
+      }
+
+      const result = getDefaultAnswer(question, answersContext)
+
+      expect(result).toEqual('default')
+    })
+  })
+
+  describe('getDefaultAnswers', () => {
+    it('should return default answers from questions', () => {
+      const questions = [
+        {
+          type: 'input',
+          name: 'questionOne',
+          default: 'answer 1'
+        },
+        {
+          type: 'input',
+          name: 'questionTwo',
+          default: 'answer 2'
+        }
+      ]
+
+      const result = getDefaultAnswers(questions)
+
+      expect(result).toEqual({
+        questionOne: 'answer 1',
+        questionTwo: 'answer 2'
+      })
     })
   })
 })
