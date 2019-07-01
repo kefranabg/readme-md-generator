@@ -74,7 +74,7 @@ describe('mainProcess', () => {
       projectInformations,
       useDefaultAnswers
     )
-    expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(      
+    expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
       1,
       defaultMessages,
       { projectName: 'readme-md-generator' },

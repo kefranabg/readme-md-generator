@@ -57,7 +57,7 @@ const buildReadmeContent = async (readmeLanguage, context, templatePath) => {
   const template = await getReadmeTemplate(templatePath)
 
   return ejs.render(template, {
-    i18n:readmeLanguage,
+    i18n: readmeLanguage,
     filename: templatePath,
     currentYear,
     ...context
@@ -103,7 +103,7 @@ const getReadmeTemplatePath = async (customTemplate, useDefaultAnswers) => {
  *
  * @param {String} useDefaultAnswers
  */
-const getReadmeLanguage = async (useDefaultAnswers) => {
+const getReadmeLanguage = async useDefaultAnswers => {
   const readmeLanguage = await chooseLanguage(useDefaultAnswers)
 
   return readmeLanguage

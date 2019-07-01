@@ -31,8 +31,6 @@ module.exports = async useDefaultAnswers => {
       }
     ]
   }
-
   const { readmeLanguage } = await inquirer.prompt([question])
-
   return readmeLanguage
 }

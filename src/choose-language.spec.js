@@ -45,7 +45,7 @@ describe('choose-language', () => {
         name: 'readmeLanguage',
         choices: [
           {
-            name: 'English ',
+            name: 'English',
             value: englishMessages
           },
           {

@@ -11,22 +11,14 @@ const defaultNoHtmlTemplatePath = path.resolve(
 )
 chooseTemplate.mockReturnValue(defaultTemplatePath)
 
-const englishMessages = {
-  welcome: "Welcome to",
-  docTitle: "Documentation",
-  homeTitle: "Homepage",
-  preReqTitle: "Prerequisites"
-}
-const portugueseMessages = {
-  welcome: "Bem Vindos ao",
-  docTitle: "Documentação",
-  homeTitle: "Página Inicial",
-  preReqTitle: "Pré Requisitos"
+const defaultLanguage = {
+  welcome: 'Welcome to',
+  docTitle: 'Documentation',
+  homeTitle: 'Homepage',
+  preReqTitle: 'Prerequisites'
 }
 
-const defaultLanguage = englishMessages
-
-chooseLanguage.mockReturnValue(defaultLanguage);
+chooseLanguage.mockReturnValue(defaultLanguage)
 
 const {
   writeReadme,
@@ -137,7 +129,11 @@ describe('readme', () => {
     })
 
     it('should return readme default template content', async () => {
-      const result = await buildReadmeContent(defaultLanguage, context, defaultTemplatePath)
+      const result = await buildReadmeContent(
+        defaultLanguage,
+        context,
+        defaultTemplatePath
+      )
 
       expect(result).toMatchSnapshot()
     })
@@ -210,7 +206,7 @@ describe('readme', () => {
       expect(ora).toHaveBeenNthCalledWith(1, 'Resolving README template path')
       expect(fail).toHaveBeenNthCalledWith(
         1,
-        "The template path 'wrong path' is not valid."
+        'The template path "wrong path" is not valid.'
       )
     })
 
@@ -228,12 +224,11 @@ describe('readme', () => {
   describe('getReadmeLanguage', () => {
     it('should return language that user has selected', async () => {
       const useDefaultAnswers = false
-      const actualResult = await getReadmeLanguage(useDefaultAnswers)      
+      const actualResult = await getReadmeLanguage(useDefaultAnswers)
 
       expect(actualResult).toEqual(defaultLanguage)
       expect(chooseLanguage).toHaveBeenNthCalledWith(1, useDefaultAnswers)
     })
-    
   })
 })
 
