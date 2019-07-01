@@ -2,6 +2,7 @@ const fs = require('fs')
 const ora = require('ora')
 const path = require('path')
 const chooseTemplate = require('./choose-template')
+const chooseLanguage = require('./choose-language')
 
 const defaultTemplatePath = path.resolve(__dirname, '../templates/default.md')
 const defaultNoHtmlTemplatePath = path.resolve(
@@ -10,11 +11,29 @@ const defaultNoHtmlTemplatePath = path.resolve(
 )
 chooseTemplate.mockReturnValue(defaultTemplatePath)
 
+const englishMessages = {
+  welcome: "Welcome to",
+  docTitle: "Documentation",
+  homeTitle: "Homepage",
+  preReqTitle: "Prerequisites"
+}
+const portugueseMessages = {
+  welcome: "Bem Vindos ao",
+  docTitle: "Documentação",
+  homeTitle: "Página Inicial",
+  preReqTitle: "Pré Requisitos"
+}
+
+const defaultLanguage = englishMessages
+
+chooseLanguage.mockReturnValue(defaultLanguage);
+
 const {
   writeReadme,
   buildReadmeContent,
   README_PATH,
-  getReadmeTemplatePath
+  getReadmeTemplatePath,
+  getReadmeLanguage
 } = require('./readme')
 
 describe('readme', () => {
@@ -109,7 +128,7 @@ describe('readme', () => {
     })
 
     it('should call ora with correct parameters in success case', async () => {
-      await buildReadmeContent(context, defaultTemplatePath)
+      await buildReadmeContent(defaultLanguage, context, defaultTemplatePath)
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Loading README template')
@@ -118,13 +137,14 @@ describe('readme', () => {
     })
 
     it('should return readme default template content', async () => {
-      const result = await buildReadmeContent(context, defaultTemplatePath)
+      const result = await buildReadmeContent(defaultLanguage, context, defaultTemplatePath)
 
       expect(result).toMatchSnapshot()
     })
 
     it('should return readme default template no html content', async () => {
       const result = await buildReadmeContent(
+        defaultLanguage,
         context,
         defaultNoHtmlTemplatePath
       )
@@ -204,7 +224,19 @@ describe('readme', () => {
       )
     })
   })
+
+  describe('getReadmeLanguage', () => {
+    it('should return language that user has selected', async () => {
+      const useDefaultAnswers = false
+      const actualResult = await getReadmeLanguage(useDefaultAnswers)      
+
+      expect(actualResult).toEqual(defaultLanguage)
+      expect(chooseLanguage).toHaveBeenNthCalledWith(1, useDefaultAnswers)
+    })
+    
+  })
 })
 
 jest.mock('ora')
 jest.mock('./choose-template')
+jest.mock('./choose-language')

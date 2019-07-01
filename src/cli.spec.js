@@ -44,6 +44,12 @@ describe('mainProcess', () => {
   })
 
   it('should call main functions with correct args', async () => {
+    const defaultMessages = {
+      welcome: "Welcome to",
+      docTitle: "Documentation",
+      homeTitle: "Homepage",
+      preReqTitle: "Prerequisites"
+    }
     const customTemplatePath = undefined
     const useDefaultAnswers = true
     const projectInformations = { name: 'readme-md-generator' }
@@ -68,8 +74,9 @@ describe('mainProcess', () => {
       projectInformations,
       useDefaultAnswers
     )
-    expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
+    expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(      
       1,
+      defaultMessages,
       { projectName: 'readme-md-generator' },
       templatePath
     )
