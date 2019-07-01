@@ -1,4 +1,4 @@
-# Welcome to <%= projectName %> 👋
+# <%= i18n.welcome %> <%= projectName %> 👋
 <% if (projectVersion) { -%>
 ![Version](https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000)
 <% } -%>
@@ -8,7 +8,7 @@
 <% }) -%>
 <% } -%>
 <% if (projectDocumentationUrl) { -%>
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](<%= projectDocumentationUrl %>)
+[![<%= i18n.docTitle %>](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](<%= projectDocumentationUrl %>)
 <% } -%>
 <% if (isGithubRepos) { -%>
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](<%= repositoryUrl %>/graphs/commit-activity)

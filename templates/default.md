@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to <%= projectName %> 👋</h1>
+<h1 align="center"><%= i18n.welcome %> <%= projectName %> 👋</h1>
 <p>
 <% if (projectVersion) { -%>
   <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
@@ -10,7 +10,7 @@
 <% } -%>
 <% if (projectDocumentationUrl) { -%>
   <a href="<%= projectDocumentationUrl %>">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+    <img alt="<%= i18n.docTitle %>" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
 <% } -%>
 <% if (isGithubRepos) { -%>
@@ -35,11 +35,11 @@
 <% } -%>
 <% if (projectHomepage) { -%>
 
-### 🏠 [Homepage](<%= projectHomepage %>)
+### 🏠 [<%= i18n.homeTitle %>](<%= projectHomepage %>)
 <% } -%>
 <% if (projectPrerequisites && projectPrerequisites.length) { -%>
 
-## Prerequisites
+## <%= i18n.preReqTitle %>
 
 <% projectPrerequisites.map(({ name, value }) => { -%>
 - <%= name %> <%= value %>
