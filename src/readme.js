@@ -6,6 +6,7 @@ const fs = require('fs')
 const { isNil } = require('lodash')
 
 const chooseTemplate = require('./choose-template')
+const chooseLanguage = require('./choose-language')
 
 const README_PATH = 'README.md'
 
@@ -47,14 +48,16 @@ const getReadmeTemplate = async templatePath => {
 /**
  * Build README content with the given context and templatePath
  *
+ * @param {Object} readmeLanguage
  * @param {Object} context
  * @param {string} templatePath
  */
-const buildReadmeContent = async (context, templatePath) => {
+const buildReadmeContent = async (readmeLanguage, context, templatePath) => {
   const currentYear = getYear(new Date())
   const template = await getReadmeTemplate(templatePath)
 
   return ejs.render(template, {
+    i18n:readmeLanguage,
     filename: templatePath,
     currentYear,
     ...context
@@ -95,9 +98,20 @@ const getReadmeTemplatePath = async (customTemplate, useDefaultAnswers) => {
   return templatePath
 }
 
+/**
+ * Get readme language
+ *
+ * @param {String} useDefaultAnswers
+ */
+const getReadmeLanguage = async (useDefaultAnswers) => {
+  const readmeLanguage = await chooseLanguage(useDefaultAnswers)
+
+  return readmeLanguage
+}
 module.exports = {
   writeReadme,
   buildReadmeContent,
   README_PATH,
-  getReadmeTemplatePath
+  getReadmeTemplatePath,
+  getReadmeLanguage
 }
