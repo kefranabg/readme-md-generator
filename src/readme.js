@@ -3,7 +3,7 @@ const ora = require('ora')
 const { promisify } = require('util')
 const getYear = require('date-fns/get_year')
 const fs = require('fs')
-const { isNil } = require('lodash')
+const { isNil, unescape } = require('lodash')
 
 const chooseTemplate = require('./choose-template')
 
@@ -18,7 +18,7 @@ const writeReadme = async readmeContent => {
   const spinner = ora('Creating README').start()
 
   try {
-    await promisify(fs.writeFile)(README_PATH, readmeContent)
+    await promisify(fs.writeFile)(README_PATH, unescape(readmeContent))
     spinner.succeed('README created')
   } catch (err) {
     spinner.fail('README creation fail')

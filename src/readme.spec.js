@@ -63,14 +63,14 @@ describe('readme', () => {
     })
 
     it('should call writeFile with correct parameters', async () => {
-      const readmeContent = 'content'
+      const readmeContent = 'John &amp; Bryan'
       fs.writeFile = jest.fn((_, __, cb) => cb(null, 'done'))
 
       await writeReadme(readmeContent)
 
       expect(fs.writeFile).toHaveBeenCalledTimes(1)
       expect(fs.writeFile.mock.calls[0][0]).toBe(README_PATH)
-      expect(fs.writeFile.mock.calls[0][1]).toBe(readmeContent)
+      expect(fs.writeFile.mock.calls[0][1]).toBe('John & Bryan')
     })
   })
 
