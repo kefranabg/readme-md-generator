@@ -114,6 +114,24 @@ const getAuthorName = packageJson => {
 }
 
 /**
+ * Returns an object with dynamic badge information if the package exists on NPM. It returns data for static badge if it does not exist on NPM.
+ *
+ * @param projectName
+ * @param packageJson
+ * @returns {Object{type:string, data:string}} 
+ * Type of badge can be "static" or "dynamic". Data can be undefined.
+ */
+const getVersionAndBadge = (projectName, packageJson) => {
+  try {
+    const badge = execSync(`npm view ${projectName}`, { stdio: 'ignore' })
+    return { type: "dynamic", data: projectName }
+  } catch (err) {
+    const projectVersion = get(packageJson, 'version', undefined)
+    return { type: "static", data: projectVersion }
+  }
+}
+
+/**
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
@@ -124,7 +142,7 @@ const getProjectInfos = async () => {
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
   const author = getAuthorName(packageJson)
-  const version = get(packageJson, 'version', undefined)
+  const version = getVersionAndBadge(name, packageJson)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
   const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined

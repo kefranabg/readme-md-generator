@@ -64,7 +64,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: 'CLI that generates beautiful README.md files.',
-        version: '0.1.3',
+        version: { type: 'dynamic', data: 'readme-md-generator' },
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
@@ -116,7 +116,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: 'CLI that generates beautiful README.md files.',
-        version: '0.1.3',
+        version: { type: 'dynamic', data: 'readme-md-generator' },
         author: 'Franck Abgrall',
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
@@ -147,7 +147,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: undefined,
-        version: undefined,
+        version: { type: 'dynamic', data: 'readme-md-generator' },
         author: undefined,
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
@@ -177,7 +177,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: undefined,
-        version: undefined,
+        version: { type: 'dynamic', data: 'readme-md-generator' },
         author: undefined,
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
@@ -205,7 +205,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: undefined,
-        version: undefined,
+        version: { type: 'static', data: undefined },
         author: undefined,
         repositoryUrl: undefined,
         contributingUrl: undefined,
@@ -251,7 +251,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: 'CLI that generates beautiful README.md files.',
-        version: '0.1.3',
+        version: { type: 'static', data: '0.1.3' },
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
@@ -307,7 +307,7 @@ describe('projectInfos', () => {
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
         description: 'CLI that generates beautiful README.md files.',
-        version: '0.1.3',
+        version: { type: 'dynamic', data: 'readme-md-generator' },
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
