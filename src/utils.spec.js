@@ -198,7 +198,6 @@ describe('utils', () => {
   })
 
   describe('cleanSocialNetworkUsername', () => {
-
     it('should remove prefixed @', () => {
       expect(cleanSocialNetworkUsername('@Slashgear_')).toEqual('Slashgear_')
     })
@@ -208,5 +207,4 @@ describe('utils', () => {
       expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
     })
   })
-
 })
