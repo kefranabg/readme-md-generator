@@ -96,6 +96,14 @@ const getDefaultAnswers = questions =>
     {}
   )
 
+/**
+ * Clean social network username by removing the @ prefix
+ *
+ * @param input social network username input
+ * @returns {*} input without the prefix
+ */
+const cleanSocialNetworkUsername = input => input.replace(/^@/, '')
+
 module.exports = {
   getPackageJson,
   showEndMessage,
@@ -103,5 +111,6 @@ module.exports = {
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswers,
-  getDefaultAnswer
+  getDefaultAnswer,
+  cleanSocialNetworkUsername
 }
