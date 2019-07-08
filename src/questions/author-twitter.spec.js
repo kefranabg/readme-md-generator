@@ -8,7 +8,7 @@ describe('askAuthorTwitter', () => {
       type: 'input',
       message: '🐦  Twitter username (use empty value to skip)',
       name: 'authorTwitterUsername',
-      transformer: expect.any(Function)
+      filter: expect.any(Function)
     })
   })
 })

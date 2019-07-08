@@ -12,7 +12,7 @@ describe('askAuthorGithub', () => {
       message: '👤  Github username (use empty value to skip)',
       name: 'authorGithubUsername',
       default: githubUsername,
-      transformer: expect.any(Function)
+      filter: expect.any(Function)
     })
   })
 })
