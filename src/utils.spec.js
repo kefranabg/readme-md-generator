@@ -202,7 +202,6 @@ describe('utils', () => {
       expect(cleanSocialNetworkUsername('@Slashgear_')).toEqual('Slashgear_')
     })
 
-
     it('should return the same string when string in not prefixed', () => {
       expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
     })
