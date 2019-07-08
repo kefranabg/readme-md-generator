@@ -121,7 +121,7 @@ const getAuthorName = packageJson => {
  * @returns {Object{type:string, data:string}} 
  * Type of badge can be "static" or "dynamic". Data can be undefined.
  */
-const getVersionAndBadge = (projectName, packageJson) => {
+const getVersionBadgeInfo = (projectName, packageJson) => {
   try {
     const badge = execSync(`npm view ${projectName}`, { stdio: 'ignore' })
     return { type: "dynamic", data: projectName }
@@ -142,7 +142,7 @@ const getProjectInfos = async () => {
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
   const author = getAuthorName(packageJson)
-  const version = getVersionAndBadge(name, packageJson)
+  const version = getVersionBadgeInfo(name, packageJson)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
   const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
