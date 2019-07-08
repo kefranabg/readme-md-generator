@@ -114,20 +114,25 @@ const getAuthorName = packageJson => {
 }
 
 /**
- * Returns an object with dynamic badge information if the package exists on NPM. It returns data for static badge if it does not exist on NPM.
+ * Returns an object with dynamic badge information if the package exists on NPM.
+ * It returns data for static badge if it does not exist on NPM.
  *
  * @param projectName
  * @param packageJson
- * @returns {Object{type:string, data:string}} 
+ * @returns {Object{type:string, data:string}}
  * Type of badge can be "static" or "dynamic". Data can be undefined.
  */
 const getVersionBadgeInfo = (projectName, packageJson) => {
+  const projectVersion = get(packageJson, 'version', undefined)
+  const staticBadge = { type: 'static', data: projectVersion }
   try {
     const badge = execSync(`npm view ${projectName}`, { stdio: 'ignore' })
-    return { type: "dynamic", data: projectName }
+    if (badge) {
+      return { type: 'dynamic', data: projectName }
+    }
+    return staticBadge
   } catch (err) {
-    const projectVersion = get(packageJson, 'version', undefined)
-    return { type: "static", data: projectVersion }
+    return staticBadge
   }
 }
 
