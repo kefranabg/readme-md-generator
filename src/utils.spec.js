@@ -14,7 +14,8 @@ const {
   END_MSG,
   BOXEN_CONFIG,
   getDefaultAnswer,
-  getDefaultAnswers
+  getDefaultAnswers,
+  cleanSocialNetworkUsername
 } = require('./utils')
 
 jest.mock('load-json-file')
@@ -193,6 +194,16 @@ describe('utils', () => {
         questionOne: 'answer 1',
         questionTwo: 'answer 2'
       })
+    })
+  })
+
+  describe('cleanSocialNetworkUsername', () => {
+    it('should remove prefixed @', () => {
+      expect(cleanSocialNetworkUsername('@Slashgear_')).toEqual('Slashgear_')
+    })
+
+    it('should return the same string when string is not prefixed', () => {
+      expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
     })
   })
 })

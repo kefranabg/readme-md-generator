@@ -11,7 +11,8 @@ describe('askAuthorGithub', () => {
       type: 'input',
       message: '👤  Github username (use empty value to skip)',
       name: 'authorGithubUsername',
-      default: githubUsername
+      default: githubUsername,
+      filter: expect.any(Function)
     })
   })
 })
