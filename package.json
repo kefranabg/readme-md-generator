@@ -1,6 +1,6 @@
 {
   "name": "readme-md-generator",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "CLI that generates beautiful README.md files.",
   "main": "src/index.js",
   "bin": {
