@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="0.5.2"></a>
+
+## 0.5.2 (2019-07-08)
+
+### Added
+
+- ✨ Filter social network inputs to remove potential @ ([#93](https://github.com/kefranabg/readme-md-generator/issues/93)) [[ccae357](https://github.com/kefranabg/readme-md-generator/commit/ccae357ad2c8a3788a248075644cf27d312f226b)]
+
+### Miscellaneous
+
+- 📝 Update readme and contributors to reflect username change ([#91](https://github.com/kefranabg/readme-md-generator/issues/91)) [[b2be60e](https://github.com/kefranabg/readme-md-generator/commit/b2be60e8bb429c9c440c6602f4f4ebec51b6d889)]
+
+<a name="0.5.1"></a>
+
+## 0.5.1 (2019-07-05)
+
+### Fixed
+
+- 🐛 Prevent encoding utf-8 chars in README ([#88](https://github.com/kefranabg/readme-md-generator/issues/88)) [[8059756](https://github.com/kefranabg/readme-md-generator/commit/80597564e0fd9e0b8c69c333929d02e9ec9ae0b0)]
+
 <a name="0.5.0"></a>
 
 ## 0.5.0 (2019-06-27)
