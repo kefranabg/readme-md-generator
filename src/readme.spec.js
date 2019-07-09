@@ -54,7 +54,7 @@ describe('readme', () => {
       try {
         await writeReadme(readmeContent)
         // eslint-disable-next-line no-empty
-      } catch (err) {}
+      } catch (err) { }
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Creating README')
@@ -101,7 +101,8 @@ describe('readme', () => {
         'https://github.com/kefranabg/readme-md-generator/issues',
       installCommand: 'npm install',
       usage: 'npm start',
-      testCommand: 'npm run test'
+      testCommand: 'npm run test',
+      isProjectOnNpm: true
     }
 
     afterEach(() => {
@@ -140,7 +141,7 @@ describe('readme', () => {
       try {
         await buildReadmeContent(context, defaultTemplatePath)
         // eslint-disable-next-line no-empty
-      } catch (err) {}
+      } catch (err) { }
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Loading README template')
@@ -185,7 +186,7 @@ describe('readme', () => {
       try {
         await getReadmeTemplatePath(wrongPath, false)
         // eslint-disable-next-line no-empty
-      } catch (err) {}
+      } catch (err) { }
 
       expect(ora).toHaveBeenNthCalledWith(1, 'Resolving README template path')
       expect(fail).toHaveBeenNthCalledWith(

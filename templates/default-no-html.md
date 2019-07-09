@@ -1,9 +1,9 @@
 # Welcome to <%= projectName %> 👋
-<% if (projectVersion.type === "static" && projectVersion.data) { -%>
-![Version](https://img.shields.io/badge/version-<%= projectVersion.data %>-blue.svg?cacheSeconds=2592000)
+<% if (isProjectOnNpm) { -%>
+![npm](https://img.shields.io/npm/v/<%= projectName %>.svg)
 <% } -%>
-<% if (projectVersion.type === "dynamic" && projectVersion.data) { -%>
-![npm](https://img.shields.io/npm/v/<%= projectVersion.data %>.svg)
+<% if (!isProjectOnNpm) { -%>
+![Version](https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000)
 <% } -%>
 <% if (projectPrerequisites) { -%>
 <% projectPrerequisites.map(({ name, value }) => { -%>

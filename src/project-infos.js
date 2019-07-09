@@ -114,25 +114,17 @@ const getAuthorName = packageJson => {
 }
 
 /**
- * Returns an object with dynamic badge information if the package exists on NPM.
- * It returns data for static badge if it does not exist on NPM.
+ * Returns true if the project is aailable on NPM, returns false otherwise.
  *
  * @param projectName
- * @param packageJson
- * @returns {Object{type:string, data:string}}
- * Type of badge can be "static" or "dynamic". Data can be undefined.
+ * @returns boolean
  */
-const getVersionBadgeInfo = (projectName, packageJson) => {
-  const projectVersion = get(packageJson, 'version', undefined)
-  const staticBadge = { type: 'static', data: projectVersion }
+const isProjectAvailableOnNpm = (projectName) => {
   try {
-    const badge = execSync(`npm view ${projectName}`, { stdio: 'ignore' })
-    if (badge) {
-      return { type: 'dynamic', data: projectName }
-    }
-    return staticBadge
+    execSync(`npm view ${projectName}`, { stdio: 'ignore' })
+    return true
   } catch (err) {
-    return staticBadge
+    return false
   }
 }
 
@@ -147,7 +139,7 @@ const getProjectInfos = async () => {
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
   const author = getAuthorName(packageJson)
-  const version = getVersionBadgeInfo(name, packageJson)
+  const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
   const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
@@ -166,7 +158,7 @@ const getProjectInfos = async () => {
   const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
-
+  const isProjectOnNpm = isProjectAvailableOnNpm(name)
   spinner.succeed('Project infos gathered')
 
   return {
@@ -184,7 +176,8 @@ const getProjectInfos = async () => {
     documentationUrl,
     isGithubRepos,
     usage,
-    testCommand
+    testCommand,
+    isProjectOnNpm
   }
 }
 
