@@ -1,10 +1,10 @@
 <h1 align="center">Welcome to <%= projectName %> 👋</h1>
 <p>
 <% if (isProjectOnNpm) { -%>
-  <img alt="npm" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
+  <img alt="Version" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
 <% } -%>
-<% if (!isProjectOnNpm) { -%>
-  <img src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
+<% if (projectVersion && !isProjectOnNpm) { -%>
+  <img alt="Version" src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />
 <% } -%>
 <% if (projectPrerequisites) { -%>
 <% projectPrerequisites.map(({ name, value }) => { -%>

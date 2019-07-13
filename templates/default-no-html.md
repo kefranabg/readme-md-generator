@@ -1,8 +1,8 @@
 # Welcome to <%= projectName %> 👋
 <% if (isProjectOnNpm) { -%>
-![npm](https://img.shields.io/npm/v/<%= projectName %>.svg)
+![Version](https://img.shields.io/npm/v/<%= projectName %>.svg)
 <% } -%>
-<% if (!isProjectOnNpm) { -%>
+<% if (projectVersion && !isProjectOnNpm) { -%>
 ![Version](https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000)
 <% } -%>
 <% if (projectPrerequisites) { -%>

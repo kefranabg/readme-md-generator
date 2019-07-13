@@ -82,8 +82,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: true
+        testCommand: undefined
       })
     })
 
@@ -133,8 +132,7 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: true
+        testCommand: undefined
       })
     })
 
@@ -164,8 +162,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: true
+        testCommand: undefined
       })
     })
 
@@ -193,8 +190,7 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: true
+        testCommand: undefined
       })
     })
 
@@ -221,8 +217,7 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: false
+        testCommand: undefined
       })
     })
 
@@ -274,8 +269,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: false
+        testCommand: undefined
       })
     })
 
@@ -331,8 +325,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         usage: undefined,
-        testCommand: undefined,
-        isProjectOnNpm: true
+        testCommand: undefined
       })
     })
   })

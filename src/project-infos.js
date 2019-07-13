@@ -114,21 +114,6 @@ const getAuthorName = packageJson => {
 }
 
 /**
- * Returns true if the project is aailable on NPM, returns false otherwise.
- *
- * @param projectName
- * @returns boolean
- */
-const isProjectAvailableOnNpm = (projectName) => {
-  try {
-    execSync(`npm view ${projectName}`, { stdio: 'ignore' })
-    return true
-  } catch (err) {
-    return false
-  }
-}
-
-/**
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
@@ -158,7 +143,6 @@ const getProjectInfos = async () => {
   const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
-  const isProjectOnNpm = isProjectAvailableOnNpm(name)
   spinner.succeed('Project infos gathered')
 
   return {
@@ -176,8 +160,7 @@ const getProjectInfos = async () => {
     documentationUrl,
     isGithubRepos,
     usage,
-    testCommand,
-    isProjectOnNpm
+    testCommand
   }
 }
 
