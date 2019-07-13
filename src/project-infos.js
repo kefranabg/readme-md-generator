@@ -143,6 +143,7 @@ const getProjectInfos = async () => {
   const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
+
   spinner.succeed('Project infos gathered')
 
   return {
