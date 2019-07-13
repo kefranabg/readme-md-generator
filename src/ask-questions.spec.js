@@ -48,9 +48,7 @@ describe('ask-questions', () => {
   })
 
   it('should use default values with --yes option', async () => {
-    const projectInfos = { name: 'readme-md-generator' }
-
-    const result = await askQuestions(projectInfos, true)
+    const result = await askQuestions({}, true)
 
     expect(inquirer.prompt).not.toHaveBeenCalled()
     expect(result).toEqual({
@@ -59,7 +57,8 @@ describe('ask-questions', () => {
       projectDescription: [{ name: 'choiceOne', value: 1 }],
       isGithubRepos: undefined,
       repositoryUrl: undefined,
-      projectPrerequisites: undefined
+      projectPrerequisites: undefined,
+      isProjectOnNpm: false
     })
   })
 
@@ -74,7 +73,8 @@ describe('ask-questions', () => {
       projectDescription: 'value',
       isGithubRepos: undefined,
       repositoryUrl: undefined,
-      projectPrerequisites: undefined
+      projectPrerequisites: undefined,
+      isProjectOnNpm: true
     })
   })
 })

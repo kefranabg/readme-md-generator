@@ -15,7 +15,8 @@ const {
   BOXEN_CONFIG,
   getDefaultAnswer,
   getDefaultAnswers,
-  cleanSocialNetworkUsername
+  cleanSocialNetworkUsername,
+  isProjectAvailableOnNpm
 } = require('./utils')
 
 jest.mock('load-json-file')
@@ -157,6 +158,20 @@ describe('utils', () => {
       const result = getDefaultAnswer(question, answersContext)
 
       expect(result).toEqual(undefined)
+    })
+
+    describe('isProjectAvailableOnNpm', () => {
+      it('should return true if project is available on npm', () => {
+        const result = isProjectAvailableOnNpm('readme-md-generator')
+
+        expect(result).toBe(true)
+      })
+
+      it('should return false if project is not available on npm', () => {
+        const result = isProjectAvailableOnNpm('bento-starter')
+
+        expect(result).toBe(false)
+      })
     })
 
     it('should return correct value if when function is defined and return true', () => {

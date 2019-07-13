@@ -23,6 +23,7 @@ module.exports = async (projectInfos, useDefaultAnswers) => {
     isGithubRepos: projectInfos.isGithubRepos,
     repositoryUrl: projectInfos.repositoryUrl,
     projectPrerequisites: undefined,
+    isProjectOnNpm: utils.isProjectAvailableOnNpm(answersContext.projectName),
     ...answersContext
   }
 }

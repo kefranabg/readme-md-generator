@@ -101,7 +101,8 @@ describe('readme', () => {
         'https://github.com/kefranabg/readme-md-generator/issues',
       installCommand: 'npm install',
       usage: 'npm start',
-      testCommand: 'npm run test'
+      testCommand: 'npm run test',
+      isProjectOnNpm: true
     }
 
     afterEach(() => {

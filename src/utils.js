@@ -2,6 +2,7 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const { execSync } = require('child_process')
 
 const END_MSG = `README.md was successfully generated.
 Thanks for using readme-md-generator!`
@@ -83,6 +84,21 @@ const getDefaultAnswer = (question, answersContext) => {
 }
 
 /**
+ * Return true if the project is available on NPM, return false otherwise.
+ *
+ * @param projectName
+ * @returns boolean
+ */
+const isProjectAvailableOnNpm = projectName => {
+  try {
+    execSync(`npm view ${projectName}`, { stdio: 'ignore' })
+    return true
+  } catch (err) {
+    return false
+  }
+}
+
+/**
  * Get default question's answers
  *
  * @param {Array} questions
@@ -112,5 +128,6 @@ module.exports = {
   BOXEN_CONFIG,
   getDefaultAnswers,
   getDefaultAnswer,
-  cleanSocialNetworkUsername
+  cleanSocialNetworkUsername,
+  isProjectAvailableOnNpm
 }
