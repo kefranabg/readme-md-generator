@@ -48,9 +48,7 @@ describe('ask-questions', () => {
   })
 
   it('should use default values with --yes option', async () => {
-    const projectInfos = {}
-
-    const result = await askQuestions(projectInfos, true)
+    const result = await askQuestions({}, true)
 
     expect(inquirer.prompt).not.toHaveBeenCalled()
     expect(result).toEqual({
