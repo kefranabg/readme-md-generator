@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.6.0"></a>
+
+## 0.6.0 (2019-07-13)
+
+### Added
+
+- ✨ Add dynamic version badge if package exists on NPM ([#94](https://github.com/kefranabg/readme-md-generator/issues/94)) [[0a11d2a](https://github.com/kefranabg/readme-md-generator/commit/0a11d2ae3a7ea767e4f0138f7b1d21e114fb991a)]
+
 <a name="0.5.2"></a>
 
 ## 0.5.2 (2019-07-08)
