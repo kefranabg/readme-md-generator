@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.6.1"></a>
+
+## 0.6.1 (2019-07-18)
+
+### Changed
+
+- 🔧 Ignore .git file in order to fix an npm bug [[f940f13](https://github.com/kefranabg/readme-md-generator/commit/f940f130efef5ffdeb3f278e7435570c95363acb)]
+
 <a name="0.6.0"></a>
 
 ## 0.6.0 (2019-07-13)
