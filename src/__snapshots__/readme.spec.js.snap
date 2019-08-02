@@ -3,7 +3,9 @@
 exports[`readme buildReadmeContent should return readme default template content 1`] = `
 "<h1 align=\\"center\\">Welcome to readme-md-generator 👋</h1>
 <p>
-  <img alt=\\"Version\\" src=\\"https://img.shields.io/npm/v/readme-md-generator.svg\\">
+  <a href=\\"https://www.npmjs.com/package/readme-md-generator\\">
+    <img alt=\\"Version\\" src=\\"https://img.shields.io/npm/v/readme-md-generator.svg\\">
+  </a>
   <img src=\\"https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg\\" />
   <img src=\\"https://img.shields.io/badge/node-%3E%3D%209.3.0-blue.svg\\" />
   <a href=\\"https://github.com/kefranabg/readme-md-generator#readme\\">
@@ -77,7 +79,7 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 
 exports[`readme buildReadmeContent should return readme default template no html content 1`] = `
 "# Welcome to readme-md-generator 👋
-![Version](https://img.shields.io/npm/v/readme-md-generator.svg)
+[![Version](https://img.shields.io/npm/v/readme-md-generator.svg)](https://www.npmjs.com/package/readme-md-generator)
 ![Prerequisite](https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg)
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D%209.3.0-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/kefranabg/readme-md-generator#readme)

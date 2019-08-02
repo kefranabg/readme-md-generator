@@ -1,7 +1,9 @@
 <h1 align="center">Welcome to <%= projectName %> 👋</h1>
 <p>
 <% if (isProjectOnNpm) { -%>
-  <img alt="Version" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
+  <a href="https://www.npmjs.com/package/<%= projectName %>">
+    <img alt="Version" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
+  </a>
 <% } -%>
 <% if (projectVersion && !isProjectOnNpm) { -%>
   <img alt="Version" src="https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000" />

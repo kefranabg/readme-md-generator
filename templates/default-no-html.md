@@ -1,6 +1,6 @@
 # Welcome to <%= projectName %> 👋
 <% if (isProjectOnNpm) { -%>
-![Version](https://img.shields.io/npm/v/<%= projectName %>.svg)
+[![Version](https://img.shields.io/npm/v/<%= projectName %>.svg)](https://www.npmjs.com/package/<%= projectName %>)
 <% } -%>
 <% if (projectVersion && !isProjectOnNpm) { -%>
 ![Version](https://img.shields.io/badge/version-<%= projectVersion %>-blue.svg?cacheSeconds=2592000)
