@@ -1,7 +1,7 @@
 const ejs = require('ejs')
 const ora = require('ora')
 const { promisify } = require('util')
-const getYear = require('date-fns/get_year')
+const { getYear } = require('date-fns')
 const fs = require('fs')
 const { isNil, unescape } = require('lodash')
 
