@@ -49,6 +49,9 @@
     "url": "https://github.com/kefranabg/readme-md-generator/issues"
   },
   "homepage": "https://github.com/kefranabg/readme-md-generator#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@kefranabg"
+  },
   "engines": {
     "npm": ">=5.5.0",
     "node": ">=9.3.0"
