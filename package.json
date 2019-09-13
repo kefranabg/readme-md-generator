@@ -29,6 +29,7 @@
   "scripts": {
     "lint": "eslint src",
     "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
+    "start":"node src/index.js",
     "test": "jest",
     "test:ci": "jest --coverage && codecov"
   },
