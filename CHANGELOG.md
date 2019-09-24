@@ -1,8 +1,8 @@
 # Changelog
 
-<a name="0.6.2"></a>
+<a name="0.6.3"></a>
 
-## 0.6.2 (2019-08-28)
+## 0.6.3 (2019-09-24)
 
 ### Added
 
@@ -12,6 +12,8 @@
 
 ### Changed
 
+- ⬆️ Update ora to the latest version ([#122](https://github.com/kefranabg/readme-md-generator/issues/122)) [[ffb4d11](https://github.com/kefranabg/readme-md-generator/commit/ffb4d111547c23cedf03168c2facbd285c3c7d9d)]
+- 🔧 Add gh package registry config ([#115](https://github.com/kefranabg/readme-md-generator/issues/115)) [[af1fb5a](https://github.com/kefranabg/readme-md-generator/commit/af1fb5ac10cfdabc57fc579e3c0a8f9a3d417f64)]
 - ⬆️ Upgrade date-fns version ([#113](https://github.com/kefranabg/readme-md-generator/issues/113)) [[eacad62](https://github.com/kefranabg/readme-md-generator/commit/eacad62792e0f95f41b7ed267611265e08b14c2b)]
 - ⬆️ Upgrade inquirer to the latest version 🚀 ([#110](https://github.com/kefranabg/readme-md-generator/issues/110)) [[f6fc84e](https://github.com/kefranabg/readme-md-generator/commit/f6fc84ec71a5b11de581745c8d75b7e6c1dd2143)]
 - ⬆️ Bump mixin-deep from 1.3.1 to 1.3.2 ([#112](https://github.com/kefranabg/readme-md-generator/issues/112)) [[4e0abc4](https://github.com/kefranabg/readme-md-generator/commit/4e0abc4b574ced8433c0cc48f965d959a100ff04)]
@@ -22,6 +24,17 @@
 - ⬆️ Update eslint-config-airbnb-base to 14.0.0 ([#100](https://github.com/kefranabg/readme-md-generator/issues/100)) [[85ffea5](https://github.com/kefranabg/readme-md-generator/commit/85ffea57f3b4ed925ffe827f4194ac066298eb83)]
 - ⬆️ Bump lodash from 4.17.11 to 4.17.13 ([#98](https://github.com/kefranabg/readme-md-generator/issues/98)) [[99dc774](https://github.com/kefranabg/readme-md-generator/commit/99dc774fac253a0786b935deb258a8cb3a777176)]
 - 🔧 Ignore .git file in order to fix an npm bug [[f940f13](https://github.com/kefranabg/readme-md-generator/commit/f940f130efef5ffdeb3f278e7435570c95363acb)]
+
+### Fixed
+
+- 🐛 Fix badge target link ([#126](https://github.com/kefranabg/readme-md-generator/issues/126)) [[45df9a4](https://github.com/kefranabg/readme-md-generator/commit/45df9a4ab55ffa2ff6e8ac5a33e49bbba0b41efa)]
+- ✏️ Capitalize the H in GitHub ([#116](https://github.com/kefranabg/readme-md-generator/issues/116)) [[3d08a76](https://github.com/kefranabg/readme-md-generator/commit/3d08a7610723a0034607bd4d136926220f431a03)]
+
+### Miscellaneous
+
+- 📝 Add Kushagra as a contributor ([#127](https://github.com/kefranabg/readme-md-generator/issues/127)) [[1624878](https://github.com/kefranabg/readme-md-generator/commit/1624878c90dc2f62cf5f692aa4fdedfc1d338f9c)]
+- :spakles: Add start script ([#121](https://github.com/kefranabg/readme-md-generator/issues/121)) [[bc3d383](https://github.com/kefranabg/readme-md-generator/commit/bc3d38301c5b09f301a75094d5aed6c85e130da6)]
+- 📝 Add bdougie as a contributor ([#117](https://github.com/kefranabg/readme-md-generator/issues/117)) [[2f327f7](https://github.com/kefranabg/readme-md-generator/commit/2f327f7547472093a030ded760508c90c1f21910)]
 
 <a name="0.5.2"></a>
 
