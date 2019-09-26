@@ -1,6 +1,6 @@
 {
   "name": "readme-md-generator",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "CLI that generates beautiful README.md files.",
   "main": "src/index.js",
   "bin": {
@@ -14,7 +14,7 @@
     "inquirer": "~7.0.0",
     "load-json-file": "^6.0.0",
     "lodash": "^4.17.11",
-    "ora": "^3.4.0",
+    "ora": "^4.0.0",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
   "scripts": {
     "lint": "eslint src",
     "prettier:check": "prettier \"**/*.{js,md,json}\" --list-different",
-    "start":"node src/index.js",
+    "start": "node src/index.js",
     "test": "jest",
     "test:ci": "jest --coverage && codecov"
   },
@@ -50,6 +50,9 @@
     "url": "https://github.com/kefranabg/readme-md-generator/issues"
   },
   "homepage": "https://github.com/kefranabg/readme-md-generator#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@kefranabg"
+  },
   "engines": {
     "npm": ">=5.5.0",
     "node": ">=9.3.0"

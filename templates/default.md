@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to <%= projectName %> 👋</h1>
 <p>
 <% if (isProjectOnNpm) { -%>
-  <a href="https://www.npmjs.com/package/<%= projectName %>">
+  <a href="https://www.npmjs.com/package/<%= projectName %>" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
   </a>
 <% } -%>
@@ -14,23 +14,23 @@
 <% }) -%>
 <% } -%>
 <% if (projectDocumentationUrl) { -%>
-  <a href="<%= projectDocumentationUrl %>">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  <a href="<%= projectDocumentationUrl %>" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
 <% } -%>
 <% if (isGithubRepos) { -%>
-  <a href="<%= repositoryUrl %>/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  <a href="<%= repositoryUrl %>/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
 <% } -%>
 <% if (licenseName && licenseUrl) { -%>
-  <a href="<%= licenseUrl %>">
-    <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" target="_blank" />
+  <a href="<%= licenseUrl %>" target="_blank">
+    <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" />
   </a>
 <% } -%>
 <% if (authorTwitterUsername) { -%>
-  <a href="https://twitter.com/<%= authorTwitterUsername %>">
-    <img alt="Twitter: <%= authorTwitterUsername %>" src="https://img.shields.io/twitter/follow/<%= authorTwitterUsername %>.svg?style=social" target="_blank" />
+  <a href="https://twitter.com/<%= authorTwitterUsername %>" target="_blank">
+    <img alt="Twitter: <%= authorTwitterUsername %>" src="https://img.shields.io/twitter/follow/<%= authorTwitterUsername %>.svg?style=social" />
   </a>
 <% } -%>
 </p>

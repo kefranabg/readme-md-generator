@@ -125,6 +125,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "bdougie",
+      "name": "Brian Douglas",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5713670?v=4",
+      "profile": "https://briandouglas.me/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Kushagra",
+      "name": "Kushagra",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20563379?v=4",
+      "profile": "https://github.com/Kushagra",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
