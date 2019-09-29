@@ -26,6 +26,8 @@ exports[`readme buildReadmeContent should return readme default template content
 
 ### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
+### ✨ [Demo](https://github.com/kefranabg/readme-md-generator#-demo)
+
 ## Prerequisites
 
 - npm &gt;=5.5.0
@@ -90,6 +92,8 @@ exports[`readme buildReadmeContent should return readme default template no html
 > Generates beautiful README files from git config &amp; package.json infos
 
 ### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
+
+### ✨ [Demo](https://github.com/kefranabg/readme-md-generator#-demo)
 
 ## Prerequisites
 

@@ -50,6 +50,7 @@
     "url": "https://github.com/kefranabg/readme-md-generator/issues"
   },
   "homepage": "https://github.com/kefranabg/readme-md-generator#readme",
+  "demoUrl": "https://github.com/kefranabg/readme-md-generator#-demo",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@kefranabg"
   },

@@ -42,6 +42,10 @@
 
 ### 🏠 [Homepage](<%= projectHomepage %>)
 <% } -%>
+<% if (projectDemoUrl) { -%>
+
+### ✨ [Demo](<%= projectDemoUrl %>)
+<% } -%>
 <% if (projectPrerequisites && projectPrerequisites.length) { -%>
 
 ## Prerequisites

@@ -42,6 +42,7 @@ describe('projectInfos', () => {
         author: 'Franck Abgrall',
         license: 'MIT',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
+        demoUrl: 'https://github.com/kefranabg/readme-md-generator#-demo',
         repository: {
           type: 'git',
           url: 'git+https://github.com/kefranabg/readme-md-generator.git'
@@ -68,6 +69,7 @@ describe('projectInfos', () => {
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
+        demoUrl: 'https://github.com/kefranabg/readme-md-generator#-demo',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
         githubUsername: 'kefranabg',
