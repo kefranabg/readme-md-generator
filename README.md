@@ -109,7 +109,10 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
     <td align="center"><a href="https://github.com/SwapnikKatkoori"><img src="https://avatars2.githubusercontent.com/u/40907690?v=4" width="75px;" alt="Swapnik Katkoori"/><br /><sub><b>Swapnik Katkoori</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=SwapnikKatkoori" title="Code">💻</a></td>
     <td align="center"><a href="https://errorna.me"><img src="https://avatars2.githubusercontent.com/u/6669733?v=4" width="75px;" alt="Thibaud Courtoison"/><br /><sub><b>Thibaud Courtoison</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=Errorname" title="Code">💻</a></td>
     <td align="center"><a href="https://briandouglas.me/"><img src="https://avatars2.githubusercontent.com/u/5713670?v=4" width="75px;" alt="Brian Douglas"/><br /><sub><b>Brian Douglas</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=bdougie" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/kushagra-ag"><img src="https://avatars2.githubusercontent.com/u/31826645?v=4" width="75px;" alt="Kushagra"/><br /><sub><b>Kushagra</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=Kushagra" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/kushagra-ag"><img src="https://avatars2.githubusercontent.com/u/31826645?v=4" width="75px;" alt="Kushagra"/><br /><sub><b>Kushagra</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=kushagra-ag" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/david-dasilva"><img src="https://avatars3.githubusercontent.com/u/372391?v=4" width="75px;" alt="David Da Silva"/><br /><sub><b>David Da Silva</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=david-dasilva" title="Code">💻</a></td>
   </tr>
 </table>
 
