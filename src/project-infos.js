@@ -127,7 +127,6 @@ const getProjectInfos = async () => {
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
-  const demoUrl = get(packageJson, 'demoUrl', undefined)
   const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
   const testCommand = has(packageJson, 'scripts.test')
     ? 'npm run test'
@@ -153,7 +152,6 @@ const getProjectInfos = async () => {
     version,
     author,
     homepage,
-    demoUrl,
     repositoryUrl,
     contributingUrl,
     githubUsername,
