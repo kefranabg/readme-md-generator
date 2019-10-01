@@ -112,7 +112,7 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
     <td align="center"><a href="https://github.com/kushagra-ag"><img src="https://avatars2.githubusercontent.com/u/31826645?v=4" width="75px;" alt="Kushagra"/><br /><sub><b>Kushagra</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=kushagra-ag" title="Code">💻</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/david"><img src="https://avatars1.githubusercontent.com/u/293?v=4" width="75px;" alt="David Leal"/><br /><sub><b>David Leal</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=david" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/david-dasilva"><img src="https://avatars3.githubusercontent.com/u/372391?v=4" width="75px;" alt="David Da Silva"/><br /><sub><b>David Da Silva</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=david-dasilva" title="Code">💻</a></td>
   </tr>
 </table>
 
