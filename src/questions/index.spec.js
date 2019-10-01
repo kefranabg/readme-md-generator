@@ -9,6 +9,7 @@ describe('questions', () => {
       'askProjectVersion',
       'askProjectDescription',
       'askProjectHomepage',
+      'askProjectDemoUrl',
       'askProjectDocumentationUrl',
       'askAuhtorName',
       'askAuthorGithub',

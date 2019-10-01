@@ -4,6 +4,7 @@ module.exports = {
   askProjectVersion: require('./project-version'),
   askProjectDescription: require('./project-description'),
   askProjectHomepage: require('./project-homepage'),
+  askProjectDemoUrl: require('./project-demo-url'),
   askProjectDocumentationUrl: require('./project-documentation-url'),
   askAuhtorName: require('./author-name'),
   askAuthorGithub: require('./author-github'),
