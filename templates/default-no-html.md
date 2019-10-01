@@ -16,7 +16,10 @@
 <% if (isGithubRepos) { -%>
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](<%= repositoryUrl %>/graphs/commit-activity)
 <% } -%>
-<% if (licenseName && licenseUrl) { -%>
+<% if (isGithubRepos && licenseName && licenseUrl) { -%>
+[![License: <%= licenseName %>](https://img.shields.io/github/license/<%= authorGithubUsername %>/<%= projectName %>)](<%= licenseUrl %>)
+<% } -%>
+<% if (!isGithubRepos && licenseName && licenseUrl) { -%>
 [![License: <%= licenseName %>](https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg)](<%= licenseUrl %>)
 <% } -%>
 <% if (authorTwitterUsername) { -%>
