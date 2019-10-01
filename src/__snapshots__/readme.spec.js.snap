@@ -15,7 +15,7 @@ exports[`readme buildReadmeContent should return readme default template content
     <img alt=\\"Maintenance\\" src=\\"https://img.shields.io/badge/Maintained%3F-yes-green.svg\\" />
   </a>
   <a href=\\"https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE\\" target=\\"_blank\\">
-    <img alt=\\"License: MIT\\" src=\\"https://img.shields.io/badge/License-MIT-yellow.svg\\" />
+    <img alt=\\"License: MIT\\" src=\\"https://img.shields.io/github/license/kefranabg/readme-md-generator\\" />
   </a>
   <a href=\\"https://twitter.com/FranckAbgrall\\" target=\\"_blank\\">
     <img alt=\\"Twitter: FranckAbgrall\\" src=\\"https://img.shields.io/twitter/follow/FranckAbgrall.svg?style=social\\" />
@@ -84,7 +84,7 @@ exports[`readme buildReadmeContent should return readme default template no html
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D%209.3.0-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/kefranabg/readme-md-generator#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/kefranabg/readme-md-generator/graphs/commit-activity)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/github/license/kefranabg/readme-md-generator)](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE)
 [![Twitter: FranckAbgrall](https://img.shields.io/twitter/follow/FranckAbgrall.svg?style=social)](https://twitter.com/FranckAbgrall)
 
 > Generates beautiful README files from git config &amp; package.json infos
