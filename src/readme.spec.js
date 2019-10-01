@@ -90,7 +90,7 @@ describe('readme', () => {
         'https://github.com/kefranabg/readme-md-generator#readme',
       projectHomepage:
         'https://github.com/kefranabg/readme-md-generator#readme',
-      projectDemoUrl: 'https://github.com/kefranabg/readme-md-generator#-demo',
+      projectDemoUrl: 'kefranabg',
       authorName: 'Franck Abgrall',
       authorGithubUsername: 'kefranabg',
       authorTwitterUsername: 'FranckAbgrall',
