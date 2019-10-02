@@ -33,6 +33,11 @@
     <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" />
   </a>
 <% } -%>
+<% if (licenseName && !licenseUrl) { -%>
+  <a href="#" target="_blank">
+    <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" />
+  </a>
+<% } -%>
 <% if (authorTwitterUsername) { -%>
   <a href="https://twitter.com/<%= authorTwitterUsername %>" target="_blank">
     <img alt="Twitter: <%= authorTwitterUsername %>" src="https://img.shields.io/twitter/follow/<%= authorTwitterUsername %>.svg?style=social" />
