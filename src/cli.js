@@ -13,12 +13,14 @@ const askQuestions = require('./ask-questions')
  *
  * @param {Object} args
  */
-module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
+module.exports = async ({ customTemplatePath, useDefaultAnswers, usePomXml }) => {
   const templatePath = await readme.getReadmeTemplatePath(
     customTemplatePath,
     useDefaultAnswers
   )
-  const projectInformations = await infos.getProjectInfos()
+  const projectInformations = await infos.getProjectInfos(
+    usePomXml
+  )
   const answersContext = await askQuestions(
     projectInformations,
     useDefaultAnswers
