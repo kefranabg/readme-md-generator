@@ -165,7 +165,6 @@ const getInfosFromPomXml = async () => {
   const licenseUrl = get(pomXml, 'licenses[0].license[0].url', undefined)
   const homepage = get(pomXml, 'url', undefined)
   const testCommand = 'mvn clean test'
-  const installCommand = 'mvn clean install'
   const repositoryUrl = getReposUrlFromGit()
   const contributingUrl = await getReposIssuesUrl(pomXml)
 
@@ -179,8 +178,7 @@ const getInfosFromPomXml = async () => {
     contributingUrl,
     licenseName,
     licenseUrl,
-    testCommand,
-    installCommand
+    testCommand
   }
 }
 
