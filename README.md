@@ -113,6 +113,8 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/david-dasilva"><img src="https://avatars3.githubusercontent.com/u/372391?v=4" width="75px;" alt="David Da Silva"/><br /><sub><b>David Da Silva</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=david-dasilva" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/tbetous"><img src="https://avatars3.githubusercontent.com/u/4435536?v=4" width="75px;" alt="Thomas Betous"/><br /><sub><b>Thomas Betous</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=tbetous" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/LucasHProcopio"><img src="https://avatars1.githubusercontent.com/u/26358642?v=4" width="75px;" alt="Lucas Henrique Procopio"/><br /><sub><b>Lucas Henrique Procopio</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=LucasProcopio" title="Code">💻</a></td>
   </tr>
 </table>
 
