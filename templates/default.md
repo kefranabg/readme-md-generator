@@ -23,14 +23,9 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
 <% } -%>
-<% if (isGithubRepos && licenseName && licenseUrl) { -%>
-  <a href="<%= licenseUrl %>" target="_blank">
-    <img alt="License: <%= licenseName %>" src="https://img.shields.io/github/license/<%= authorGithubUsername %>/<%= projectName %>" />
-  </a>
-<% } -%>
-<% if (!isGithubRepos && licenseName && licenseUrl) { -%>
-  <a href="<%= licenseUrl %>" target="_blank">
-    <img alt="License: <%= licenseName %>" src="https://img.shields.io/badge/License-<%= licenseName %>-yellow.svg" />
+<% if (licenseName) { -%>
+  <a href="<%= licenseUrl ? licenseUrl : '#' %>" target="_blank">
+    <img alt="License: <%= licenseName %>" src="https://img.shields.io/<%= isGithubRepos ? `github/license/${authorGithubUsername}/${projectName}` : `badge/License-${licenseName}-yellow.svg` %>" />
   </a>
 <% } -%>
 <% if (authorTwitterUsername) { -%>
