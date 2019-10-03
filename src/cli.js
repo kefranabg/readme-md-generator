@@ -5,6 +5,7 @@ const askQuestions = require('./ask-questions')
 
 /**
  * Main process:
+ * 1) Check overwrite README.md
  * 1) Get README template path
  * 2) Gather project infos
  * 3) Ask user questions
@@ -14,6 +15,7 @@ const askQuestions = require('./ask-questions')
  * @param {Object} args
  */
 module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
+  if (!(await readme.checkOverwriteReadme())) return
   const templatePath = await readme.getReadmeTemplatePath(
     customTemplatePath,
     useDefaultAnswers
