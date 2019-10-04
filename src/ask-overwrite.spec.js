@@ -5,7 +5,7 @@ const askOverwrite = require('./ask-overwrite')
 const expectedQuestion = {
   type: 'list',
   message:
-    '⚠  Readme-md-generator will overwrite your current README.md. Are you sure you want to continue? ',
+    '🚨  readme-md-generator will overwrite your current README.md. Are you sure you want to continue? ',
   name: 'overwriteReadme',
   choices: [
     {

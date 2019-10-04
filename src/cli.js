@@ -16,6 +16,7 @@ const askQuestions = require('./ask-questions')
  */
 module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
   if (!(await readme.checkOverwriteReadme())) return
+
   const templatePath = await readme.getReadmeTemplatePath(
     customTemplatePath,
     useDefaultAnswers
