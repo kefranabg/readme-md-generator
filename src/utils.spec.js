@@ -2,8 +2,8 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const fetch = require('node-fetch')
 const { isNil } = require('lodash')
-
 const realPathBasename = path.basename
 const realGetReposNameSync = getReposName.sync
 
@@ -16,11 +16,13 @@ const {
   getDefaultAnswer,
   getDefaultAnswers,
   cleanSocialNetworkUsername,
-  isProjectAvailableOnNpm
+  isProjectAvailableOnNpm,
+  getAuthorHomepageFromGithubAPI
 } = require('./utils')
 
 jest.mock('load-json-file')
 jest.mock('boxen')
+jest.mock('node-fetch')
 
 describe('utils', () => {
   describe('getPackageJson', () => {
@@ -219,6 +221,43 @@ describe('utils', () => {
 
     it('should return the same string when string is not prefixed', () => {
       expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
+    })
+  })
+
+  describe('getAuthorHomepageFromGithubAPI', () => {
+    it('should return author homepage url when it exists', async () => {
+      const expectedAuthorHomepage = 'https://www.franck-abgrall.me/'
+      fetch.mockReturnValueOnce(
+        Promise.resolve({
+          json: () => Promise.resolve({ blog: expectedAuthorHomepage })
+        })
+      )
+
+      const githubUsername = 'kefranabg'
+      const authorHomepage = await getAuthorHomepageFromGithubAPI(
+        githubUsername
+      )
+      expect(authorHomepage).toEqual(expectedAuthorHomepage)
+    })
+
+    it('should return undefined if author homepage url does not exist', async () => {
+      fetch.mockReturnValueOnce(Promise.resolve({ blog: '' }))
+      const githubUsername = 'kefranabg'
+      const authorHomepage = await getAuthorHomepageFromGithubAPI(
+        githubUsername
+      )
+      expect(authorHomepage).toEqual(undefined)
+    })
+
+    it('should return undefined if there is an error', async () => {
+      fetch.mockImplementationOnce(() => {
+        throw new Error('ERROR')
+      })
+      const githubUsername = 'kefranabg'
+      const authorHomepage = await getAuthorHomepageFromGithubAPI(
+        githubUsername
+      )
+      expect(authorHomepage).toEqual(undefined)
     })
   })
 })
