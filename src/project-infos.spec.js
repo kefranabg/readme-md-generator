@@ -10,7 +10,10 @@ jest.mock('child_process', () => ({
 }))
 jest.mock('./utils', () => ({
   getPackageJson: jest.fn(),
-  getProjectName: jest.fn(() => 'readme-md-generator')
+  getProjectName: jest.fn(() => 'readme-md-generator'),
+  getAuthorHomepageFromGithubAPI: jest.fn(
+    () => 'https://www.franck-abgrall.me/'
+  )
 }))
 
 const succeed = jest.fn()
@@ -70,6 +73,7 @@ describe('projectInfos', () => {
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
+        authorHomepage: 'https://www.franck-abgrall.me/',
         githubUsername: 'kefranabg',
         engines: {
           npm: '>=5.5.0',
@@ -123,6 +127,7 @@ describe('projectInfos', () => {
           'https://gitlab.com/kefranabg/readme-md-generator/issues',
         homepage: 'https://gitlab.com/kefranabg/readme-md-generator',
         githubUsername: undefined,
+        authorHomepage: undefined,
         engines: {
           npm: '>=5.5.0',
           node: '>=9.3.0'
@@ -154,6 +159,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator/issues',
         homepage: undefined,
         githubUsername: 'kefranabg',
+        authorHomepage: 'https://www.franck-abgrall.me/',
         engines: undefined,
         licenseName: undefined,
         licenseUrl:
@@ -210,6 +216,7 @@ describe('projectInfos', () => {
         repositoryUrl: undefined,
         contributingUrl: undefined,
         homepage: undefined,
+        authorHomepage: undefined,
         githubUsername: undefined,
         engines: undefined,
         licenseName: undefined,
@@ -258,6 +265,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator/issues',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         githubUsername: 'kefranabg',
+        authorHomepage: 'https://www.franck-abgrall.me/',
         engines: {
           npm: '>=5.5.0',
           node: '>=9.3.0'
@@ -314,6 +322,7 @@ describe('projectInfos', () => {
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/issues',
         githubUsername: 'kefranabg',
+        authorHomepage: 'https://www.franck-abgrall.me/',
         engines: {
           npm: '>=5.5.0',
           node: '>=9.3.0'

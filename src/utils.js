@@ -2,10 +2,13 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const fetch = require('node-fetch')
 const { execSync } = require('child_process')
 
 const END_MSG = `README.md was successfully generated.
 Thanks for using readme-md-generator!`
+
+const GITHUB_API_URL = 'https://api.github.com'
 
 const BOXEN_CONFIG = {
   padding: 1,
@@ -120,6 +123,24 @@ const getDefaultAnswers = questions =>
  */
 const cleanSocialNetworkUsername = input => input.replace(/^@/, '')
 
+/**
+ * Get author's homepage from Github API
+ *
+ * @param {string} githubUsername
+ * @returns {string} authorHomepage
+ */
+const getAuthorHomepageFromGithubAPI = async githubUsername => {
+  try {
+    const userData = await fetch(
+      `${GITHUB_API_URL}/users/${githubUsername}`
+    ).then(res => res.json())
+    const authorHomepage = userData.blog
+    return authorHomepage === '' ? undefined : authorHomepage
+  } catch (err) {
+    return undefined
+  }
+}
+
 module.exports = {
   getPackageJson,
   showEndMessage,
@@ -129,5 +150,6 @@ module.exports = {
   getDefaultAnswers,
   getDefaultAnswer,
   cleanSocialNetworkUsername,
-  isProjectAvailableOnNpm
+  isProjectAvailableOnNpm,
+  getAuthorHomepageFromGithubAPI
 }
