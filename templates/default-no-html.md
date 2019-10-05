@@ -72,16 +72,17 @@
 <% if (authorName.split(',').length > 1) { -%>
 
 ## Authors
-<% } else { -%>
-## Author
-<% } -%>
 
+<% } else { -%>
+
+## Author
+
+<% } -%>
 <% const names = authorName.split(',') -%>
 <% const twitters = authorTwitterUsername.split(',') -%>
 <% const githubs = authorGithubUsername.split(',') -%>
 <% for (var i = 0; i < names.length; i++) { -%>
-
-<% if (names[i]) { %>
+<% if (names[i]) { -%>
 👤 **<%= names[i].trim() %>**
 <% } %>
 <% if (twitters[i]) { -%>
@@ -118,6 +119,7 @@ Give a ⭐️ if this project helped you!
 <% const githubs = authorGithubUsername.split(',') -%>
 Copyright © <%= currentYear %> [<%= authors[0].trim() %>](https://github.com/<%= githubs[0].trim() %>)<% for (var i = 1; i < authors.length; i++) { if (authors[i] && githubs[i]) { -%>, [<%= authors[i].trim() %>](https://github.com/<%= githubs[i].trim() %>)<%_ }} _%>.
 <% } -%>
+
 This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
 <% } -%>
 

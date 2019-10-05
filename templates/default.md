@@ -85,14 +85,13 @@
 
 ## Authors
 <% } else { -%>
+
 ## Author
 <% } -%>
-
 <% const names = authorName.split(',') -%>
 <% const twitters = authorTwitterUsername.split(',') -%>
 <% const githubs = authorGithubUsername.split(',') -%>
 <% for (var i = 0; i < names.length; i++) { -%>
-
 <% if (names[i]) { %>
 👤 **<%= names[i].trim() %>**
 <% } %>

@@ -9,7 +9,7 @@ describe('askAuthorName', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '👤  Author name',
+      message: '👤  Author name (use comma if several)',
       name: 'authorName',
       default: author
     })

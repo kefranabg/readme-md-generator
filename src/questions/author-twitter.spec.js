@@ -6,7 +6,7 @@ describe('askAuthorTwitter', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '🐦  Twitter username (use empty value to skip)',
+      message: '🐦  Twitter username (comma to split, empty to skip)',
       name: 'authorTwitterUsername',
       filter: expect.any(Function)
     })
