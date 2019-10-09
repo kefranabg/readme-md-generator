@@ -10,7 +10,8 @@ jest.mock('child_process', () => ({
 }))
 jest.mock('./utils', () => ({
   getPackageJson: jest.fn(),
-  getProjectName: jest.fn(() => 'readme-md-generator')
+  getProjectName: jest.fn(() => 'readme-md-generator'),
+  getPomXml: jest.fn()
 }))
 
 const succeed = jest.fn()
@@ -83,6 +84,47 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         usage: undefined,
         testCommand: undefined
+      })
+    })
+
+    it('should return correct infos from pom.xml', async () => {
+      const pomXmlInfos = {
+        name: 'readme-md-generator',
+        version: '0.1.3',
+        description: 'CLI that generates beautiful README.md files.',
+        contributors: [{ contributor: [{ name: 'Franck Abgrall' }] }],
+        licenses: [{ license: [{ name: 'MIT' }] }],
+        url: 'https://github.com/kefranabg/readme-md-generator',
+        issueManagement: [
+          {
+            url: 'https://github.com/kefranabg/readme-md-generator/issues'
+          }
+        ]
+      }
+      utils.getPomXml.mockReturnValueOnce(Promise.resolve(pomXmlInfos))
+      childProcess.execSync.mockReturnValue(
+        'https://github.com/kefranabg/readme-md-generator.git'
+      )
+
+      const projectInfos = await getProjectInfos('pom.xml')
+
+      expect(projectInfos).toEqual({
+        name: 'readme-md-generator',
+        description: 'CLI that generates beautiful README.md files.',
+        version: '0.1.3',
+        author: 'Franck Abgrall',
+        repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
+        contributingUrl:
+          'https://github.com/kefranabg/readme-md-generator/issues',
+        githubUsername: 'kefranabg',
+        licenseName: 'MIT',
+        licenseUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
+        documentationUrl:
+          'https://github.com/kefranabg/readme-md-generator#readme',
+        isGithubRepos: true,
+        testCommand: 'mvn clean test'
       })
     })
 

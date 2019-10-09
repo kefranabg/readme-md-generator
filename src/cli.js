@@ -2,6 +2,9 @@ const readme = require('./readme')
 const infos = require('./project-infos')
 const utils = require('./utils')
 const askQuestions = require('./ask-questions')
+const { getSourceFile } = require('./detect-source-file')
+
+const SUPPORTED_FILES = ['package.json', 'pom.xml']
 
 /**
  * Main process:
@@ -21,7 +24,8 @@ module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
     customTemplatePath,
     useDefaultAnswers
   )
-  const projectInformations = await infos.getProjectInfos()
+  const sourceFile = await getSourceFile(SUPPORTED_FILES)
+  const projectInformations = await infos.getProjectInfos(sourceFile)
   const answersContext = await askQuestions(
     projectInformations,
     useDefaultAnswers

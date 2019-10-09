@@ -3,12 +3,14 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const { isNil } = require('lodash')
+const fs = require('fs')
 
 const realPathBasename = path.basename
 const realGetReposNameSync = getReposName.sync
 
 const {
   getPackageJson,
+  getPomXml,
   showEndMessage,
   getProjectName,
   END_MSG,
@@ -21,6 +23,7 @@ const {
 
 jest.mock('load-json-file')
 jest.mock('boxen')
+jest.mock('fs')
 
 describe('utils', () => {
   describe('getPackageJson', () => {
@@ -42,6 +45,29 @@ describe('utils', () => {
       })
 
       const result = await getPackageJson()
+
+      expect(result).toBe(undefined)
+    })
+  })
+
+  describe('getPomXml', () => {
+    const pomXmlContent = '<project><name>readme-md-cli</name></project>'
+    const pomJson = {
+      name: ['readme-md-cli']
+    }
+
+    it('should return pom.xml content', async () => {
+      fs.readFileSync.mockReturnValue(pomXmlContent)
+
+      const result = await getPomXml()
+
+      expect(result).toEqual(pomJson)
+    })
+
+    it('should return undefined', async () => {
+      fs.readFileSync.mockReturnValue('<BAD>')
+
+      const result = await getPomXml()
 
       expect(result).toBe(undefined)
     })

@@ -4,7 +4,7 @@ const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
 
-const { getPackageJson, getProjectName } = require('./utils')
+const { getPackageJson, getProjectName, getPomXml } = require('./utils')
 
 const GITHUB_URL = 'https://github.com/'
 
@@ -35,7 +35,7 @@ const getReposUrlFromPackageJson = async packageJson => {
 const getReposUrlFromGit = () => {
   try {
     const stdout = execSync('git config --get remote.origin.url')
-    return cleanReposUrl(stdout)
+    return cleanReposUrl(stdout.toString())
   } catch (err) {
     return undefined
   }
@@ -50,12 +50,14 @@ const getReposUrl = async packageJson =>
   (await getReposUrlFromPackageJson(packageJson)) || getReposUrlFromGit()
 
 /**
- * Get repository issues url from package.json or git
+ * Get repository issues url from package.json or pom.xml or git
  *
- * @param {Object} packageJson
+ * @param {Object} configJson
  */
-const getReposIssuesUrl = async packageJson => {
-  let reposIssuesUrl = get(packageJson, 'bugs.url', undefined)
+const getReposIssuesUrl = async configJson => {
+  let reposIssuesUrl =
+    get(configJson, 'bugs.url', undefined) ||
+    get(configJson, 'issueManagement[0].url', undefined)
 
   if (isNil(reposIssuesUrl)) {
     const reposUrl = await getReposUrl()
@@ -114,11 +116,11 @@ const getAuthorName = packageJson => {
 }
 
 /**
- * Get project informations from git and package.json
+ * Get infos from package.json
+ *
+ * @returns {Object} infos
  */
-const getProjectInfos = async () => {
-  const spinner = ora('Gathering project infos').start()
-
+const getInfosFromPackageJson = async () => {
   const packageJson = await getPackageJson()
   const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
@@ -133,18 +135,6 @@ const getProjectInfos = async () => {
     : undefined
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
-  const isGithubRepos = isGithubRepository(repositoryUrl)
-  const documentationUrl = isGithubRepos
-    ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
-    : undefined
-  const githubUsername = isGithubRepos
-    ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
-    : undefined
-  const licenseUrl = isGithubRepos
-    ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
-    : undefined
-
-  spinner.succeed('Project infos gathered')
 
   return {
     name,
@@ -154,14 +144,78 @@ const getProjectInfos = async () => {
     homepage,
     repositoryUrl,
     contributingUrl,
-    githubUsername,
     engines,
     licenseName,
-    licenseUrl,
-    documentationUrl,
-    isGithubRepos,
     usage,
     testCommand
+  }
+}
+
+/**
+ * Get infos from pom.xml
+ *
+ * @returns {Object} infos
+ */
+const getInfosFromPomXml = async () => {
+  const pomXml = await getPomXml()
+  const name = getProjectName(pomXml)
+  const description = get(pomXml, 'description', undefined)
+  const author =
+    get(pomXml, 'contributors[0].contributor[0].name', undefined) ||
+    get(pomXml, 'developers[0].developer[0].name', undefined)
+  const version = get(pomXml, 'version', undefined)
+  const licenseName = get(pomXml, 'licenses[0].license[0].name', undefined)
+  const licenseUrl = get(pomXml, 'licenses[0].license[0].url', undefined)
+  const homepage = get(pomXml, 'url', undefined)
+  const testCommand = 'mvn clean test'
+  const repositoryUrl = getReposUrlFromGit()
+  const contributingUrl = await getReposIssuesUrl(pomXml)
+
+  return {
+    name,
+    description,
+    version,
+    author,
+    homepage,
+    repositoryUrl,
+    contributingUrl,
+    licenseName,
+    licenseUrl,
+    testCommand
+  }
+}
+
+/**
+ * Get project informations from git and package.json or pom.xml
+ */
+const getProjectInfos = async sourceFile => {
+  const spinner = ora('Gathering project infos').start()
+
+  const infosFromConfigFile =
+    sourceFile === 'pom.xml'
+      ? await getInfosFromPomXml()
+      : await getInfosFromPackageJson()
+  const isGithubRepos = isGithubRepository(infosFromConfigFile.repositoryUrl)
+  const documentationUrl = isGithubRepos
+    ? getReadmeUrlFromGithubRepositoryUrl(infosFromConfigFile.repositoryUrl)
+    : undefined
+  const githubUsername = isGithubRepos
+    ? getGithubUsernameFromRepositoryUrl(infosFromConfigFile.repositoryUrl)
+    : undefined
+  const licenseUrl =
+    infosFromConfigFile.licenseUrl ||
+    (isGithubRepos
+      ? getLicenseUrlFromGithubRepositoryUrl(infosFromConfigFile.repositoryUrl)
+      : undefined)
+
+  spinner.succeed('Project infos gathered')
+
+  return {
+    ...infosFromConfigFile,
+    githubUsername,
+    licenseUrl,
+    documentationUrl,
+    isGithubRepos
   }
 }
 

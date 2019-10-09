@@ -3,6 +3,8 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const { execSync } = require('child_process')
+const fs = require('fs')
+const { parseString } = require('xml2js')
 
 const END_MSG = `README.md was successfully generated.
 Thanks for using readme-md-generator!`
@@ -26,6 +28,14 @@ const showEndMessage = () => process.stdout.write(boxen(END_MSG, BOXEN_CONFIG))
  * @param {Object} packageJson
  */
 const getPackageJsonName = (packageJson = {}) => packageJson.name || undefined
+
+/**
+ * Get name property from pom.xml
+ *
+ * @param {Object} pomXml
+ */
+const getPomXmlName = (pomXml = {}) => pomXml.name || undefined
+
 /**
  * Get git repository name
  *
@@ -43,11 +53,12 @@ const getGitRepositoryName = cwd => {
 /**
  * Get project name
  */
-const getProjectName = packageJson => {
+const getProjectName = configJson => {
   const cwd = process.cwd()
   return (
-    getPackageJsonName(packageJson) ||
+    getPackageJsonName(configJson) ||
     getGitRepositoryName(cwd) ||
+    getPomXmlName(configJson) ||
     path.basename(cwd)
   )
 }
@@ -120,6 +131,22 @@ const getDefaultAnswers = questions =>
  */
 const cleanSocialNetworkUsername = input => input.replace(/^@/, '')
 
+/**
+ * Load the pom.xml file converted into an object.
+ */
+const getPomXml = () => {
+  const pomXml = fs.readFileSync('pom.xml', 'utf8')
+  let pomJson
+  let error
+
+  parseString(pomXml, (err, json) => {
+    error = err
+    pomJson = json
+  })
+
+  return error ? undefined : pomJson.project
+}
+
 module.exports = {
   getPackageJson,
   showEndMessage,
@@ -129,5 +156,6 @@ module.exports = {
   getDefaultAnswers,
   getDefaultAnswer,
   cleanSocialNetworkUsername,
-  isProjectAvailableOnNpm
+  isProjectAvailableOnNpm,
+  getPomXml
 }
