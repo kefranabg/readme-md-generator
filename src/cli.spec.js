@@ -43,6 +43,25 @@ describe('mainProcess', () => {
     askQuestions.mockClear()
   })
 
+  it('should stop immediatly if user dont want overwrite', async () => {
+    const customTemplatePath = undefined
+    const useDefaultAnswers = true
+    infos.getProjectInfos = jest.fn()
+    readme.buildReadmeContent = jest.fn()
+    readme.getReadmeTemplatePath = jest.fn()
+    readme.writeReadme = jest.fn()
+    readme.checkOverwriteReadme = jest.fn(() => Promise.resolve(false))
+    utils.showEndMessage = jest.fn()
+
+    await mainProcess({ customTemplatePath, useDefaultAnswers })
+
+    expect(infos.getProjectInfos).not.toHaveBeenCalled()
+    expect(readme.buildReadmeContent).not.toHaveBeenCalled()
+    expect(readme.getReadmeTemplatePath).not.toHaveBeenCalled()
+    expect(readme.writeReadme).not.toHaveBeenCalled()
+    expect(utils.showEndMessage).not.toHaveBeenCalled()
+  })
+
   it('should call main functions with correct args', async () => {
     const customTemplatePath = undefined
     const useDefaultAnswers = true
@@ -52,6 +71,7 @@ describe('mainProcess', () => {
     infos.getProjectInfos = jest.fn(() => Promise.resolve(projectInformations))
     readme.buildReadmeContent = jest.fn(() => Promise.resolve(readmeContent))
     readme.getReadmeTemplatePath = jest.fn(() => Promise.resolve(templatePath))
+    readme.checkOverwriteReadme = jest.fn(() => Promise.resolve(true))
     readme.writeReadme = jest.fn()
     utils.showEndMessage = jest.fn()
 

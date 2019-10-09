@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="0.6.4"></a>
+
+## 0.6.4 (2019-10-09)
+
+### Added
+
+- ✨ Add check for overwrite readme ([#143](https://github.com/kefranabg/readme-md-generator/issues/143)) [[2e12553](https://github.com/kefranabg/readme-md-generator/commit/2e12553df31c65f31c88f556eb8811d5b5672739)]
+- ✨ Display license badge even when there is no license url ([#139](https://github.com/kefranabg/readme-md-generator/issues/139)) [[a60627c](https://github.com/kefranabg/readme-md-generator/commit/a60627c93af35a2f87bc2f7ed44ce702871a6f7d)]
+- ✨ Ask for demo link during README creation process ([#102](https://github.com/kefranabg/readme-md-generator/issues/102)) ([#130](https://github.com/kefranabg/readme-md-generator/issues/130)) [[f4d6ad4](https://github.com/kefranabg/readme-md-generator/commit/f4d6ad45c3884b24bf60536dd02d3ae17034f1b1)]
+- ✨ Add dynamic license badge ([#131](https://github.com/kefranabg/readme-md-generator/issues/131)) [[86bdac5](https://github.com/kefranabg/readme-md-generator/commit/86bdac57c35734ca0bdd252d3e0ae12f9a5e80c8)]
+
+### Changed
+
+- ⬆️ Fix vulnerabilities ([#136](https://github.com/kefranabg/readme-md-generator/issues/136)) [[fb96985](https://github.com/kefranabg/readme-md-generator/commit/fb96985ff9665319f3669deae3e14e31a4fe9df9)]
+
 <a name="0.6.3"></a>
 
 ## 0.6.3 (2019-09-24)
@@ -27,11 +42,17 @@
 
 ### Fixed
 
+- 🐛 Process get stuck because of ora new version ([#152](https://github.com/kefranabg/readme-md-generator/issues/152)) [[4a741b9](https://github.com/kefranabg/readme-md-generator/commit/4a741b9b266ae33c8c04267e6958c26e598655b7)]
 - 🐛 Fix badge target link ([#126](https://github.com/kefranabg/readme-md-generator/issues/126)) [[45df9a4](https://github.com/kefranabg/readme-md-generator/commit/45df9a4ab55ffa2ff6e8ac5a33e49bbba0b41efa)]
 - ✏️ Capitalize the H in GitHub ([#116](https://github.com/kefranabg/readme-md-generator/issues/116)) [[3d08a76](https://github.com/kefranabg/readme-md-generator/commit/3d08a7610723a0034607bd4d136926220f431a03)]
 
 ### Miscellaneous
 
+- 📝 Add anku255 as a contributor ([#144](https://github.com/kefranabg/readme-md-generator/issues/144)) [[32af6a2](https://github.com/kefranabg/readme-md-generator/commit/32af6a23fd22efbc93861c47f13c190c0800b9ed)]
+- 📝 Add LucasProcopio as a contributor ([#138](https://github.com/kefranabg/readme-md-generator/issues/138)) [[d67b012](https://github.com/kefranabg/readme-md-generator/commit/d67b012fef502e296963c54f5cf3140a723c477d)]
+- 📝 Add tbetous as a contributor ([#137](https://github.com/kefranabg/readme-md-generator/issues/137)) [[a93cd56](https://github.com/kefranabg/readme-md-generator/commit/a93cd56c43ed420245824542e808e3b27654c3ec)]
+- 📝 Add david-dasilva as a contributor ([#133](https://github.com/kefranabg/readme-md-generator/issues/133)) [[f6f24e0](https://github.com/kefranabg/readme-md-generator/commit/f6f24e0be239214c5ff03d439aeb18007a513217)]
+- 📝 All contributor profile url fixed ([#129](https://github.com/kefranabg/readme-md-generator/issues/129)) [[06bd6f3](https://github.com/kefranabg/readme-md-generator/commit/06bd6f3bf9b8af68c2548bf57524e52939cd192f)]
 - 📝 Add Kushagra as a contributor ([#127](https://github.com/kefranabg/readme-md-generator/issues/127)) [[1624878](https://github.com/kefranabg/readme-md-generator/commit/1624878c90dc2f62cf5f692aa4fdedfc1d338f9c)]
 - :spakles: Add start script ([#121](https://github.com/kefranabg/readme-md-generator/issues/121)) [[bc3d383](https://github.com/kefranabg/readme-md-generator/commit/bc3d38301c5b09f301a75094d5aed6c85e130da6)]
 - 📝 Add bdougie as a contributor ([#117](https://github.com/kefranabg/readme-md-generator/issues/117)) [[2f327f7](https://github.com/kefranabg/readme-md-generator/commit/2f327f7547472093a030ded760508c90c1f21910)]

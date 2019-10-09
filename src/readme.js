@@ -6,6 +6,7 @@ const fs = require('fs')
 const { isNil, unescape } = require('lodash')
 
 const chooseTemplate = require('./choose-template')
+const askOverwriteReadme = require('./ask-overwrite')
 
 const README_PATH = 'README.md'
 
@@ -95,9 +96,16 @@ const getReadmeTemplatePath = async (customTemplate, useDefaultAnswers) => {
   return templatePath
 }
 
+/**
+ * Check if readme generator can overwrite the existed readme
+ */
+const checkOverwriteReadme = () =>
+  !fs.existsSync(README_PATH) || askOverwriteReadme()
+
 module.exports = {
   writeReadme,
   buildReadmeContent,
   README_PATH,
-  getReadmeTemplatePath
+  getReadmeTemplatePath,
+  checkOverwriteReadme
 }
