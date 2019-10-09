@@ -116,6 +116,7 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
     <td align="center"><a href="https://github.com/tbetous"><img src="https://avatars3.githubusercontent.com/u/4435536?v=4" width="75px;" alt="Thomas Betous"/><br /><sub><b>Thomas Betous</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=tbetous" title="Code">💻</a></td>
     <td align="center"><a href="https://twitter.com/LucasHProcopio"><img src="https://avatars1.githubusercontent.com/u/26358642?v=4" width="75px;" alt="Lucas Henrique Procopio"/><br /><sub><b>Lucas Henrique Procopio</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=LucasProcopio" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/anku255"><img src="https://avatars1.githubusercontent.com/u/22813027?v=4" width="75px;" alt="Ankit Tiwari"/><br /><sub><b>Ankit Tiwari</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=anku255" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Zenigata"><img src="https://avatars1.githubusercontent.com/u/1022393?v=4" width="75px;" alt="Johan Bonneau"/><br /><sub><b>Johan Bonneau</b></sub></a><br /><a href="https://github.com/kefranabg/readme-md-generator/commits?author=Zenigata" title="Code">💻</a></td>
   </tr>
 </table>
 
