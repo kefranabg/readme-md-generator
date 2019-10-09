@@ -34,4 +34,5 @@ module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
   await readme.writeReadme(readmeContent)
 
   utils.showEndMessage()
+  return
 }
