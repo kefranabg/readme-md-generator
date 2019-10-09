@@ -4,6 +4,7 @@ const infos = require('./project-infos')
 const readme = require('./readme')
 const utils = require('./utils')
 const askQuestions = require('./ask-questions')
+const cleanContext = require('./clean-context')
 
 inquirer.prompt = jest.fn(items =>
   Promise.resolve(
@@ -16,6 +17,10 @@ inquirer.prompt = jest.fn(items =>
 
 jest.mock('./ask-questions', () =>
   jest.fn(() => Promise.resolve({ projectName: 'readme-md-generator' }))
+)
+
+jest.mock('./clean-context', () =>
+  jest.fn(() => ({ projectName: 'readme-md-generator-after-context-clean' }))
 )
 
 jest.mock('./questions', () => ({
@@ -56,6 +61,7 @@ describe('mainProcess', () => {
     await mainProcess({ customTemplatePath, useDefaultAnswers })
 
     expect(infos.getProjectInfos).not.toHaveBeenCalled()
+    expect(cleanContext).not.toHaveBeenCalled()
     expect(readme.buildReadmeContent).not.toHaveBeenCalled()
     expect(readme.getReadmeTemplatePath).not.toHaveBeenCalled()
     expect(readme.writeReadme).not.toHaveBeenCalled()
@@ -88,9 +94,12 @@ describe('mainProcess', () => {
       projectInformations,
       useDefaultAnswers
     )
+    expect(cleanContext).toHaveBeenNthCalledWith(1, {
+      projectName: 'readme-md-generator'
+    })
     expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
       1,
-      { projectName: 'readme-md-generator' },
+      { projectName: 'readme-md-generator-after-context-clean' },
       templatePath
     )
     expect(readme.writeReadme).toHaveBeenNthCalledWith(1, readmeContent)
