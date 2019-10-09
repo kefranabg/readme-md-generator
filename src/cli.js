@@ -1,8 +1,8 @@
+const yargs = require('yargs')
 const readme = require('./readme')
 const infos = require('./project-infos')
 const utils = require('./utils')
 const askQuestions = require('./ask-questions')
-const yargs = require('yargs')
 /**
  * Main process:
  * 1) Check overwrite README.md
