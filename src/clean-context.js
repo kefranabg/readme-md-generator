@@ -1,6 +1,11 @@
+/**
+ * Clean answer context
+ *
+ * @param {Object} context
+ */
 module.exports = context => {
   // Why doing this?
-  // See https://shields.io/ 'Using dash "-" separator' section
+  // See https://github.com/kefranabg/readme-md-generator/pull/141
   const licenseName = context.licenseName
     .replace(/-/g, '--')
     .replace(/_/g, '__')
