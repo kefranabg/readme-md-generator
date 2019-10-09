@@ -4,6 +4,8 @@ const utils = require('./utils')
 const askQuestions = require('./ask-questions')
 const { getSourceFile } = require('./detect-source-file')
 
+const SUPPORTED_FILES = ['package.json', 'pom.xml']
+
 /**
  * Main process:
  * 1) Check overwrite README.md
@@ -22,7 +24,7 @@ module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
     customTemplatePath,
     useDefaultAnswers
   )
-  const sourceFile = await getSourceFile()
+  const sourceFile = await getSourceFile(SUPPORTED_FILES)
   const projectInformations = await infos.getProjectInfos(sourceFile)
   const answersContext = await askQuestions(
     projectInformations,
