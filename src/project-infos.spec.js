@@ -95,16 +95,18 @@ describe('projectInfos', () => {
         contributors: [{ contributor: [{ name: 'Franck Abgrall' }] }],
         licenses: [{ license: [{ name: 'MIT' }] }],
         url: 'https://github.com/kefranabg/readme-md-generator',
-        issueManagement: [{
-          url: 'https://github.com/kefranabg/readme-md-generator/issues'
-        }]
+        issueManagement: [
+          {
+            url: 'https://github.com/kefranabg/readme-md-generator/issues'
+          }
+        ]
       }
       utils.getPomXml.mockReturnValueOnce(Promise.resolve(pomXmlInfos))
       childProcess.execSync.mockReturnValue(
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos(true)
+      const projectInfos = await getProjectInfos('pom.xml')
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',

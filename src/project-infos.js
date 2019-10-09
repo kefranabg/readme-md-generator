@@ -55,7 +55,9 @@ const getReposUrl = async packageJson =>
  * @param {Object} configJson
  */
 const getReposIssuesUrl = async configJson => {
-  let reposIssuesUrl = get(configJson, 'bugs.url', undefined) || get(configJson, 'issueManagement[0].url', undefined)
+  let reposIssuesUrl =
+    get(configJson, 'bugs.url', undefined) ||
+    get(configJson, 'issueManagement[0].url', undefined)
 
   if (isNil(reposIssuesUrl)) {
     const reposUrl = await getReposUrl()
@@ -158,8 +160,9 @@ const getInfosFromPomXml = async () => {
   const pomXml = await getPomXml()
   const name = getProjectName(pomXml)
   const description = get(pomXml, 'description', undefined)
-  const author = get(pomXml, 'contributors[0].contributor[0].name', undefined)
-    || get(pomXml, 'developers[0].developer[0].name', undefined)
+  const author =
+    get(pomXml, 'contributors[0].contributor[0].name', undefined) ||
+    get(pomXml, 'developers[0].developer[0].name', undefined)
   const version = get(pomXml, 'version', undefined)
   const licenseName = get(pomXml, 'licenses[0].license[0].name', undefined)
   const licenseUrl = get(pomXml, 'licenses[0].license[0].url', undefined)
@@ -185,12 +188,13 @@ const getInfosFromPomXml = async () => {
 /**
  * Get project informations from git and package.json or pom.xml
  */
-const getProjectInfos = async (usePomXml) => {
+const getProjectInfos = async sourceFile => {
   const spinner = ora('Gathering project infos').start()
 
-  const infosFromConfigFile = usePomXml
-    ? await getInfosFromPomXml()
-    : await getInfosFromPackageJson()
+  const infosFromConfigFile =
+    sourceFile === 'pom.xml'
+      ? await getInfosFromPomXml()
+      : await getInfosFromPackageJson()
   const isGithubRepos = isGithubRepository(infosFromConfigFile.repositoryUrl)
   const documentationUrl = isGithubRepos
     ? getReadmeUrlFromGithubRepositoryUrl(infosFromConfigFile.repositoryUrl)
@@ -198,9 +202,11 @@ const getProjectInfos = async (usePomXml) => {
   const githubUsername = isGithubRepos
     ? getGithubUsernameFromRepositoryUrl(infosFromConfigFile.repositoryUrl)
     : undefined
-  const licenseUrl = infosFromConfigFile.licenseUrl || (isGithubRepos
-    ? getLicenseUrlFromGithubRepositoryUrl(infosFromConfigFile.repositoryUrl)
-    : undefined)
+  const licenseUrl =
+    infosFromConfigFile.licenseUrl ||
+    (isGithubRepos
+      ? getLicenseUrlFromGithubRepositoryUrl(infosFromConfigFile.repositoryUrl)
+      : undefined)
 
   spinner.succeed('Project infos gathered')
 

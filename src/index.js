@@ -8,8 +8,8 @@ const mainProcess = require('./cli')
 yargs
   .usage('Usage: $0 <command> [options]')
   .command('$0', 'Generate README.md', noop, args => {
-    const { path: customTemplatePath, yes: useDefaultAnswers, pomxml: usePomXml } = args
-    mainProcess({ customTemplatePath, useDefaultAnswers, usePomXml })
+    const { path: customTemplatePath, yes: useDefaultAnswers } = args
+    mainProcess({ customTemplatePath, useDefaultAnswers })
   })
   .string('p')
   .alias('p', 'path')
@@ -17,9 +17,6 @@ yargs
   .boolean('yes')
   .alias('y', 'yes')
   .describe('yes', 'Use default values for all fields')
-  .boolean('x')
-  .alias('x', 'pomxml')
-  .describe('pomxml', 'Load a pom.xml (by default, it\' a package.json')
   .help()
   .alias('v', 'version')
   .epilog(

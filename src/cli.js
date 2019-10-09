@@ -2,6 +2,7 @@ const readme = require('./readme')
 const infos = require('./project-infos')
 const utils = require('./utils')
 const askQuestions = require('./ask-questions')
+const { getSourceFile } = require('./detect-source-file')
 
 /**
  * Main process:
@@ -13,14 +14,13 @@ const askQuestions = require('./ask-questions')
  *
  * @param {Object} args
  */
-module.exports = async ({ customTemplatePath, useDefaultAnswers, usePomXml }) => {
+module.exports = async ({ customTemplatePath, useDefaultAnswers }) => {
   const templatePath = await readme.getReadmeTemplatePath(
     customTemplatePath,
     useDefaultAnswers
   )
-  const projectInformations = await infos.getProjectInfos(
-    usePomXml
-  )
+  const sourceFile = await getSourceFile()
+  const projectInformations = await infos.getProjectInfos(sourceFile)
   const answersContext = await askQuestions(
     projectInformations,
     useDefaultAnswers
