@@ -1,5 +1,5 @@
 module.exports = projectInfos => ({
-  type: 'input',
+  type: 'editor',
   message: '📄  Project description',
   name: 'projectDescription',
   default: projectInfos.description

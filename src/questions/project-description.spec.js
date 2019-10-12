@@ -8,7 +8,7 @@ describe('askProjectDescription', () => {
     const result = askProjectDescription(projectInfos)
 
     expect(result).toEqual({
-      type: 'input',
+      type: 'editor',
       message: '📄  Project description',
       name: 'projectDescription',
       default: description
