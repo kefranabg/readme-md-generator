@@ -9,7 +9,7 @@ describe('askAuthorGithub', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '👤  GitHub username (use empty value to skip)',
+      message: '👤  GitHub username (comma to split, empty to skip)',
       name: 'authorGithubUsername',
       default: githubUsername,
       filter: expect.any(Function)

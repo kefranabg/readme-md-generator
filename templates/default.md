@@ -25,13 +25,15 @@
 <% } -%>
 <% if (licenseName) { -%>
   <a href="<%= licenseUrl ? licenseUrl : '#' %>" target="_blank">
-    <img alt="License: <%= licenseName %>" src="https://img.shields.io/<%= isGithubRepos ? `github/license/${authorGithubUsername}/${projectName}` : `badge/License-${licenseName}-yellow.svg` %>" />
+    <img alt="License: <%= licenseName %>" src="https://img.shields.io/<%= isGithubRepos ? `github/license/${authorGithubUsername.split(',')[0]}/${projectName}` : `badge/License-${licenseName}-yellow.svg` %>" />
   </a>
 <% } -%>
 <% if (authorTwitterUsername) { -%>
-  <a href="https://twitter.com/<%= authorTwitterUsername %>" target="_blank">
-    <img alt="Twitter: <%= authorTwitterUsername %>" src="https://img.shields.io/twitter/follow/<%= authorTwitterUsername %>.svg?style=social" />
+<% authorTwitterUsername.split(',').forEach(e => { -%>
+  <a href="https://twitter.com/<%= e.trim() %>" target="_blank">
+    <img alt="Twitter: <%= e.trim() %>" src="https://img.shields.io/twitter/follow/<%= e.trim() %>.svg?style=social" />
   </a>
+<% }) -%>
 <% } -%>
 </p>
 <% if (projectDescription) { -%>
@@ -79,16 +81,26 @@
 ```
 <% } -%>
 <% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
+<% if (authorName.split(',').length > 1) { -%>
+
+## Authors
+<% } else { -%>
 
 ## Author
-<% if (authorName) { %>
-👤 **<%= authorName %>**
-<% } %>
-<% if (authorTwitterUsername) { -%>
-* Twitter: [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
 <% } -%>
-<% if (authorGithubUsername) { -%>
-* Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
+<% const names = authorName.split(',') -%>
+<% const twitters = authorTwitterUsername.split(',') -%>
+<% const githubs = authorGithubUsername.split(',') -%>
+<% for (var i = 0; i < names.length; i++) { -%>
+<% if (names[i]) { %>
+👤 **<%= names[i].trim() %>**
+<% } %>
+<% if (twitters[i]) { -%>
+* Twitter: [@<%= twitters[i].trim() %>](https://twitter.com/<%= twitters[i].trim() %>)
+<% } -%>
+<% if (githubs[i]) { -%>
+* Github: [@<%= githubs[i].trim() %>](https://github.com/<%= githubs[i].trim() %>)
+<% } -%>
 <% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>
@@ -112,7 +124,9 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 <% if (authorName && authorGithubUsername) { -%>
-Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).<br />
+<% const authors = authorName.split(',') -%>
+<% const githubs = authorGithubUsername.split(',') -%>
+Copyright © <%= currentYear %> [<%= authors[0].trim() %>](https://github.com/<%= githubs[0].trim() %>)<% for (var i = 1; i < authors.length; i++) { if (authors[i] && githubs[i]) { -%>, [<%= authors[i].trim() %>](https://github.com/<%= githubs[i].trim() %>)<%_ }} _%>.<br />
 <% } -%>
 This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
 <% } -%>
