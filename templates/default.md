@@ -84,9 +84,9 @@
 <% if (authorName) { %>
 👤 **<%= authorName %>**
 <% } %>
-<% if (authorHomepage) { %>
-* Homepage: <%= authorHomepage %>
-<% } %>
+<% if (authorWebsite) { -%>
+* Website: <%= authorWebsite %>
+<% } -%>
 <% if (authorTwitterUsername) { -%>
 * Twitter: [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
 <% } -%>

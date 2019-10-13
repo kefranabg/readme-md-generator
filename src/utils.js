@@ -1,4 +1,6 @@
 const loadJsonFile = require('load-json-file')
+const isNil = require('lodash/isNil')
+const isEmpty = require('lodash/isEmpty')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
@@ -124,18 +126,20 @@ const getDefaultAnswers = questions =>
 const cleanSocialNetworkUsername = input => input.replace(/^@/, '')
 
 /**
- * Get author's homepage from Github API
+ * Get author's website from Github API
  *
  * @param {string} githubUsername
- * @returns {string} authorHomepage
+ * @returns {string} authorWebsite
  */
-const getAuthorHomepageFromGithubAPI = async githubUsername => {
+const getAuthorWebsiteFromGithubAPI = async githubUsername => {
   try {
     const userData = await fetch(
       `${GITHUB_API_URL}/users/${githubUsername}`
     ).then(res => res.json())
-    const authorHomepage = userData.blog
-    return authorHomepage === '' ? undefined : authorHomepage
+    const authorWebsite = userData.blog
+    return isNil(authorWebsite) || isEmpty(authorWebsite)
+      ? undefined
+      : authorWebsite
   } catch (err) {
     return undefined
   }
@@ -151,5 +155,5 @@ module.exports = {
   getDefaultAnswer,
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
-  getAuthorHomepageFromGithubAPI
+  getAuthorWebsiteFromGithubAPI
 }
