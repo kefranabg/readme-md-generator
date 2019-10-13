@@ -2,6 +2,7 @@ const loadJsonFile = require('load-json-file')
 const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
+const fetch = require('node-fetch')
 const { isNil } = require('lodash')
 
 const realPathBasename = path.basename
@@ -16,11 +17,13 @@ const {
   getDefaultAnswer,
   getDefaultAnswers,
   cleanSocialNetworkUsername,
-  isProjectAvailableOnNpm
+  isProjectAvailableOnNpm,
+  getAuthorWebsiteFromGithubAPI
 } = require('./utils')
 
 jest.mock('load-json-file')
 jest.mock('boxen')
+jest.mock('node-fetch')
 
 describe('utils', () => {
   describe('getPackageJson', () => {
@@ -219,6 +222,37 @@ describe('utils', () => {
 
     it('should return the same string when string is not prefixed', () => {
       expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
+    })
+  })
+
+  describe('getAuthorWebsiteFromGithubAPI', () => {
+    it('should return author website url when it exists', async () => {
+      const expectedAuthorWebsite = 'https://www.franck-abgrall.me/'
+      fetch.mockReturnValueOnce(
+        Promise.resolve({
+          json: () => Promise.resolve({ blog: expectedAuthorWebsite })
+        })
+      )
+
+      const githubUsername = 'kefranabg'
+      const authorWebsite = await getAuthorWebsiteFromGithubAPI(githubUsername)
+      expect(authorWebsite).toEqual(expectedAuthorWebsite)
+    })
+
+    it('should return undefined if author website url does not exist', async () => {
+      fetch.mockReturnValueOnce(Promise.resolve({ blog: '' }))
+      const githubUsername = 'kefranabg'
+      const authorWebsite = await getAuthorWebsiteFromGithubAPI(githubUsername)
+      expect(authorWebsite).toEqual(undefined)
+    })
+
+    it('should return undefined if there is an error', async () => {
+      fetch.mockImplementationOnce(() => {
+        throw new Error('ERROR')
+      })
+      const githubUsername = 'kefranabg'
+      const authorWebsite = await getAuthorWebsiteFromGithubAPI(githubUsername)
+      expect(authorWebsite).toEqual(undefined)
     })
   })
 })

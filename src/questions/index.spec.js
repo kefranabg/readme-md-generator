@@ -13,6 +13,7 @@ describe('questions', () => {
       'askProjectDocumentationUrl',
       'askAuhtorName',
       'askAuthorGithub',
+      'askAuthorWebsite',
       'askAuthorTwitter',
       'askAuthorPatreon',
       'askProjectPrerequisites',

@@ -8,6 +8,7 @@ module.exports = {
   askProjectDocumentationUrl: require('./project-documentation-url'),
   askAuhtorName: require('./author-name'),
   askAuthorGithub: require('./author-github'),
+  askAuthorWebsite: require('./author-website'),
   askAuthorTwitter: require('./author-twitter'),
   askAuthorPatreon: require('./author-patreon'),
   askProjectPrerequisites: require('./project-prerequisites'),

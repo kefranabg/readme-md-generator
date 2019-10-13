@@ -4,7 +4,11 @@ const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
 
-const { getPackageJson, getProjectName } = require('./utils')
+const {
+  getPackageJson,
+  getProjectName,
+  getAuthorWebsiteFromGithubAPI
+} = require('./utils')
 
 const GITHUB_URL = 'https://github.com/'
 
@@ -140,6 +144,9 @@ const getProjectInfos = async () => {
   const githubUsername = isGithubRepos
     ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
     : undefined
+  const authorWebsite = githubUsername
+    ? await getAuthorWebsiteFromGithubAPI(githubUsername)
+    : undefined
   const licenseUrl = isGithubRepos
     ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
@@ -151,6 +158,7 @@ const getProjectInfos = async () => {
     description,
     version,
     author,
+    authorWebsite,
     homepage,
     repositoryUrl,
     contributingUrl,
