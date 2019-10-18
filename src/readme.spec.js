@@ -98,6 +98,7 @@ describe('readme', () => {
       authorGithubUsername: 'kefranabg',
       authorTwitterUsername: 'FranckAbgrall',
       authorPatreonUsername: 'FranckAbgrall',
+      authorMatrixUsername: '@foo:bar',
       licenseName: 'MIT',
       licenseUrl:
         'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',

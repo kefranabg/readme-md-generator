@@ -78,7 +78,7 @@
 <%= testCommand %>
 ```
 <% } -%>
-<% if (authorName || authorTwitterUsername || authorGithubUsername) { -%>
+<% if (authorName || authorTwitterUsername || authorGithubUsername || authorMatrixUsername) { -%>
 
 ## Author
 <% if (authorName) { %>
@@ -92,6 +92,9 @@
 <% } -%>
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
+<% } -%>
+<% if (authorMatrixUsername) { -%>
+* Matrix: [<%= authorMatrixUsername %>](https://matrix.to/#/<%= authorMatrixUsername %>)
 <% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>

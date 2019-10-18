@@ -11,6 +11,7 @@ module.exports = {
   askAuthorWebsite: require('./author-website'),
   askAuthorTwitter: require('./author-twitter'),
   askAuthorPatreon: require('./author-patreon'),
+  askAuthorMatrix: require('./author-matrix'),
   askProjectPrerequisites: require('./project-prerequisites'),
   askLicenseName: require('./license-name'),
   askLicenseUrl: require('./license-url'),
