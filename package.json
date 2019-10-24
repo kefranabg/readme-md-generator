@@ -34,7 +34,8 @@
     "prettier:fix": "npm run prettier -- --write",
     "start": "node src/index.js",
     "test": "jest",
-    "test:ci": "jest --coverage && codecov"
+    "test:ci": "jest --coverage && codecov",
+    "contributors:add": "all-contributors add"
   },
   "repository": {
     "type": "git",
