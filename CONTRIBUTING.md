@@ -57,8 +57,8 @@ Also, make sure to run the tests and lint the code before you commit your
 changes.
 
 ```sh
-npm test
-npm lint
+npm run test
+npm run lint
 ```
 
 ## Add yourself as a contributor
@@ -71,7 +71,7 @@ To add yourself to the table of contributors on the `README.md`, please use the
 automated script as part of your PR:
 
 ```sh
-npm contributors:add
+npm run contributors:add
 ```
 
 Follow the prompt and commit `.all-contributorsrc` and `README.md` in the PR.
