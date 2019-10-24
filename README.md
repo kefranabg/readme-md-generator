@@ -86,7 +86,8 @@ You can find [ejs README template examples here](https://github.com/kefranabg/re
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
-Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.
+Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.<br />
+[Check the contributing guide](./CONTRIBUTING.md).<br />
 
 ## Contributors
 
