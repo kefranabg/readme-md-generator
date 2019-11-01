@@ -1,6 +1,6 @@
-module.exports = () => ({
+module.exports = projectInfos => ({
   type: 'input',
   message: '📦  Install command (use empty value to skip)',
   name: 'installCommand',
-  default: 'npm install'
+  default: projectInfos.isJSProject ? 'npm install' : undefined
 })

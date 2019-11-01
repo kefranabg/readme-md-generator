@@ -83,6 +83,7 @@ describe('projectInfos', () => {
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
+        isJSProject: true,
         usage: undefined,
         testCommand: undefined
       })
@@ -134,6 +135,7 @@ describe('projectInfos', () => {
         licenseUrl: undefined,
         documentationUrl: undefined,
         isGithubRepos: false,
+        isJSProject: true,
         usage: undefined,
         testCommand: undefined
       })
@@ -165,6 +167,7 @@ describe('projectInfos', () => {
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
+        isJSProject: false,
         usage: undefined,
         testCommand: undefined
       })
@@ -193,6 +196,7 @@ describe('projectInfos', () => {
         licenseUrl: undefined,
         documentationUrl: undefined,
         isGithubRepos: false,
+        isJSProject: false,
         usage: undefined,
         testCommand: undefined
       })
@@ -221,6 +225,7 @@ describe('projectInfos', () => {
         licenseUrl: undefined,
         documentationUrl: undefined,
         isGithubRepos: false,
+        isJSProject: false,
         usage: undefined,
         testCommand: undefined
       })
@@ -274,6 +279,7 @@ describe('projectInfos', () => {
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
+        isJSProject: true,
         usage: undefined,
         testCommand: undefined
       })
@@ -331,6 +337,7 @@ describe('projectInfos', () => {
         documentationUrl:
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
+        isJSProject: true,
         usage: undefined,
         testCommand: undefined
       })
