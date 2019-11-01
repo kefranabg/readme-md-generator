@@ -124,6 +124,7 @@ const getProjectInfos = async () => {
   const spinner = ora('Gathering project infos').start()
 
   const packageJson = await getPackageJson()
+  const isJSProject = !!packageJson
   const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
@@ -169,7 +170,8 @@ const getProjectInfos = async () => {
     documentationUrl,
     isGithubRepos,
     usage,
-    testCommand
+    testCommand,
+    isJSProject
   }
 }
 
