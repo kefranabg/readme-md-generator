@@ -1,5 +1,29 @@
 # Changelog
 
+<a name="0.7.0"></a>
+
+## 0.7.0 (2019-11-01)
+
+### Added
+
+- ✨ Add Author Github website url if exists (fixes [#124](https://github.com/kefranabg/readme-md-generator/issues/124)) ([#145](https://github.com/kefranabg/readme-md-generator/issues/145)) [[541d6e5](https://github.com/kefranabg/readme-md-generator/commit/541d6e53fdc2df42a3a416b5c2f2b5c1422e45db)]
+
+### Changed
+
+- ♻️ re-use prettier regexp across scripts ([#159](https://github.com/kefranabg/readme-md-generator/issues/159)) [[576e367](https://github.com/kefranabg/readme-md-generator/commit/576e367c67f7fbe0013fe2e32e20d17b6d4b8c8f)]
+- 🔧 Add prettier fix command ([#158](https://github.com/kefranabg/readme-md-generator/issues/158)) [[da2c700](https://github.com/kefranabg/readme-md-generator/commit/da2c70034165b42d8e25abf1c799f275d7c349b0)]
+
+### Fixed
+
+- 🐛 Don't suggest install default value when project is not a js project ([#169](https://github.com/kefranabg/readme-md-generator/issues/169)) [[672d591](https://github.com/kefranabg/readme-md-generator/commit/672d591ae845e95ef2b8f41b00997e09dfff1a3c)]
+- 🐛 Fix static badge generation when license name contains special characters ([#141](https://github.com/kefranabg/readme-md-generator/issues/141)) [[5b8bc08](https://github.com/kefranabg/readme-md-generator/commit/5b8bc08925e54f1c542d84a26283832040232053)]
+
+### Miscellaneous
+
+- 📝 Update README with CONTRIBUTING link [[5ec2ce4](https://github.com/kefranabg/readme-md-generator/commit/5ec2ce4e1404349eb94037dae16a8c569977e90a)]
+- 📝 Add CONTRIBUTING.md (fixes [#155](https://github.com/kefranabg/readme-md-generator/issues/155)) ([#160](https://github.com/kefranabg/readme-md-generator/issues/160)) [[f2d6020](https://github.com/kefranabg/readme-md-generator/commit/f2d6020e5fdef4c880ed6830302ca20f0817d192)]
+- 📝 Add code of conduct markdown ([#157](https://github.com/kefranabg/readme-md-generator/issues/157)) [[be3ec22](https://github.com/kefranabg/readme-md-generator/commit/be3ec22a7d44c88b59c3c67910ad266b65ff9746)]
+
 <a name="0.6.4"></a>
 
 ## 0.6.4 (2019-10-09)
