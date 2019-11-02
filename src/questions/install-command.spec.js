@@ -13,7 +13,7 @@ describe('askInstallCommand', () => {
     })
   })
 
-  it('should return correct question format when project lang is js', () => {
+  it('should return correct question format when project lang is not js', () => {
     const projectInfos = { isJSProject: false }
     const result = askInstallCommand(projectInfos)
 
