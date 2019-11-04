@@ -2,7 +2,7 @@ const askInstallCommand = require('./install-command')
 
 describe('askInstallCommand', () => {
   it('should return correct question format when project lang is js', () => {
-    const projectInfos = { isJSProject: true }
+    const projectInfos = { isJSProject: true, packageManager: 'npm' }
     const result = askInstallCommand(projectInfos)
 
     expect(result).toEqual({

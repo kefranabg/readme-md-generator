@@ -3,6 +3,7 @@ const get = require('lodash/get')
 const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
+const askPackageManager = require('./ask-package-manager')
 
 const {
   getPackageJson,
@@ -121,10 +122,12 @@ const getAuthorName = packageJson => {
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
-  const spinner = ora('Gathering project infos').start()
-
   const packageJson = await getPackageJson()
   const isJSProject = !!packageJson
+  const packageManager = isJSProject ? await askPackageManager() : undefined
+
+  const spinner = ora('Gathering project infos').start()
+
   const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)
@@ -132,9 +135,11 @@ const getProjectInfos = async () => {
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
-  const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
+  const usage = has(packageJson, 'scripts.start')
+    ? `${packageManager} run start`
+    : undefined
   const testCommand = has(packageJson, 'scripts.test')
-    ? 'npm run test'
+    ? `${packageManager} run test`
     : undefined
   const repositoryUrl = await getReposUrl(packageJson)
   const contributingUrl = await getReposIssuesUrl(packageJson)
@@ -171,7 +176,8 @@ const getProjectInfos = async () => {
     isGithubRepos,
     usage,
     testCommand,
-    isJSProject
+    isJSProject,
+    packageManager
   }
 }
 

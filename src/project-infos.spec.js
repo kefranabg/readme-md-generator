@@ -3,6 +3,7 @@ const childProcess = require('child_process')
 
 const utils = require('./utils')
 const { getProjectInfos } = require('./project-infos')
+const askPackageManager = require('./ask-package-manager')
 
 jest.mock('ora')
 jest.mock('child_process', () => ({
@@ -14,6 +15,8 @@ jest.mock('./utils', () => ({
   getAuthorWebsiteFromGithubAPI: jest.fn(() => 'https://www.franck-abgrall.me/')
 }))
 
+jest.mock('./ask-package-manager')
+
 const succeed = jest.fn()
 const fail = jest.fn()
 
@@ -23,6 +26,8 @@ ora.mockReturnValue({
     fail
   })
 })
+
+askPackageManager.mockReturnValue('npm')
 
 describe('projectInfos', () => {
   describe('getProjectInfos', () => {
@@ -85,7 +90,8 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined
+        testCommand: undefined,
+        packageManager: 'npm'
       })
     })
 
@@ -137,7 +143,8 @@ describe('projectInfos', () => {
         isGithubRepos: false,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined
+        testCommand: undefined,
+        packageManager: 'npm'
       })
     })
 
@@ -281,7 +288,8 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined
+        testCommand: undefined,
+        packageManager: 'npm'
       })
     })
 
@@ -339,7 +347,68 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined
+        testCommand: undefined,
+        packageManager: 'npm'
+      })
+    })
+
+    it('should return correct infos when package manager is yarn', async () => {
+      const packgeJsonInfos = {
+        name: 'readme-md-generator',
+        version: '0.1.3',
+        description: 'CLI that generates beautiful README.md files.',
+        author: 'Franck Abgrall',
+        license: 'MIT',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
+        repository: {
+          type: 'git',
+          url: 'git+https://github.com/kefranabg/readme-md-generator.git'
+        },
+        bugs: {
+          url: 'https://github.com/kefranabg/readme-md-generator/issues'
+        },
+        engines: {
+          npm: '>=5.5.0',
+          node: '>=9.3.0'
+        },
+        scripts: {
+          start: 'node src/index.js',
+          test: 'jest'
+        }
+      }
+      utils.getPackageJson.mockReturnValueOnce(Promise.resolve(packgeJsonInfos))
+      childProcess.execSync.mockReturnValue(
+        'https://github.com/kefranabg/readme-md-generator.git'
+      )
+      askPackageManager.mockReturnValueOnce('yarn')
+
+      const projectInfos = await getProjectInfos()
+
+      expect(projectInfos).toEqual({
+        name: 'readme-md-generator',
+        description: 'CLI that generates beautiful README.md files.',
+        version: '0.1.3',
+        author: 'Franck Abgrall',
+        repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
+        homepage: 'https://github.com/kefranabg/readme-md-generator',
+        contributingUrl:
+          'https://github.com/kefranabg/readme-md-generator/issues',
+        authorWebsite: 'https://www.franck-abgrall.me/',
+        githubUsername: 'kefranabg',
+        engines: {
+          npm: '>=5.5.0',
+          node: '>=9.3.0'
+        },
+        licenseName: 'MIT',
+        licenseUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
+        documentationUrl:
+          'https://github.com/kefranabg/readme-md-generator#readme',
+        isGithubRepos: true,
+        isJSProject: true,
+        usage: 'yarn run start',
+        testCommand: 'yarn run test',
+        packageManager: 'yarn'
       })
     })
   })
