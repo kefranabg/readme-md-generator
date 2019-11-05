@@ -18,7 +18,7 @@ const question = {
 }
 
 /**
- * Ask user if they want to overwrite the existed README
+ * Ask users if they want to overwrite the existing README
  */
 module.exports = async () => {
   const { overwriteReadme } = await inquirer.prompt([question])
