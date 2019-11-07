@@ -93,6 +93,9 @@
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
+<% if (authorLinkedInUsername) { -%>
+* LinkedIn: [@<%= authorLinkedInUsername %>](https://linkedin.com/in/<%= authorLinkedInUsername %>)
+<% } -%>
 <% } -%>
 <% if (contributingUrl) { -%>
 

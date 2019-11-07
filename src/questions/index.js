@@ -10,6 +10,7 @@ module.exports = {
   askAuthorGithub: require('./author-github'),
   askAuthorWebsite: require('./author-website'),
   askAuthorTwitter: require('./author-twitter'),
+  askAuthorLinkedIn: require('./author-linkedin'),
   askAuthorPatreon: require('./author-patreon'),
   askProjectPrerequisites: require('./project-prerequisites'),
   askLicenseName: require('./license-name'),

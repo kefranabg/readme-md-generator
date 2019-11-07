@@ -97,6 +97,7 @@ describe('readme', () => {
       authorWebsite: 'https://www.franck-abgrall.me/',
       authorGithubUsername: 'kefranabg',
       authorTwitterUsername: 'FranckAbgrall',
+      authorLinkedInUsername: 'franckabgrall',
       authorPatreonUsername: 'FranckAbgrall',
       licenseName: 'MIT',
       licenseUrl:
