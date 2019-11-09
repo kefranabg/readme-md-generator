@@ -1,6 +1,4 @@
-const inquirer = require('inquirer')
-
-const askPackageManager = require('./ask-package-manager')
+const askPackageManager = require('./package-manager')
 
 const expectedQuestion = {
   type: 'list',
@@ -18,26 +16,18 @@ const expectedQuestion = {
   ]
 }
 
-inquirer.prompt = jest.fn(items =>
-  Promise.resolve(
-    items.reduce((result, item) => {
-      result[item.name] = 'value'
-      return result
-    }, {})
-  )
-)
+describe('askPackageManager', () => {
+  it('should return correct question format when package manager is undefined', () => {
+    const projectInfos = { packageManager: undefined }
+    const result = askPackageManager(projectInfos)
 
-describe('ask-package-manager', () => {
-  beforeEach(() => {
-    inquirer.prompt.mockClear()
+    expect(result).toEqual(expectedQuestion)
   })
 
-  it('should call prompt right questions', async () => {
-    await askPackageManager()
-    expect(inquirer.prompt).toHaveBeenCalledWith([expectedQuestion])
-  })
+  it('should return null when package manager value is passed', () => {
+    const projectInfos = { packageManager: 'npm' }
+    const result = askPackageManager(projectInfos)
 
-  it('should return the right value', async () => {
-    expect(await askPackageManager()).toEqual('value')
+    expect(result).toBeNull()
   })
 })

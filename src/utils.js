@@ -186,5 +186,6 @@ module.exports = {
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
   getAuthorWebsiteFromGithubAPI,
-  getPackageManagerFromLockFile
+  getPackageManagerFromLockFile,
+  doesFileExist
 }

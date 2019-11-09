@@ -2,16 +2,39 @@ const askUsage = require('./usage')
 
 describe('askUsage', () => {
   it('should return correct question format', () => {
-    const usage = 'npm start'
-    const projectInfos = { usage }
+    const result = askUsage()
 
-    const result = askUsage(projectInfos)
+    expect(result).toEqual(
+      expect.objectContaining({
+        type: 'input',
+        message: '🚀  Usage command or instruction (use empty value to skip)',
+        name: 'usage'
+      })
+    )
+  })
 
-    expect(result).toEqual({
-      type: 'input',
-      message: '🚀  Usage command or instruction (use empty value to skip)',
-      name: 'usage',
-      default: usage
+  it('should return undefined for a non JS Project', () => {
+    const projectInfos = { isJSProject: false }
+
+    const result = askUsage(projectInfos).default()
+    expect(result).toBeUndefined()
+  })
+
+  it('should return correct default when lock file is found', () => {
+    const usage = 'npm run start'
+    const projectInfos = { isJSProject: true, packageManager: 'npm' }
+
+    const result = askUsage(projectInfos).default()
+    expect(result).toBe(usage)
+  })
+
+  it('should return correct default after user selects a package manager', () => {
+    const usage = 'yarn run start'
+    const projectInfos = { isJSProject: true }
+
+    const result = askUsage(projectInfos).default({
+      packageManager: 'yarn'
     })
+    expect(result).toBe(usage)
   })
 })

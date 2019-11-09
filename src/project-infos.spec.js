@@ -3,7 +3,6 @@ const childProcess = require('child_process')
 
 const utils = require('./utils')
 const { getProjectInfos } = require('./project-infos')
-const askPackageManager = require('./ask-package-manager')
 
 jest.mock('ora')
 jest.mock('child_process', () => ({
@@ -12,10 +11,11 @@ jest.mock('child_process', () => ({
 jest.mock('./utils', () => ({
   getPackageJson: jest.fn(),
   getProjectName: jest.fn(() => 'readme-md-generator'),
-  getAuthorWebsiteFromGithubAPI: jest.fn(() => 'https://www.franck-abgrall.me/')
+  getAuthorWebsiteFromGithubAPI: jest.fn(
+    () => 'https://www.franck-abgrall.me/'
+  ),
+  getPackageManagerFromLockFile: jest.fn(() => undefined)
 }))
-
-jest.mock('./ask-package-manager')
 
 const succeed = jest.fn()
 const fail = jest.fn()
@@ -26,8 +26,6 @@ ora.mockReturnValue({
     fail
   })
 })
-
-askPackageManager.mockReturnValue('npm')
 
 describe('projectInfos', () => {
   describe('getProjectInfos', () => {
@@ -90,8 +88,7 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined,
-        packageManager: 'npm'
+        testCommand: undefined
       })
     })
 
@@ -143,8 +140,7 @@ describe('projectInfos', () => {
         isGithubRepos: false,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined,
-        packageManager: 'npm'
+        testCommand: undefined
       })
     })
 
@@ -288,8 +284,7 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined,
-        packageManager: 'npm'
+        testCommand: undefined
       })
     })
 
@@ -347,12 +342,11 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         usage: undefined,
-        testCommand: undefined,
-        packageManager: 'npm'
+        testCommand: undefined
       })
     })
 
-    it('should return correct infos when package manager is yarn', async () => {
+    it('should return correct infos when lock file is found', async () => {
       const packgeJsonInfos = {
         name: 'readme-md-generator',
         version: '0.1.3',
@@ -377,10 +371,10 @@ describe('projectInfos', () => {
         }
       }
       utils.getPackageJson.mockReturnValueOnce(Promise.resolve(packgeJsonInfos))
+      utils.getPackageManagerFromLockFile.mockReturnValueOnce('yarn')
       childProcess.execSync.mockReturnValue(
         'https://github.com/kefranabg/readme-md-generator.git'
       )
-      askPackageManager.mockReturnValueOnce('yarn')
 
       const projectInfos = await getProjectInfos()
 

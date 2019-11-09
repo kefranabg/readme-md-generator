@@ -3,6 +3,7 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const fetch = require('node-fetch')
+const fs = require('fs')
 const { isNil } = require('lodash')
 
 const realPathBasename = path.basename
@@ -18,12 +19,14 @@ const {
   getDefaultAnswers,
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
-  getAuthorWebsiteFromGithubAPI
+  getAuthorWebsiteFromGithubAPI,
+  doesFileExist
 } = require('./utils')
 
 jest.mock('load-json-file')
 jest.mock('boxen')
 jest.mock('node-fetch')
+jest.mock('fs')
 
 describe('utils', () => {
   describe('getPackageJson', () => {
@@ -46,7 +49,7 @@ describe('utils', () => {
 
       const result = await getPackageJson()
 
-      expect(result).toBe(undefined)
+      expect(result).toBeUndefined()
     })
   })
 
@@ -253,6 +256,18 @@ describe('utils', () => {
       const githubUsername = 'kefranabg'
       const authorWebsite = await getAuthorWebsiteFromGithubAPI(githubUsername)
       expect(authorWebsite).toEqual(undefined)
+    })
+  })
+
+  describe('doesFileExist', () => {
+    it('should return true when file exists for a given path', () => {
+      fs.existsSync.mockReturnValueOnce(true)
+      expect(doesFileExist('./file-path')).toBe(true)
+    })
+
+    it('should return false when file does not exist for a given path', () => {
+      fs.existsSync.mockReturnValueOnce(false)
+      expect(doesFileExist('./file-path')).toBe(false)
     })
   })
 })
