@@ -15,6 +15,7 @@ describe('questions', () => {
       'askAuthorGithub',
       'askAuthorWebsite',
       'askAuthorTwitter',
+      'askAuthorLinkedIn',
       'askAuthorPatreon',
       'askProjectPrerequisites',
       'askLicenseName',
