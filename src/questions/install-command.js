@@ -2,7 +2,12 @@ module.exports = projectInfos => ({
   type: 'input',
   message: '📦  Install command (use empty value to skip)',
   name: 'installCommand',
-  default: projectInfos.isJSProject
-    ? `${projectInfos.packageManager} install`
-    : undefined
+  default: answers => {
+    if (projectInfos.isJSProject) {
+      const packageManager =
+        projectInfos.packageManager || answers.packageManager
+      return `${packageManager} install`
+    }
+    return undefined
+  }
 })

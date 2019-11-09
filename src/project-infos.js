@@ -3,12 +3,12 @@ const get = require('lodash/get')
 const has = require('lodash/has')
 const ora = require('ora')
 const { execSync } = require('child_process')
-const askPackageManager = require('./ask-package-manager')
 
 const {
   getPackageJson,
   getProjectName,
-  getAuthorWebsiteFromGithubAPI
+  getAuthorWebsiteFromGithubAPI,
+  getPackageManagerFromLockFile
 } = require('./utils')
 
 const GITHUB_URL = 'https://github.com/'
@@ -124,7 +124,9 @@ const getAuthorName = packageJson => {
 const getProjectInfos = async () => {
   const packageJson = await getPackageJson()
   const isJSProject = !!packageJson
-  const packageManager = isJSProject ? await askPackageManager() : undefined
+  const packageManager = isJSProject
+    ? getPackageManagerFromLockFile()
+    : undefined
 
   const spinner = ora('Gathering project infos').start()
 

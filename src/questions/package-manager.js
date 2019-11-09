@@ -1,5 +1,3 @@
-const inquirer = require('inquirer')
-
 const question = {
   type: 'list',
   message: '📦  Choose Package Manager ',
@@ -17,9 +15,7 @@ const question = {
 }
 
 /**
- * Ask user if they want to use npm or yarn
+ * return null if we can already infer the package manager
+ * from the lock file
  */
-module.exports = async () => {
-  const { packageManager } = await inquirer.prompt([question])
-  return packageManager
-}
+module.exports = projectInfos => (projectInfos.packageManager ? null : question)
