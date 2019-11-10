@@ -99,6 +99,9 @@ const getLicenseUrlFromGithubRepositoryUrl = repositoryUrl =>
 const getReadmeUrlFromGithubRepositoryUrl = repositoryUrl =>
   `${repositoryUrl}#readme`
 
+const getContributingUrlFromRepositoryUrl = repositoryUrl =>
+  `${repositoryUrl}/blob/master/CONTRIBUTING.md`
+
 /**
  * Get project author name from package.json
  *
@@ -137,8 +140,11 @@ const getProjectInfos = async () => {
     ? 'npm run test'
     : undefined
   const repositoryUrl = await getReposUrl(packageJson)
-  const contributingUrl = await getReposIssuesUrl(packageJson)
+  const issuesUrl = await getReposIssuesUrl(packageJson)
   const isGithubRepos = isGithubRepository(repositoryUrl)
+  const contributingUrl = repositoryUrl
+    ? getContributingUrlFromRepositoryUrl(repositoryUrl)
+    : undefined
   const documentationUrl = isGithubRepos
     ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
     : undefined
@@ -162,6 +168,7 @@ const getProjectInfos = async () => {
     authorWebsite,
     homepage,
     repositoryUrl,
+    issuesUrl,
     contributingUrl,
     githubUsername,
     engines,
