@@ -10,7 +10,7 @@ describe('askContributingUrl', () => {
 
     expect(result).toEqual({
       type: 'input',
-      message: '📄  Contributing guide url (use empty value to skip)',
+      message: '🤝  Contributing guide url (use empty value to skip)',
       name: 'contributingUrl',
       default: contributingUrl
     })
