@@ -217,11 +217,20 @@ describe('utils', () => {
 
   describe('cleanSocialNetworkUsername', () => {
     it('should remove prefixed @', () => {
-      expect(cleanSocialNetworkUsername('@Slashgear_')).toEqual('Slashgear_')
+      expect(cleanSocialNetworkUsername('@Slashgear')).toEqual('Slashgear')
     })
 
-    it('should return the same string when string is not prefixed', () => {
-      expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
+    it('should escape markdown characters', () => {
+      expect(cleanSocialNetworkUsername('Slashgear__')).toEqual(
+        'Slashgear\\_\\_'
+      )
+      expect(cleanSocialNetworkUsername('Slashgear**')).toEqual(
+        'Slashgear\\*\\*'
+      )
+    })
+
+    it('should return the same string when string is not prefixed or contains markdown chars', () => {
+      expect(cleanSocialNetworkUsername('Slashgear')).toEqual('Slashgear')
     })
   })
 

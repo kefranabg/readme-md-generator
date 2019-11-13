@@ -5,6 +5,7 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const fetch = require('node-fetch')
+const escapeMarkdown = require('markdown-escape')
 const { execSync } = require('child_process')
 
 const END_MSG = `README.md was successfully generated.
@@ -118,12 +119,14 @@ const getDefaultAnswers = questions =>
   )
 
 /**
- * Clean social network username by removing the @ prefix
+ * Clean social network username by removing the @ prefix and
+ * escaping markdown characters
  *
  * @param input social network username input
- * @returns {*} input without the prefix
+ * @returns {*} escaped input without the prefix
  */
-const cleanSocialNetworkUsername = input => input.replace(/^@/, '')
+const cleanSocialNetworkUsername = input =>
+  escapeMarkdown(input.replace(/^@/, ''))
 
 /**
  * Get author's website from Github API
