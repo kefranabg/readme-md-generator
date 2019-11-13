@@ -70,7 +70,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
-          'https://github.com/kefranabg/readme-md-generator/issues',
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         authorWebsite: 'https://www.franck-abgrall.me/',
         githubUsername: 'kefranabg',
         engines: {
@@ -84,6 +84,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         isJSProject: true,
+        issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })
@@ -123,7 +124,7 @@ describe('projectInfos', () => {
         author: 'Franck Abgrall',
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
-          'https://gitlab.com/kefranabg/readme-md-generator/issues',
+          'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         homepage: 'https://gitlab.com/kefranabg/readme-md-generator',
         githubUsername: undefined,
         authorWebsite: undefined,
@@ -136,6 +137,7 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         isJSProject: true,
+        issuesUrl: 'https://gitlab.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })
@@ -156,7 +158,7 @@ describe('projectInfos', () => {
         author: undefined,
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
-          'https://github.com/kefranabg/readme-md-generator/issues',
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         homepage: undefined,
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
@@ -168,6 +170,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         isJSProject: false,
+        issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })
@@ -187,8 +190,9 @@ describe('projectInfos', () => {
         version: undefined,
         author: undefined,
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
+        authorWebsite: undefined,
         contributingUrl:
-          'https://gitlab.com/kefranabg/readme-md-generator/issues',
+          'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         homepage: undefined,
         githubUsername: undefined,
         engines: undefined,
@@ -197,6 +201,7 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         isJSProject: false,
+        issuesUrl: 'https://gitlab.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })
@@ -265,7 +270,7 @@ describe('projectInfos', () => {
         author: 'Franck Abgrall',
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
-          'https://github.com/kefranabg/readme-md-generator/issues',
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
@@ -280,6 +285,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         isJSProject: true,
+        issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })
@@ -324,7 +330,7 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
-          'https://github.com/kefranabg/readme-md-generator/issues',
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
         engines: {
@@ -338,6 +344,7 @@ describe('projectInfos', () => {
           'https://github.com/kefranabg/readme-md-generator#readme',
         isGithubRepos: true,
         isJSProject: true,
+        issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
         usage: undefined,
         testCommand: undefined
       })

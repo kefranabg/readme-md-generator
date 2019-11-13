@@ -15,7 +15,8 @@ module.exports = {
   askProjectPrerequisites: require('./project-prerequisites'),
   askLicenseName: require('./license-name'),
   askLicenseUrl: require('./license-url'),
-  askContributing: require('./contributing'),
+  askIssuesUrl: require('./issues-url'),
+  askContributingUrl: require('./contributing-url'),
   askInstallCommand: require('./install-command'),
   askUsage: require('./usage'),
   askTestCommand: require('./test-command')

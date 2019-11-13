@@ -20,7 +20,8 @@ describe('questions', () => {
       'askProjectPrerequisites',
       'askLicenseName',
       'askLicenseUrl',
-      'askContributing',
+      'askIssuesUrl',
+      'askContributingUrl',
       'askInstallCommand',
       'askUsage',
       'askTestCommand'
