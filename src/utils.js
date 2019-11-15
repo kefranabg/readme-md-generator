@@ -74,12 +74,14 @@ const getPackageJson = async () => {
  *
  * @param {Object} question
  */
-const getDefaultAnswer = (question, answersContext) => {
+const getDefaultAnswer = async (question, answersContext) => {
   if (question.when && !question.when(answersContext)) return undefined
 
   switch (question.type) {
     case 'input':
-      return question.default || ''
+      return typeof question.default === 'function'
+        ? question.default(answersContext)
+        : question.default || ''
     case 'checkbox':
       return question.choices
         .filter(choice => choice.checked)
@@ -110,13 +112,14 @@ const isProjectAvailableOnNpm = projectName => {
  * @param {Array} questions
  */
 const getDefaultAnswers = questions =>
-  questions.reduce(
-    (answersContext, question) => ({
+  questions.reduce(async (answersContextProm, question) => {
+    const answersContext = await answersContextProm
+
+    return {
       ...answersContext,
-      [question.name]: getDefaultAnswer(question, answersContext)
-    }),
-    {}
-  )
+      [question.name]: await getDefaultAnswer(question, answersContext)
+    }
+  }, Promise.resolve({}))
 
 /**
  * Clean social network username by removing the @ prefix and
