@@ -7,7 +7,8 @@ describe('askPatreonUsername', () => {
     expect(result).toEqual({
       type: 'input',
       message: '❤️  Patreon username (use empty value to skip)',
-      name: 'authorPatreonUsername'
+      name: 'authorPatreonUsername',
+      filter: expect.any(Function)
     })
   })
 })
