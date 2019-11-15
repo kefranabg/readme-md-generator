@@ -110,16 +110,15 @@ const isProjectAvailableOnNpm = projectName => {
  *
  * @param {Array} questions
  */
-const getDefaultAnswers = async questions => {
-  const answersContext = {}
-  for (const question of questions) {
-    answersContext[question.name] = await getDefaultAnswer(
-      question,
-      answersContext
-    )
-  }
-  return answersContext
-}
+const getDefaultAnswers = questions =>
+  questions.reduce(async (answersContextProm, question) => {
+    const answersContext = await answersContextProm
+
+    return {
+      ...answersContext,
+      [question.name]: await getDefaultAnswer(question, answersContext)
+    }
+  }, Promise.resolve({}))
 
 /**
  * Clean social network username by removing the @ prefix
