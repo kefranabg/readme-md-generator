@@ -16,15 +16,15 @@ describe('askUsage', () => {
   it('should return undefined for a non JS Project', () => {
     const projectInfos = { isJSProject: false }
 
-    const result = askUsage(projectInfos).default()
+    const result = askUsage(projectInfos).default({ packageManager: undefined })
     expect(result).toBeUndefined()
   })
 
   it('should return correct default when lock file is found', () => {
     const usage = 'npm run start'
-    const projectInfos = { isJSProject: true, packageManager: 'npm' }
+    const projectInfos = { isJSProject: true }
 
-    const result = askUsage(projectInfos).default()
+    const result = askUsage(projectInfos).default({ packageManager: 'npm' })
     expect(result).toBe(usage)
   })
 

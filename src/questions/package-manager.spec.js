@@ -21,13 +21,20 @@ describe('askPackageManager', () => {
     const projectInfos = { packageManager: undefined }
     const result = askPackageManager(projectInfos)
 
-    expect(result).toEqual(expectedQuestion)
+    expect(result).toEqual(expect.objectContaining(expectedQuestion))
   })
 
-  it('should return null when package manager value is passed', () => {
-    const projectInfos = { packageManager: 'npm' }
-    const result = askPackageManager(projectInfos)
+  it('should return false for a non JS Project', () => {
+    const projectInfos = { isJSProject: false, packageManager: undefined }
+    const result = askPackageManager(projectInfos).when(projectInfos)
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
+  })
+
+  it('should return false for when package manager is undefined', () => {
+    const projectInfos = { isJSProject: true, packageManager: undefined }
+    const result = askPackageManager(projectInfos).when(projectInfos)
+
+    expect(result).toBe(true)
   })
 })

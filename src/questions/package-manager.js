@@ -14,5 +14,5 @@ module.exports = projectInfos => ({
       value: 'yarn'
     }
   ],
-  when: () => isEmpty(projectInfos.packageManager)
+  when: () => projectInfos.isJSProject && isEmpty(projectInfos.packageManager)
 })

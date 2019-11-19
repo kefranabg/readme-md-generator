@@ -15,15 +15,19 @@ describe('askInstallCommand', () => {
   it('should return undefined for a non JS Project', () => {
     const projectInfos = { isJSProject: false }
 
-    const result = askInstallCommand(projectInfos).default()
+    const result = askInstallCommand(projectInfos).default({
+      packageManager: undefined
+    })
     expect(result).toBeUndefined()
   })
 
   it('should return correct default when lock file is found', () => {
     const testCommand = 'npm install'
-    const projectInfos = { isJSProject: true, packageManager: 'npm' }
+    const projectInfos = { isJSProject: true }
 
-    const result = askInstallCommand(projectInfos).default()
+    const result = askInstallCommand(projectInfos).default({
+      packageManager: 'npm'
+    })
     expect(result).toBe(testCommand)
   })
 
