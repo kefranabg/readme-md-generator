@@ -97,12 +97,14 @@ describe('readme', () => {
       authorWebsite: 'https://www.franck-abgrall.me/',
       authorGithubUsername: 'kefranabg',
       authorTwitterUsername: 'FranckAbgrall',
+      authorLinkedInUsername: 'franckabgrall',
       authorPatreonUsername: 'FranckAbgrall',
       licenseName: 'MIT',
       licenseUrl:
         'https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE',
+      issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
       contributingUrl:
-        'https://github.com/kefranabg/readme-md-generator/issues',
+        'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
       installCommand: 'npm install',
       usage: 'npm start',
       testCommand: 'npm run test',

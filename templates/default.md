@@ -93,12 +93,15 @@
 <% if (authorGithubUsername) { -%>
 * Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
+<% if (authorLinkedInUsername) { -%>
+* LinkedIn: [@<%= authorLinkedInUsername %>](https://linkedin.com/in/<%= authorLinkedInUsername %>)
 <% } -%>
-<% if (contributingUrl) { -%>
+<% } -%>
+<% if (issuesUrl) { -%>
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= contributingUrl %>).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= issuesUrl %>). <%= contributingUrl ? `You can also take a look at the [contributing guide](${contributingUrl}).` : '' %>
 <% } -%>
 
 ## Show your support

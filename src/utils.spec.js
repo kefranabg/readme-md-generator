@@ -123,45 +123,45 @@ describe('utils', () => {
   })
 
   describe('getDefaultAnswer', () => {
-    it('should handle input prompts correctly', () => {
+    it('should handle input prompts correctly', async () => {
       const question = { type: 'input', default: 'default' }
-      const result = getDefaultAnswer(question)
+      const result = await getDefaultAnswer(question)
       expect(result).toEqual(question.default)
     })
 
-    it('should handle choices prompts correctly', () => {
+    it('should handle choices prompts correctly', async () => {
       const value = { name: 'name', value: 'value' }
       const question = {
         type: 'checkbox',
         choices: [{ value, checked: true }, { checked: false }]
       }
-      const result = getDefaultAnswer(question)
+      const result = await getDefaultAnswer(question)
 
       expect(result).toEqual([value])
     })
 
-    it('should return empty string for non-defaulted fields', () => {
+    it('should return empty string for non-defaulted fields', async () => {
       const question = { type: 'input' }
-      const result = getDefaultAnswer(question)
+      const result = await getDefaultAnswer(question)
 
       expect(result).toEqual('')
     })
 
-    it('should return undefined for invalid types', () => {
+    it('should return undefined for invalid types', async () => {
       const question = { type: 'invalid' }
-      const result = getDefaultAnswer(question)
+      const result = await getDefaultAnswer(question)
 
       expect(result).toEqual(undefined)
     })
 
-    it('should return undefined if when function is defined and return false', () => {
+    it('should return undefined if when function is defined and return false', async () => {
       const answersContext = {}
       const question = {
         type: 'input',
         when: ansewersContext => !isNil(ansewersContext.licenseUrl)
       }
 
-      const result = getDefaultAnswer(question, answersContext)
+      const result = await getDefaultAnswer(question, answersContext)
 
       expect(result).toEqual(undefined)
     })
@@ -180,7 +180,7 @@ describe('utils', () => {
       })
     })
 
-    it('should return correct value if when function is defined and return true', () => {
+    it('should return correct value if when function is defined and return true', async () => {
       const answersContext = { licenseUrl: 'licenseUrl' }
       const question = {
         type: 'input',
@@ -188,14 +188,14 @@ describe('utils', () => {
         when: ansewersContext => !isNil(ansewersContext.licenseUrl)
       }
 
-      const result = getDefaultAnswer(question, answersContext)
+      const result = await getDefaultAnswer(question, answersContext)
 
       expect(result).toEqual('default')
     })
   })
 
   describe('getDefaultAnswers', () => {
-    it('should return default answers from questions', () => {
+    it('should return default answers from questions', async () => {
       const questions = [
         {
           type: 'input',
@@ -209,7 +209,7 @@ describe('utils', () => {
         }
       ]
 
-      const result = getDefaultAnswers(questions)
+      const result = await getDefaultAnswers(questions)
 
       expect(result).toEqual({
         questionOne: 'answer 1',
@@ -220,11 +220,20 @@ describe('utils', () => {
 
   describe('cleanSocialNetworkUsername', () => {
     it('should remove prefixed @', () => {
-      expect(cleanSocialNetworkUsername('@Slashgear_')).toEqual('Slashgear_')
+      expect(cleanSocialNetworkUsername('@Slashgear')).toEqual('Slashgear')
     })
 
-    it('should return the same string when string is not prefixed', () => {
-      expect(cleanSocialNetworkUsername('Slashgear_')).toEqual('Slashgear_')
+    it('should escape markdown characters', () => {
+      expect(cleanSocialNetworkUsername('Slashgear__')).toEqual(
+        'Slashgear\\_\\_'
+      )
+      expect(cleanSocialNetworkUsername('Slashgear**')).toEqual(
+        'Slashgear\\*\\*'
+      )
+    })
+
+    it('should return the same string when string is not prefixed or contains markdown chars', () => {
+      expect(cleanSocialNetworkUsername('Slashgear')).toEqual('Slashgear')
     })
   })
 

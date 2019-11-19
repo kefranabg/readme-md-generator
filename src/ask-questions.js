@@ -16,7 +16,7 @@ module.exports = async (projectInfos, useDefaultAnswers) => {
   )
 
   const answersContext = useDefaultAnswers
-    ? utils.getDefaultAnswers(questions)
+    ? await utils.getDefaultAnswers(questions)
     : await inquirer.prompt(questions)
 
   return {
