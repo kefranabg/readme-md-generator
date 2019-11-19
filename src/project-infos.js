@@ -122,14 +122,13 @@ const getAuthorName = packageJson => {
  * Get project informations from git and package.json
  */
 const getProjectInfos = async () => {
+  const spinner = ora('Gathering project infos').start()
+
   const packageJson = await getPackageJson()
   const isJSProject = !!packageJson
   const packageManager = isJSProject
     ? getPackageManagerFromLockFile()
     : undefined
-
-  const spinner = ora('Gathering project infos').start()
-
   const name = getProjectName(packageJson)
   const description = get(packageJson, 'description', undefined)
   const engines = get(packageJson, 'engines', undefined)

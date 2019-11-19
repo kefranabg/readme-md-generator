@@ -1,4 +1,6 @@
-const question = {
+const isEmpty = require('lodash/isEmpty')
+
+module.exports = projectInfos => ({
   type: 'list',
   message: '📦  Choose Package Manager ',
   name: 'packageManager',
@@ -11,11 +13,6 @@ const question = {
       name: 'yarn',
       value: 'yarn'
     }
-  ]
-}
-
-/**
- * return null if we can already infer the package manager
- * from the lock file
- */
-module.exports = projectInfos => (projectInfos.packageManager ? null : question)
+  ],
+  when: () => isEmpty(projectInfos.packageManager)
+})

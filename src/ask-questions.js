@@ -13,7 +13,7 @@ const utils = require('./utils')
 module.exports = async (projectInfos, useDefaultAnswers) => {
   const questions = flatMap(Object.values(questionsBuilders), questionBuilder =>
     questionBuilder(projectInfos)
-  ).filter(question => question) // filter for null values
+  )
 
   const answersContext = useDefaultAnswers
     ? utils.getDefaultAnswers(questions)
