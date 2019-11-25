@@ -22,7 +22,7 @@
   "devDependencies": {
     "all-contributors-cli": "^6.7.0",
     "codecov": "^3.5.0",
-    "eslint": "^6.0.0",
+    "eslint": "^6.7.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.17.3",
     "jest": "^24.8.0",
