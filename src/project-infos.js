@@ -139,12 +139,8 @@ const getProjectInfos = async () => {
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
-  const usage = has(packageJson, 'scripts.start')
-    ? `${packageManager} run start`
-    : undefined
-  const testCommand = has(packageJson, 'scripts.test')
-    ? `${packageManager} run test`
-    : undefined
+  const hasStartCommand = has(packageJson, 'scripts.start')
+  const hasTestCommand = has(packageJson, 'scripts.test')
   const repositoryUrl = await getReposUrl(packageJson)
   const issuesUrl = await getReposIssuesUrl(packageJson)
   const isGithubRepos = isGithubRepository(repositoryUrl)
@@ -182,8 +178,8 @@ const getProjectInfos = async () => {
     licenseUrl,
     documentationUrl,
     isGithubRepos,
-    usage,
-    testCommand,
+    hasStartCommand,
+    hasTestCommand,
     isJSProject,
     packageManager
   }

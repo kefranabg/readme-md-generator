@@ -14,7 +14,7 @@ jest.mock('./utils', () => ({
   getAuthorWebsiteFromGithubAPI: jest.fn(
     () => 'https://www.franck-abgrall.me/'
   ),
-  getPackageManagerFromLockFile: jest.fn(() => undefined)
+  getPackageManagerFromLockFile: jest.fn(() => 'yarn')
 }))
 
 const succeed = jest.fn()
@@ -88,8 +88,9 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false,
+        packageManager: 'yarn'
       })
     })
 
@@ -141,8 +142,9 @@ describe('projectInfos', () => {
         isGithubRepos: false,
         isJSProject: true,
         issuesUrl: 'https://gitlab.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false,
+        packageManager: 'yarn'
       })
     })
 
@@ -174,8 +176,8 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: false,
         issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false
       })
     })
 
@@ -205,8 +207,8 @@ describe('projectInfos', () => {
         isGithubRepos: false,
         isJSProject: false,
         issuesUrl: 'https://gitlab.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false
       })
     })
 
@@ -234,8 +236,9 @@ describe('projectInfos', () => {
         documentationUrl: undefined,
         isGithubRepos: false,
         isJSProject: false,
-        usage: undefined,
-        testCommand: undefined
+        testCommand: undefined,
+        hasStartCommand: false,
+        hasTestCommand: false
       })
     })
 
@@ -289,8 +292,9 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false,
+        packageManager: 'yarn'
       })
     })
 
@@ -348,8 +352,9 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
-        usage: undefined,
-        testCommand: undefined
+        hasStartCommand: false,
+        hasTestCommand: false,
+        packageManager: 'yarn'
       })
     })
 
@@ -408,8 +413,8 @@ describe('projectInfos', () => {
         isGithubRepos: true,
         isJSProject: true,
         issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
-        usage: 'yarn run start',
-        testCommand: 'yarn run test',
+        hasStartCommand: true,
+        hasTestCommand: true,
         packageManager: 'yarn'
       })
     })

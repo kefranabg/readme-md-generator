@@ -13,28 +13,33 @@ describe('askUsage', () => {
     )
   })
 
-  it('should return undefined for a non JS Project', () => {
-    const projectInfos = { isJSProject: false }
+  it('should return undefined default answer when package manager does not exists', () => {
+    const projectInfos = { hasStartCommand: true }
 
-    const result = askUsage(projectInfos).default({ packageManager: undefined })
+    const result = askUsage(projectInfos).default({
+      packageManager: undefined
+    })
+
     expect(result).toBeUndefined()
   })
 
-  it('should return correct default when lock file is found', () => {
-    const usage = 'npm run start'
-    const projectInfos = { isJSProject: true }
-
-    const result = askUsage(projectInfos).default({ packageManager: 'npm' })
-    expect(result).toBe(usage)
-  })
-
-  it('should return correct default after user selects a package manager', () => {
-    const usage = 'yarn run start'
-    const projectInfos = { isJSProject: true }
+  it('should return undefined default answer when start command does not exists', () => {
+    const projectInfos = { hasStartCommand: false }
 
     const result = askUsage(projectInfos).default({
       packageManager: 'yarn'
     })
-    expect(result).toBe(usage)
+
+    expect(result).toBeUndefined()
+  })
+
+  it('should return correct default answer when start command and packageManager exists', () => {
+    const projectInfos = { hasStartCommand: true }
+
+    const result = askUsage(projectInfos).default({
+      packageManager: 'yarn'
+    })
+
+    expect(result).toEqual('yarn run start')
   })
 })

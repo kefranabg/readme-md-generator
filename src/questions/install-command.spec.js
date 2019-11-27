@@ -12,32 +12,23 @@ describe('askInstallCommand', () => {
     )
   })
 
-  it('should return undefined for a non JS Project', () => {
-    const projectInfos = { isJSProject: false }
+  it('should return undefined default answer when package manager is not defined', () => {
+    const projectInfos = {}
 
     const result = askInstallCommand(projectInfos).default({
       packageManager: undefined
     })
+
     expect(result).toBeUndefined()
   })
 
-  it('should return correct default when lock file is found', () => {
-    const testCommand = 'npm install'
-    const projectInfos = { isJSProject: true }
-
-    const result = askInstallCommand(projectInfos).default({
-      packageManager: 'npm'
-    })
-    expect(result).toBe(testCommand)
-  })
-
-  it('should return correct default after user selects a package manager', () => {
-    const testCommand = 'yarn install'
-    const projectInfos = { isJSProject: true }
+  it('should return correct default answer when package manager is defined', () => {
+    const projectInfos = {}
 
     const result = askInstallCommand(projectInfos).default({
       packageManager: 'yarn'
     })
-    expect(result).toBe(testCommand)
+
+    expect(result).toEqual('yarn install')
   })
 })

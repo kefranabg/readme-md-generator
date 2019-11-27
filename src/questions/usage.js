@@ -6,6 +6,8 @@ module.exports = projectInfos => ({
   name: 'usage',
   default: answers => {
     const packageManager = answers.packageManager || projectInfos.packageManager
-    return isNil(packageManager) ? undefined : `${packageManager} run start`
+    return projectInfos.hasStartCommand && !isNil(packageManager)
+      ? `${packageManager} run start`
+      : undefined
   }
 })

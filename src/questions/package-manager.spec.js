@@ -24,14 +24,21 @@ describe('askPackageManager', () => {
     expect(result).toEqual(expect.objectContaining(expectedQuestion))
   })
 
-  it('should return false for a non JS Project', () => {
+  it('should not show question for a non JS Project', () => {
     const projectInfos = { isJSProject: false, packageManager: undefined }
     const result = askPackageManager(projectInfos).when(projectInfos)
 
     expect(result).toBe(false)
   })
 
-  it('should return false for when package manager is undefined', () => {
+  it('should not show question when package manager has already been detected', () => {
+    const projectInfos = { isJSProject: true, packageManager: 'yarn' }
+    const result = askPackageManager(projectInfos).when(projectInfos)
+
+    expect(result).toBe(false)
+  })
+
+  it('should show question when package manager is undefined and if project is JS', () => {
     const projectInfos = { isJSProject: true, packageManager: undefined }
     const result = askPackageManager(projectInfos).when(projectInfos)
 

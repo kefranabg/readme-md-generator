@@ -20,7 +20,8 @@ const {
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
   getAuthorWebsiteFromGithubAPI,
-  doesFileExist
+  doesFileExist,
+  getPackageManagerFromLockFile
 } = require('./utils')
 
 jest.mock('load-json-file')
@@ -88,7 +89,7 @@ describe('utils', () => {
 
     it('should return package.json name prop when defined', () => {
       const packageJson = { name: projectName }
-      getReposName.sync.mockReturnValue('readme-md-generator')
+      getReposName.sync.mockReturnValueOnce('readme-md-generator')
 
       const result = getProjectName(packageJson)
 
@@ -99,7 +100,7 @@ describe('utils', () => {
 
     it('should return git repos when package.json it is not defined', () => {
       const packageJson = undefined
-      getReposName.sync.mockReturnValue('readme-md-generator')
+      getReposName.sync.mockReturnValueOnce('readme-md-generator')
 
       const result = getProjectName(packageJson)
 
@@ -277,6 +278,44 @@ describe('utils', () => {
     it('should return false when file does not exist for a given path', () => {
       fs.existsSync.mockReturnValueOnce(false)
       expect(doesFileExist('./file-path')).toBe(false)
+    })
+  })
+
+  describe('getPackageManagerFromLockFile', () => {
+    it('should return npm if only package-lock.json exists', () => {
+      fs.existsSync.mockImplementation(
+        filePath => filePath === 'package-lock.json'
+      )
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toEqual('npm')
+    })
+
+    it('should return yarn if only yarn.lock exists', () => {
+      fs.existsSync.mockImplementation(filePath => filePath === 'yarn.lock')
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toEqual('yarn')
+    })
+
+    it('should return undefined if only yarn.lock and package-lock.json exists', () => {
+      fs.existsSync.mockImplementation(
+        filePath => filePath === 'yarn.lock' || filePath === 'package-lock.json'
+      )
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toBeUndefined()
+    })
+
+    it('should return undefined if only no lock file exists', () => {
+      fs.existsSync.mockImplementation(() => false)
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toBeUndefined()
     })
   })
 })
