@@ -134,6 +134,7 @@ const getProjectInfos = async () => {
   const author = getAuthorName(packageJson)
   const version = get(packageJson, 'version', undefined)
   const licenseName = get(packageJson, 'license', undefined)
+  const fundingUrl = get(packageJson, 'funding.url', undefined)
   const homepage = get(packageJson, 'homepage', undefined)
   const usage = has(packageJson, 'scripts.start') ? 'npm run start' : undefined
   const testCommand = has(packageJson, 'scripts.test')
@@ -178,7 +179,8 @@ const getProjectInfos = async () => {
     isGithubRepos,
     usage,
     testCommand,
-    isJSProject
+    isJSProject,
+    fundingUrl
   }
 }
 
