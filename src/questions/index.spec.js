@@ -11,6 +11,7 @@ describe('questions', () => {
       'askProjectHomepage',
       'askProjectDemoUrl',
       'askProjectDocumentationUrl',
+      'askProjectFundingUrl',
       'askAuhtorName',
       'askAuthorGithub',
       'askAuthorWebsite',
