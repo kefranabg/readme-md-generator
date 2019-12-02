@@ -279,6 +279,13 @@ describe('utils', () => {
       fs.existsSync.mockReturnValueOnce(false)
       expect(doesFileExist('./file-path')).toBe(false)
     })
+
+    it('should return false if fs.existsSync throws an error', () => {
+      fs.existsSync.mockImplementationOnce(() => {
+        throw new Error('ERROR')
+      })
+      expect(doesFileExist('./file-path')).toBe(false)
+    })
   })
 
   describe('getPackageManagerFromLockFile', () => {
