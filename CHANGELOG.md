@@ -1,5 +1,37 @@
 # Changelog
 
+<a name="1.0.0"></a>
+
+## 1.0.0 (2019-12-03)
+
+### Added
+
+- ✨ Ask for package manager when is JS project [[29986ce](https://github.com/kefranabg/readme-md-generator/commit/29986cea9acde108b9e167db5d0def67beaf7384)]
+- ✨ Ask user for a link to contributing guide (fixes [#168](https://github.com/kefranabg/readme-md-generator/issues/168)) ([#179](https://github.com/kefranabg/readme-md-generator/issues/179)) [[310a8b1](https://github.com/kefranabg/readme-md-generator/commit/310a8b1f78154d9226c1267ccf18d0db9d9ea09f)]
+- ✨ Ask author's linkedin username (fixes [#170](https://github.com/kefranabg/readme-md-generator/issues/170)) ([#177](https://github.com/kefranabg/readme-md-generator/issues/177)) [[10954d1](https://github.com/kefranabg/readme-md-generator/commit/10954d10739b995c431b751d63d5624c17397235)]
+
+### Changed
+
+- ⬆️ Update yargs to the latest version ([#186](https://github.com/kefranabg/readme-md-generator/issues/186)) [[16d7ceb](https://github.com/kefranabg/readme-md-generator/commit/16d7ceb8ec3040d63841397ded83dbdddc28da52)]
+- ⬆️ Update ejs to the latest version ([#187](https://github.com/kefranabg/readme-md-generator/issues/187)) [[139e906](https://github.com/kefranabg/readme-md-generator/commit/139e906b1ed1b875ca96869fe8570ca03d9806c2)]
+- 🔧 Update CI tiggers ([#184](https://github.com/kefranabg/readme-md-generator/issues/184)) [[6ef2be8](https://github.com/kefranabg/readme-md-generator/commit/6ef2be8ba8e00af16087f42eabd7e4b4ed2243b3)]
+- ⬆️ Update ora to the latest version ([#181](https://github.com/kefranabg/readme-md-generator/issues/181)) [[c563d9d](https://github.com/kefranabg/readme-md-generator/commit/c563d9d473e5c17be6a45936b2f58f83b734c4e9)]
+- 🔧 Move CI from CircleCI to GitHub actions [[a132525](https://github.com/kefranabg/readme-md-generator/commit/a132525ffe343629db2589378647665747e5cd4f)]
+- 🔧 Update FUNDING.yml [[83be6c0](https://github.com/kefranabg/readme-md-generator/commit/83be6c00842eb4321b5c37a7f5617e28f1548cdb)]
+
+### Fixed
+
+- 🐛 Fix version badge label when contains \_ or - ([#190](https://github.com/kefranabg/readme-md-generator/issues/190)) [[6c345b5](https://github.com/kefranabg/readme-md-generator/commit/6c345b50caec810ef48f00dcbac0255f1db1f4a3)]
+- 🐛 Execute default function to get default answer when -y flag is passed ([#185](https://github.com/kefranabg/readme-md-generator/issues/185)) [[89cd82d](https://github.com/kefranabg/readme-md-generator/commit/89cd82db18655bbb085eb72c339402f412dd3996)]
+- 🐛 Escape markdown characters in social network questions answers ([#183](https://github.com/kefranabg/readme-md-generator/issues/183)) [[d96e310](https://github.com/kefranabg/readme-md-generator/commit/d96e310c5b54c573a139d01f4ad348f9456f7c3c)]
+- ✏️ Use gender neutral in comment ([#174](https://github.com/kefranabg/readme-md-generator/issues/174)) [[9f78778](https://github.com/kefranabg/readme-md-generator/commit/9f78778002410c0b82f36015b86443fb366425a7)]
+- 🐛 Fix InstallCommand test name [[279711f](https://github.com/kefranabg/readme-md-generator/commit/279711f1cdd18b2d53478c52f577041ea2186675)]
+
+### Miscellaneous
+
+- 📝 Add open collective to readme ([#192](https://github.com/kefranabg/readme-md-generator/issues/192)) [[81e3873](https://github.com/kefranabg/readme-md-generator/commit/81e387357c5c088714291b0a7f18b66cab8cd5c6)]
+- 📝 Add anku255 as a contributor for test and bug ([#182](https://github.com/kefranabg/readme-md-generator/issues/182)) [[7624889](https://github.com/kefranabg/readme-md-generator/commit/76248890cf46ec7a27b6986add3d156095deb782)]
+
 <a name="0.7.0"></a>
 
 ## 0.7.0 (2019-11-01)
