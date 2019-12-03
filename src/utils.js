@@ -5,6 +5,7 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const fetch = require('node-fetch')
+const fs = require('fs')
 const escapeMarkdown = require('markdown-escape')
 const { execSync } = require('child_process')
 
@@ -151,6 +152,35 @@ const getAuthorWebsiteFromGithubAPI = async githubUsername => {
   }
 }
 
+/**
+ * Returns a boolean whether a file exists or not
+ *
+ * @param {String} filepath
+ * @returns {Boolean}
+ */
+const doesFileExist = filepath => {
+  try {
+    return fs.existsSync(filepath)
+  } catch (err) {
+    return false
+  }
+}
+
+/**
+ * Returns the package manager from the lock file
+ *
+ * @returns {String} packageManger or undefined
+ */
+const getPackageManagerFromLockFile = () => {
+  const packageLockExists = doesFileExist('package-lock.json')
+  const yarnLockExists = doesFileExist('yarn.lock')
+
+  if (packageLockExists && yarnLockExists) return undefined
+  if (packageLockExists) return 'npm'
+  if (yarnLockExists) return 'yarn'
+  return undefined
+}
+
 module.exports = {
   getPackageJson,
   showEndMessage,
@@ -161,5 +191,7 @@ module.exports = {
   getDefaultAnswer,
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
-  getAuthorWebsiteFromGithubAPI
+  getAuthorWebsiteFromGithubAPI,
+  getPackageManagerFromLockFile,
+  doesFileExist
 }

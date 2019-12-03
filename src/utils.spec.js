@@ -3,6 +3,7 @@ const boxen = require('boxen')
 const path = require('path')
 const getReposName = require('git-repo-name')
 const fetch = require('node-fetch')
+const fs = require('fs')
 const { isNil } = require('lodash')
 
 const realPathBasename = path.basename
@@ -18,12 +19,15 @@ const {
   getDefaultAnswers,
   cleanSocialNetworkUsername,
   isProjectAvailableOnNpm,
-  getAuthorWebsiteFromGithubAPI
+  getAuthorWebsiteFromGithubAPI,
+  doesFileExist,
+  getPackageManagerFromLockFile
 } = require('./utils')
 
 jest.mock('load-json-file')
 jest.mock('boxen')
 jest.mock('node-fetch')
+jest.mock('fs')
 
 describe('utils', () => {
   describe('getPackageJson', () => {
@@ -46,7 +50,7 @@ describe('utils', () => {
 
       const result = await getPackageJson()
 
-      expect(result).toBe(undefined)
+      expect(result).toBeUndefined()
     })
   })
 
@@ -85,7 +89,7 @@ describe('utils', () => {
 
     it('should return package.json name prop when defined', () => {
       const packageJson = { name: projectName }
-      getReposName.sync.mockReturnValue('readme-md-generator')
+      getReposName.sync.mockReturnValueOnce('readme-md-generator')
 
       const result = getProjectName(packageJson)
 
@@ -96,7 +100,7 @@ describe('utils', () => {
 
     it('should return git repos when package.json it is not defined', () => {
       const packageJson = undefined
-      getReposName.sync.mockReturnValue('readme-md-generator')
+      getReposName.sync.mockReturnValueOnce('readme-md-generator')
 
       const result = getProjectName(packageJson)
 
@@ -262,6 +266,63 @@ describe('utils', () => {
       const githubUsername = 'kefranabg'
       const authorWebsite = await getAuthorWebsiteFromGithubAPI(githubUsername)
       expect(authorWebsite).toEqual(undefined)
+    })
+  })
+
+  describe('doesFileExist', () => {
+    it('should return true when file exists for a given path', () => {
+      fs.existsSync.mockReturnValueOnce(true)
+      expect(doesFileExist('./file-path')).toBe(true)
+    })
+
+    it('should return false when file does not exist for a given path', () => {
+      fs.existsSync.mockReturnValueOnce(false)
+      expect(doesFileExist('./file-path')).toBe(false)
+    })
+
+    it('should return false if fs.existsSync throws an error', () => {
+      fs.existsSync.mockImplementationOnce(() => {
+        throw new Error('ERROR')
+      })
+      expect(doesFileExist('./file-path')).toBe(false)
+    })
+  })
+
+  describe('getPackageManagerFromLockFile', () => {
+    it('should return npm if only package-lock.json exists', () => {
+      fs.existsSync.mockImplementation(
+        filePath => filePath === 'package-lock.json'
+      )
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toEqual('npm')
+    })
+
+    it('should return yarn if only yarn.lock exists', () => {
+      fs.existsSync.mockImplementation(filePath => filePath === 'yarn.lock')
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toEqual('yarn')
+    })
+
+    it('should return undefined if only yarn.lock and package-lock.json exists', () => {
+      fs.existsSync.mockImplementation(
+        filePath => filePath === 'yarn.lock' || filePath === 'package-lock.json'
+      )
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toBeUndefined()
+    })
+
+    it('should return undefined if only no lock file exists', () => {
+      fs.existsSync.mockImplementation(() => false)
+
+      const result = getPackageManagerFromLockFile()
+
+      expect(result).toBeUndefined()
     })
   })
 })
