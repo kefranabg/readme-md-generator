@@ -20,7 +20,6 @@
     "yargs": "^15.0.1"
   },
   "devDependencies": {
-    "all-contributors-cli": "^6.7.0",
     "codecov": "^3.5.0",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -35,8 +34,7 @@
     "prettier:fix": "npm run prettier -- --write",
     "start": "node src/index.js",
     "test": "jest",
-    "test:ci": "jest --coverage && codecov",
-    "contributors:add": "all-contributors add"
+    "test:ci": "jest --coverage && codecov"
   },
   "repository": {
     "type": "git",

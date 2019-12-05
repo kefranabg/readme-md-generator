@@ -9,7 +9,6 @@ Please note we have a [code of conduct](https://github.com/kefranabg/readme-md-g
 
 - [Setting Up the project locally](#setting-up-the-project-locally)
 - [Submitting a Pull Request](#submitting-a-pull-request)
-- [Add yourself as a contributor](#add-yourself-as-a-contributor)
 
 ## Setting Up the project locally
 
@@ -60,20 +59,3 @@ changes.
 npm run test
 npm run lint
 ```
-
-## Add yourself as a contributor
-
-This project follows the
-[all-contributors](https://github.com/all-contributors/all-contributors)
-specification. Contributions of any kind welcome!
-
-To add yourself to the table of contributors on the `README.md`, please use the
-automated script as part of your PR:
-
-```sh
-npm run contributors:add
-```
-
-Follow the prompt and commit `.all-contributorsrc` and `README.md` in the PR.
-
-Note: We also have [@all-contributors bot 🤖](https://github.com/all-contributors/all-contributors-bot) to add you as a contributor in case you forget to run the aforementioned script.
