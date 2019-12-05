@@ -79,7 +79,7 @@
 * Twitter: [@<%= authorTwitterUsername %>](https://twitter.com/<%= authorTwitterUsername %>)
 <% } -%>
 <% if (authorGithubUsername) { -%>
-* Github: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
+* GitHub: [@<%= authorGithubUsername %>](https://github.com/<%= authorGithubUsername %>)
 <% } -%>
 <% if (authorLinkedInUsername) { -%>
 * LinkedIn: [@<%= authorLinkedInUsername %>](https://linkedin.com/in/<%= authorLinkedInUsername %>)
