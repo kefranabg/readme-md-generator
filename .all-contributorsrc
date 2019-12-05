@@ -199,6 +199,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "RDIL",
+      "name": "Reece Dunham",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/34555510?v=4",
+      "profile": "https://rdil.rocks/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -206,5 +215,6 @@
   "projectOwner": "kefranabg",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "commitConvention": "none"
+  "commitConvention": "none",
+  "skipCi": true
 }
