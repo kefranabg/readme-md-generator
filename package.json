@@ -7,7 +7,7 @@
     "readme": "src/index.js"
   },
   "dependencies": {
-    "boxen": "^4.0.0",
+    "boxen": "^4.2.0",
     "date-fns": "^2.0.1",
     "ejs": "^3.0.1",
     "git-repo-name": "^1.0.1",
