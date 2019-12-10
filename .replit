@@ -1,0 +1,2 @@
+language = "javascript"
+run = "npx readme-md-generator"

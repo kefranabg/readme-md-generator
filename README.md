@@ -13,6 +13,7 @@
   <a href="https://github.com/frinyvonnick/gitmoji-changelog">
     <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
   </a>
+[![Run on Repl.it](https://repl.it/badge/github/kefranabg/readme-md-generator)](https://repl.it/github/kefranabg/readme-md-generator)
   <a href="https://twitter.com/FranckAbgrall">
     <img alt="Twitter: FranckAbgrall" src="https://img.shields.io/twitter/follow/FranckAbgrall.svg?style=social" target="_blank" />
   </a>
