@@ -20,7 +20,7 @@
     "yargs": "^15.0.1"
   },
   "devDependencies": {
-    "codecov": "^3.5.0",
+    "codecov": "^3.6.4",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.17.3",
