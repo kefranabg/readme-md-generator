@@ -23,7 +23,7 @@
     "codecov": "^3.5.0",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import": "^2.20.1",
     "jest": "^24.8.0",
     "prettier": "^1.17.1"
   },
