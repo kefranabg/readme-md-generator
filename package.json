@@ -11,7 +11,7 @@
     "date-fns": "^2.0.1",
     "ejs": "^3.0.1",
     "git-repo-name": "^1.0.1",
-    "inquirer": "~7.0.0",
+    "inquirer": "~7.1.0",
     "load-json-file": "^6.0.0",
     "lodash": "^4.17.11",
     "markdown-escape": "^1.0.2",
