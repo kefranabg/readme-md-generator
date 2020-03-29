@@ -9,7 +9,7 @@
   "dependencies": {
     "boxen": "^4.0.0",
     "date-fns": "^2.0.1",
-    "ejs": "^3.0.1",
+    "ejs": "^3.0.2",
     "git-repo-name": "^1.0.1",
     "inquirer": "~7.0.0",
     "load-json-file": "^6.0.0",
