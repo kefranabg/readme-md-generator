@@ -103,6 +103,8 @@ const getReadmeUrlFromGithubRepositoryUrl = repositoryUrl =>
 const getContributingUrlFromRepositoryUrl = repositoryUrl =>
   `${repositoryUrl}/blob/master/CONTRIBUTING.md`
 
+const getChangelogUrlFromRepositoryUrl = repositoryUrl =>
+  `${repositoryUrl}/blob/master/CHANGELOG.md`
 /**
  * Get project author name from package.json
  *
@@ -122,7 +124,7 @@ const getAuthorName = packageJson => {
 }
 
 /**
- * Get project informations from git and package.json
+ * Get project information from git and package.json
  */
 const getProjectInfos = async () => {
   const spinner = ora('Gathering project infos').start()
@@ -146,6 +148,9 @@ const getProjectInfos = async () => {
   const isGithubRepos = isGithubRepository(repositoryUrl)
   const contributingUrl = repositoryUrl
     ? getContributingUrlFromRepositoryUrl(repositoryUrl)
+    : undefined
+  const changelogUrl = repositoryUrl
+    ? getChangelogUrlFromRepositoryUrl(repositoryUrl)
     : undefined
   const documentationUrl = isGithubRepos
     ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
@@ -172,6 +177,7 @@ const getProjectInfos = async () => {
     repositoryUrl,
     issuesUrl,
     contributingUrl,
+    changelogUrl,
     githubUsername,
     engines,
     licenseName,
