@@ -74,6 +74,8 @@ describe('projectInfos', () => {
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         authorWebsite: 'https://www.franck-abgrall.me/',
         githubUsername: 'kefranabg',
         engines: {
@@ -129,6 +131,8 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://gitlab.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         homepage: 'https://gitlab.com/kefranabg/readme-md-generator',
         githubUsername: undefined,
         authorWebsite: undefined,
@@ -164,6 +168,8 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         homepage: undefined,
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
@@ -198,6 +204,8 @@ describe('projectInfos', () => {
         authorWebsite: undefined,
         contributingUrl:
           'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://gitlab.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         homepage: undefined,
         githubUsername: undefined,
         engines: undefined,
@@ -227,6 +235,7 @@ describe('projectInfos', () => {
         author: undefined,
         repositoryUrl: undefined,
         contributingUrl: undefined,
+        changelogUrl: undefined,
         homepage: undefined,
         authorWebsite: undefined,
         githubUsername: undefined,
@@ -277,6 +286,8 @@ describe('projectInfos', () => {
         repositoryUrl: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
@@ -338,6 +349,8 @@ describe('projectInfos', () => {
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         githubUsername: 'kefranabg',
         authorWebsite: 'https://www.franck-abgrall.me/',
         engines: {
@@ -399,6 +412,8 @@ describe('projectInfos', () => {
         homepage: 'https://github.com/kefranabg/readme-md-generator',
         contributingUrl:
           'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+        changelogUrl:
+          'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
         authorWebsite: 'https://www.franck-abgrall.me/',
         githubUsername: 'kefranabg',
         engines: {

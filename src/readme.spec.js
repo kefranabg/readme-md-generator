@@ -105,6 +105,8 @@ describe('readme', () => {
       issuesUrl: 'https://github.com/kefranabg/readme-md-generator/issues',
       contributingUrl:
         'https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md',
+      changelogUrl:
+        'https://github.com/kefranabg/readme-md-generator/blob/master/CHANGELOG.md',
       installCommand: 'npm install',
       usage: 'npm start',
       testCommand: 'npm run test',
