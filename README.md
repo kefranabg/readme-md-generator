@@ -118,23 +118,23 @@ Feel free to check [issues page](https://github.com/kefranabg/readme-md-generato
 
 ## Author
 
-👤 **Franck Abgrall**
+👤 **M **
 
-- Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github: [@kefranabg](https://github.com/kefranabg)
+- Twitter: [@M](https://twitter.com/M)
+- Github: [@M](https://github.com/M)
 
 ## Show your support
 
 Please ⭐️ this repository if this project helped you!
 
-<a href="https://www.patreon.com/FranckAbgrall">
+<a href="https://www.patreon.com/">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
 ## 📝 License
 
-Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+Copyright © 2019 [](https://github.com/kefranabg).<br />
+This project is [](https://github.com//readme-md-generator/blob/master/LICENSE) licensed.
 
 ---
 
