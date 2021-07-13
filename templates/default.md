@@ -98,7 +98,13 @@
 <% } -%>
 <% } -%>
 <% if (issuesUrl) { -%>
+  
+<% if (authorGithubUsername && projectName) { -%>
+## Stargazers 🌟
+[![Stargazers repo roster for <%= authorGithubUsername %>/<%= projectName %>](https://reporoster.com/stars/<%= authorGithubUsername %>/<%= projectName %>)](https://github.com/<%= authorGithubUsername %>/<%= projectName %>/stargazers)
+ <% } -%>
 
+  
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= issuesUrl %>). <%= contributingUrl ? `You can also take a look at the [contributing guide](${contributingUrl}).` : '' %>
