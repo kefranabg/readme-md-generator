@@ -4,7 +4,7 @@
   <a href="https://www.npmjs.com/package/readme-md-generator">
     <img alt="downloads" src="https://img.shields.io/npm/dm/readme-md-generator.svg?color=blue" target="_blank" />
   </a>
-  <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+  <a href="#license">
     <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
   </a>
   <a href="https://codecov.io/gh/kefranabg/readme-md-generator">
@@ -18,11 +18,11 @@
   </a>
 </p>
 
-> CLI that generates beautiful README.md files.<br /> `readme-md-generator` will suggest you default answers by reading your `package.json` and `git` configuration.
+> CLI that generates beautiful README.md files.<br /> `readme-md-generator` will suggest default answers to you by reading your `package.json` and `git` configuration.
 
 ## ✨ Demo
 
-`readme-md-generator` is able to read your environment (package.json, git config...) to suggest you default answers during the `README.md` creation process:
+`readme-md-generator` is able to read your environment (`package.json`, git config...) to suggest default answers to you during the `README.md` creation process:
 
 <p align="center">
   <img width="700" align="center" src="https://user-images.githubusercontent.com/9840435/60266022-72a82400-98e7-11e9-9958-f9004c2f97e1.gif" alt="demo"/>
@@ -34,9 +34,9 @@ Generated `README.md`:
   <img width="700" src="https://user-images.githubusercontent.com/9840435/60266090-9cf9e180-98e7-11e9-9cac-3afeec349bbc.jpg" alt="cli output"/>
 </p>
 
-Example of `package.json` with good meta data:
+Example of `package.json` with good metadata:
 
-```json
+```json5
 // The package.json is not required to run README-MD-GENERATOR
 {
   "name": "readme-md-generator",
@@ -81,7 +81,7 @@ Use your own `ejs` README template (`-p`):
 npx readme-md-generator -p path/to/my/own/template.md
 ```
 
-You can find [ejs README template examples here](https://github.com/kefranabg/readme-md-generator/tree/master/templates).
+You can find ejs README template examples [here](https://github.com/kefranabg/readme-md-generator/tree/master/templates).
 
 ## Code Contributors
 
@@ -114,14 +114,14 @@ Support this project with your organization. Your logo will show up here with a 
 
 Contributions, issues and feature requests are welcome.<br />
 Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues) if you want to contribute.<br />
-[Check the contributing guide](./CONTRIBUTING.md).<br />
+[Check the contributing guide](/CONTRIBUTING.md).<br />
 
 ## Author
 
 👤 **Franck Abgrall**
 
 - Twitter: [@FranckAbgrall](https://twitter.com/FranckAbgrall)
-- Github: [@kefranabg](https://github.com/kefranabg)
+- GitHub: [@kefranabg](https://github.com/kefranabg)
 
 ## Show your support
 
@@ -134,7 +134,7 @@ Please ⭐️ this repository if this project helped you!
 ## 📝 License
 
 Copyright © 2019 [Franck Abgrall](https://github.com/kefranabg).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+This project is [MIT](/LICENSE) licensed.
 
 ---
 
