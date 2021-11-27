@@ -36,8 +36,9 @@ Generated `README.md`:
 
 Example of `package.json` with good meta data:
 
+> The package.json is not required to run README-MD-GENERATOR
+
 ```json
-// The package.json is not required to run README-MD-GENERATOR
 {
   "name": "readme-md-generator",
   "version": "0.1.3",
