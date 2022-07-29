@@ -106,3 +106,4 @@ describe('mainProcess', () => {
     expect(utils.showEndMessage).toHaveBeenCalledTimes(1)
   })
 })
+    
