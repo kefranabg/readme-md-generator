@@ -2,7 +2,6 @@ const fs = require('fs')
 const ora = require('ora')
 const path = require('path')
 const chooseTemplate = require('./choose-template')
-const askOverwriteReadme = require('./ask-overwrite')
 
 const defaultTemplatePath = path.resolve(__dirname, '../templates/default.md')
 const defaultNoHtmlTemplatePath = path.resolve(
@@ -209,23 +208,6 @@ describe('readme', () => {
         1,
         'README template path resolved'
       )
-    })
-  })
-
-  describe('checkOverwrite', () => {
-    it('should return true if README does not exist', async () => {
-      fs.existsSync = jest.fn(p => p !== README_PATH)
-      expect(await checkOverwriteReadme()).toEqual(true)
-    })
-    it('should return true if README exist and user want to overwrite it', async () => {
-      fs.existsSync = jest.fn(p => p === README_PATH)
-      askOverwriteReadme.mockResolvedValue(true)
-      expect(await checkOverwriteReadme()).toEqual(true)
-    })
-    it('should return false if README exist and user dont want to overwrite it', async () => {
-      fs.existsSync = jest.fn(p => p === README_PATH)
-      askOverwriteReadme.mockResolvedValue(false)
-      expect(await checkOverwriteReadme()).toEqual(false)
     })
   })
 })

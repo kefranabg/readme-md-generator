@@ -2,7 +2,7 @@ const ora = require('ora')
 const childProcess = require('child_process')
 
 const utils = require('./utils')
-const { getProjectInfos } = require('./project-infos')
+const { getProjectInfo } = require('./project-info')
 
 jest.mock('ora')
 jest.mock('child_process', () => ({
@@ -30,7 +30,7 @@ ora.mockReturnValue({
 describe('projectInfos', () => {
   describe('getProjectInfos', () => {
     it('should call ora with correct parameters', async () => {
-      await getProjectInfos()
+      await getProjectInfo()
 
       expect(ora).toHaveBeenCalledTimes(1)
       expect(ora).toHaveBeenCalledWith('Gathering project infos')
@@ -63,7 +63,7 @@ describe('projectInfos', () => {
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -119,7 +119,7 @@ describe('projectInfos', () => {
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -154,7 +154,7 @@ describe('projectInfos', () => {
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -187,7 +187,7 @@ describe('projectInfos', () => {
         'https://gitlab.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -218,7 +218,7 @@ describe('projectInfos', () => {
         throw new Error('error')
       })
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -267,7 +267,7 @@ describe('projectInfos', () => {
         throw new Error('error')
       })
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -327,7 +327,7 @@ describe('projectInfos', () => {
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',
@@ -388,7 +388,7 @@ describe('projectInfos', () => {
         'https://github.com/kefranabg/readme-md-generator.git'
       )
 
-      const projectInfos = await getProjectInfos()
+      const projectInfos = await getProjectInfo()
 
       expect(projectInfos).toEqual({
         name: 'readme-md-generator',

@@ -1,10 +1,8 @@
 const inquirer = require('inquirer')
 const mainProcess = require('./cli')
-const infos = require('./project-infos')
+const infos = require('./project-info')
 const readme = require('./readme')
 const utils = require('./utils')
-const askQuestions = require('./ask-questions')
-const cleanContext = require('./clean-context')
 
 inquirer.prompt = jest.fn(items =>
   Promise.resolve(
@@ -44,14 +42,10 @@ jest.mock('./questions', () => ({
 }))
 
 describe('mainProcess', () => {
-  afterEach(() => {
-    askQuestions.mockClear()
-  })
-
-  it('should stop immediatly if user dont want overwrite', async () => {
+  it('should stop immediately if user dont want overwrite', async () => {
     const customTemplatePath = undefined
     const useDefaultAnswers = true
-    infos.getProjectInfos = jest.fn()
+    infos.getProjectInfo = jest.fn()
     readme.buildReadmeContent = jest.fn()
     readme.getReadmeTemplatePath = jest.fn()
     readme.writeReadme = jest.fn()
@@ -60,8 +54,7 @@ describe('mainProcess', () => {
 
     await mainProcess({ customTemplatePath, useDefaultAnswers })
 
-    expect(infos.getProjectInfos).not.toHaveBeenCalled()
-    expect(cleanContext).not.toHaveBeenCalled()
+    expect(infos.getProjectInfo).not.toHaveBeenCalled()
     expect(readme.buildReadmeContent).not.toHaveBeenCalled()
     expect(readme.getReadmeTemplatePath).not.toHaveBeenCalled()
     expect(readme.writeReadme).not.toHaveBeenCalled()
@@ -74,7 +67,7 @@ describe('mainProcess', () => {
     const projectInformations = { name: 'readme-md-generator' }
     const readmeContent = 'content'
     const templatePath = 'path/to/template'
-    infos.getProjectInfos = jest.fn(() => Promise.resolve(projectInformations))
+    infos.getProjectInfo = jest.fn(() => Promise.resolve(projectInformations))
     readme.buildReadmeContent = jest.fn(() => Promise.resolve(readmeContent))
     readme.getReadmeTemplatePath = jest.fn(() => Promise.resolve(templatePath))
     readme.checkOverwriteReadme = jest.fn(() => Promise.resolve(true))
@@ -88,15 +81,7 @@ describe('mainProcess', () => {
       customTemplatePath,
       useDefaultAnswers
     )
-    expect(infos.getProjectInfos).toHaveBeenCalledTimes(1)
-    expect(askQuestions).toHaveBeenNthCalledWith(
-      1,
-      projectInformations,
-      useDefaultAnswers
-    )
-    expect(cleanContext).toHaveBeenNthCalledWith(1, {
-      projectName: 'readme-md-generator'
-    })
+    expect(infos.getProjectInfo).toHaveBeenCalledTimes(1)
     expect(readme.buildReadmeContent).toHaveBeenNthCalledWith(
       1,
       { projectName: 'readme-md-generator-after-context-clean' },
