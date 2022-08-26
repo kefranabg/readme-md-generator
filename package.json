@@ -1,7 +1,59 @@
 {
-  "name": "readme-md-generator",
+  "name": "readme-md-generator-json-based",
+  "project" : {
+    "name": "Readme MD generator Json based",
+    "overview": "Project description",
+    "version": "2.1.1",
+    "repository": {
+      "link": "https://gogole.com.br",
+      "deployment": "https://gogole.com.br"
+    },
+    "badges": [
+      {
+        "name": "badge",
+        "type": "google",
+        "link": "https://gogole.com.br"
+      }
+    ],
+    "gettingStarted": {
+      "prerequisites": {
+        "description": "This are the required components required to start and run this service",
+        "dependencies": [
+          {"Java": "11"},
+          {"Postgres": "11"},
+          {"Pubsub-emulator": null},
+          {"docker-compose": null}
+        ]
+      },
+
+      "setup": {
+        "description": "These is the step required to start and Run this service locally",
+        "command": "mvn clean isntall spring-boot:run -Dspring-boot.run.profiles=local"
+      },
+      "test": {
+        "description": "This are the steps to run tests.",
+        "command": "mvn clean install verify"
+      },
+      "usage": {
+        "description": "Use the Open API specification",
+        "command": "N/A"
+      }
+    },
+    "contributing": {
+      "description": "We welcome contributions to our code. These are the steps to contribute here: </br> 1 - Documentation regarding the change </br> 2 - Design meeting with the team </br> 3 - Create a PR"
+    },
+    "team": {
+      "name": "Team Name",
+      "contact": "ask--team--name",
+      "link": "https://slack-channel-link",
+      "homePage": "",
+      "members": [
+        "Rafa Azeredo"
+      ]
+    }
+  },
   "version": "1.0.0",
-  "description": "CLI that generates beautiful README.md files.",
+  "description": "CLI that generates beautiful README.md files base on json config.",
   "main": "src/index.js",
   "bin": {
     "readme": "src/index.js"
@@ -36,10 +88,6 @@
     "test": "jest",
     "test:ci": "jest --coverage && codecov"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kefranabg/readme-md-generator.git"
-  },
   "keywords": [
     "readme",
     "md",
@@ -47,17 +95,11 @@
     "generator",
     "template"
   ],
-  "author": "Franck Abgrall",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kefranabg/readme-md-generator/issues"
-  },
-  "homepage": "https://github.com/kefranabg/readme-md-generator#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@kefranabg"
-  },
   "engines": {
     "npm": ">=5.5.0",
     "node": ">=9.3.0"
+  },
+  "publishConfig": {
+    "@rafaelazeredo:registry": "https://npm.pkg.github.com"
   }
 }

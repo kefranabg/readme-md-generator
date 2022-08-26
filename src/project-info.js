@@ -128,63 +128,44 @@ const getProjectInfos = async () => {
   const spinner = ora('Gathering project infos').start()
 
   const packageJson = await getPackageJson()
-  const isJSProject = !!packageJson
-  const packageManager = isJSProject
-    ? getPackageManagerFromLockFile()
-    : undefined
-  const name = getProjectName(packageJson)
-  const description = get(packageJson, 'description', undefined)
-  const engines = get(packageJson, 'engines', undefined)
-  const author = getAuthorName(packageJson)
-  const version = get(packageJson, 'version', undefined)
-  const licenseName = get(packageJson, 'license', undefined)
-  const homepage = get(packageJson, 'homepage', undefined)
-  const hasStartCommand = has(packageJson, 'scripts.start')
-  const hasTestCommand = has(packageJson, 'scripts.test')
-  const repositoryUrl = await getReposUrl(packageJson)
-  const issuesUrl = await getReposIssuesUrl(packageJson)
-  const isGithubRepos = isGithubRepository(repositoryUrl)
-  const contributingUrl = repositoryUrl
-    ? getContributingUrlFromRepositoryUrl(repositoryUrl)
-    : undefined
-  const documentationUrl = isGithubRepos
-    ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
-    : undefined
-  const githubUsername = isGithubRepos
-    ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
-    : undefined
-  const authorWebsite = githubUsername
-    ? await getAuthorWebsiteFromGithubAPI(githubUsername)
-    : undefined
-  const licenseUrl = isGithubRepos
-    ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
-    : undefined
+  console.info(packageJson)
+  // const isJSProject = !!packageJson
+  // const packageManager = isJSProject
+  //   ? getPackageManagerFromLockFile()
+  //   : undefined
+  // const name = getProjectName(packageJson)
+  // const description = get(packageJson, 'description', undefined)
+  // const engines = get(packageJson, 'engines', undefined)
+  // const author = getAuthorName(packageJson)
+  // const version = get(packageJson, 'version', undefined)
+  // const licenseName = get(packageJson, 'license', undefined)
+  // const homepage = get(packageJson, 'homepage', undefined)
+  // const hasStartCommand = has(packageJson, 'scripts.start')
+  // const hasTestCommand = has(packageJson, 'scripts.test')
+  // const repositoryUrl = await getReposUrl(packageJson)
+  // const issuesUrl = await getReposIssuesUrl(packageJson)
+  // const isGithubRepos = isGithubRepository(repositoryUrl)
+  // const contributingUrl = repositoryUrl
+  //   ? getContributingUrlFromRepositoryUrl(repositoryUrl)
+  //   : undefined
+  // const documentationUrl = isGithubRepos
+  //   ? getReadmeUrlFromGithubRepositoryUrl(repositoryUrl)
+  //   : undefined
+  // const githubUsername = isGithubRepos
+  //   ? getGithubUsernameFromRepositoryUrl(repositoryUrl)
+  //   : undefined
+  // const authorWebsite = githubUsername
+  //   ? await getAuthorWebsiteFromGithubAPI(githubUsername)
+  //   : undefined
+  // const licenseUrl = isGithubRepos
+  //   ? getLicenseUrlFromGithubRepositoryUrl(repositoryUrl)
+  //   : undefined
 
   spinner.succeed('Project infos gathered')
 
-  return {
-    name,
-    description,
-    version,
-    author,
-    authorWebsite,
-    homepage,
-    repositoryUrl,
-    issuesUrl,
-    contributingUrl,
-    githubUsername,
-    engines,
-    licenseName,
-    licenseUrl,
-    documentationUrl,
-    isGithubRepos,
-    hasStartCommand,
-    hasTestCommand,
-    isJSProject,
-    packageManager
-  }
+  return packageJson
 }
 
 module.exports = {
-  getProjectInfos
+  getProjectInfo: getProjectInfos
 }
